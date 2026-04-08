@@ -23,7 +23,7 @@ export function About() {
             Built by engineers.<br />Designed for everyone.
           </h2>
           <p className="text-zinc-500 text-lg leading-relaxed mb-4">
-            Lumira Labs is a product studio founded by two JP Morgan Degree Apprentices. We design, build, and ship real software — apps, tools, and platforms that solve real problems for real people.
+            Lumira Labs is a venture studio founded by two Investment Banking Degree Apprentices. We design, build, and ship real software — apps, tools, and platforms that solve real problems for real people.
           </p>
           <p className="text-zinc-500 text-lg leading-relaxed mb-4">
             We know what it takes to build systems that scale, perform under pressure, and earn user trust.

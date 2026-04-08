@@ -8,13 +8,13 @@ const founders = [
     name: "Sukhpinder Ubhi",
     role: "Co-Founder",
     initials: "SU",
-    bio: "Software engineer and degree apprentice at JP Morgan Chase, specialising in full-stack development and financial systems. Sukh leads product and engineering at Lumira Labs — obsessed with building software that is both technically rigorous and genuinely useful.",
+    bio: "Shaping vision, brand and growth at Lumira Labs, bringing together creative direction, product instinct and strategic thinking to build modern startups with clarity, relevance and presence. Background in Finance, Ed-Tech and Business Advisory.",
   },
   {
     name: "Nikolaos Efthymiopoulos",
     role: "Co-Founder",
     initials: "NE",
-    bio: "Software engineer and degree apprentice at JP Morgan Chase, with a focus on systems design and scalable architecture. Nick leads infrastructure and platform at Lumira Labs — driven by the belief that enterprise-grade quality should be accessible to everyone.",
+    bio: "Focused on infrastructure, systems and execution at Lumira Labs, building scalable architecture that bring reliability, performance and high standards to everything the company creates. Background in Finance and Software Development.",
   },
 ]
 
