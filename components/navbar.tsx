@@ -53,7 +53,7 @@ export function Navbar({ dark: initialDark = false }: { dark?: boolean }) {
   const isDark = initialDark && !pastHero
   const navClass = isDark
     ? scrolled ? "nav-dark-scrolled" : "nav-dark"
-    : scrolled ? "nav-scrolled" : "bg-transparent"
+    : scrolled ? "nav-scrolled" : "bg-white"
 
   return (
     <motion.nav
