@@ -6,9 +6,9 @@ export function Footer() {
           Lumira Labs
         </span>
         <p className="text-zinc-400 text-sm">© {new Date().getFullYear()} Lumira Labs. All rights reserved.</p>
-        <a href="mailto:sukhandnick@gmail.com"
+        <a href="mailto:hello@lumiralabs.co.uk"
           className="text-zinc-400 hover:text-zinc-700 text-sm transition-colors cursor-pointer">
-          sukhandnick@gmail.com
+          hello@lumiralabs.co.uk
         </a>
       </div>
     </footer>

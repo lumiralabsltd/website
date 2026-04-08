@@ -19,7 +19,7 @@ export function Contact() {
           Whether you want to partner, invest, or just chat — reach out.
         </p>
 
-        <a href="mailto:sukhandnick@gmail.com" className="inline-flex items-center gap-3 group cursor-pointer">
+        <a href="mailto:hello@lumiralabs.co.uk" className="inline-flex items-center gap-3 group cursor-pointer">
           <div className="w-11 h-11 rounded-xl bg-zinc-900 flex items-center justify-center flex-shrink-0 group-hover:bg-zinc-700 transition-colors duration-200">
             <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
@@ -28,7 +28,7 @@ export function Contact() {
           </div>
           <span className="font-semibold text-zinc-900 group-hover:text-zinc-500 transition-colors duration-200"
             style={{ fontFamily: "var(--font-space-grotesk)" }}>
-            sukhandnick@gmail.com
+            hello@lumiralabs.co.uk
           </span>
           <svg className="w-4 h-4 text-zinc-400 group-hover:translate-x-1 transition-transform duration-200"
             fill="none" viewBox="0 0 24 24" stroke="currentColor">

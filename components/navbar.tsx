@@ -77,7 +77,7 @@ export function Navbar({ dark: initialDark = false }: { dark?: boolean }) {
           ))}
         </div>
         <a
-          href="mailto:sukhandnick@gmail.com"
+          href="mailto:hello@lumiralabs.co.uk"
           className={`hidden md:block cursor-pointer px-4 py-2 rounded-lg text-sm ${isDark ? "btn-white" : "btn-black"}`}
         >
           Get in Touch
@@ -98,7 +98,7 @@ export function Navbar({ dark: initialDark = false }: { dark?: boolean }) {
               {l}
             </a>
           ))}
-          <a href="mailto:sukhandnick@gmail.com" className="btn-black text-center cursor-pointer px-4 py-3 rounded-lg text-sm mt-1">
+          <a href="mailto:hello@lumiralabs.co.uk" className="btn-black text-center cursor-pointer px-4 py-3 rounded-lg text-sm mt-1">
             Get in Touch
           </a>
         </div>
