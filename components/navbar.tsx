@@ -6,6 +6,11 @@ import { motion } from "motion/react"
 function Logo({ dark }: { dark?: boolean }) {
   return (
     <a href="#hero" className="flex items-center gap-2.5 cursor-pointer group">
+      <motion.div
+        style={{ display: "inline-flex", perspective: 600 }}
+        animate={{ rotateY: [0, 360] }}
+        transition={{ duration: 0.7, ease: "easeInOut", repeat: Infinity, repeatDelay: 9.3 }}
+      >
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
         <rect width="32" height="32" rx="8" fill={dark ? "white" : "#0a0a0a"} />
         <circle cx="16" cy="16" r="2.5" fill={dark ? "#0a0a0a" : "white"} />
@@ -24,6 +29,7 @@ function Logo({ dark }: { dark?: boolean }) {
         <line x1="9" y1="10" x2="16" y2="7" stroke={dark ? "#0a0a0a" : "white"} strokeWidth="0.5" opacity="0.18" />
         <line x1="23" y1="10" x2="16" y2="7" stroke={dark ? "#0a0a0a" : "white"} strokeWidth="0.5" opacity="0.18" />
       </svg>
+      </motion.div>
       <span
         className={`font-bold text-[15px] tracking-tight transition-colors ${dark ? "text-white" : "text-[#0a0a0a]"}`}
         style={{ fontFamily: "var(--font-space-grotesk)" }}
