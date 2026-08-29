@@ -1,4 +1,5 @@
-<svg viewBox="-58 -48 116 96" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="-68 -58 136 116" xmlns="http://www.w3.org/2000/svg">
+  <rect x="-68" y="-58" width="136" height="116" rx="24" fill="#FFFFFF"/>
   <path fill="#0B0B0C" d="M0 0 h24 v72 h48 v24 h-72 z" transform="translate(-58,-48)"/>
   <path fill="#FF421A" d="M0 0 h24 v72 h48 v24 h-72 z" transform="translate(58,48) rotate(180)"/>
 </svg>
