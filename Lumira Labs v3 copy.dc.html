@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lumira Labs — Venture Studio</title>
+<meta name="ext-resource-dependency" content="assets/daysout-icon.webp" data-resource-id="dsIcon">
+<meta name="ext-resource-dependency" content="assets/daysout-1.webp" data-resource-id="dsShot1">
+<meta name="ext-resource-dependency" content="assets/daysout-2.webp" data-resource-id="dsShot2">
+<meta name="ext-resource-dependency" content="assets/daysout-3.webp" data-resource-id="dsShot3">
+<meta name="ext-resource-dependency" content="assets/founder-su-crop.webp" data-resource-id="founderSu">
+<meta name="ext-resource-dependency" content="assets/founder-ne-crop.webp" data-resource-id="founderNe">
+<meta name="ext-resource-dependency" content="assets/app-2.webp" data-resource-id="app2">
+<meta name="ext-resource-dependency" content="assets/app-3.webp" data-resource-id="app3">
+<meta name="ext-resource-dependency" content="assets/app-4.webp" data-resource-id="app4">
+<meta name="ext-resource-dependency" content="assets/app-5.webp" data-resource-id="app5">
+<template id="__bundler_thumbnail" data-bg-color="#FFFFFF">
+  <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+    <rect width="240" height="240" fill="#FFFFFF"></rect>
+    <g fill="#D4553D" transform="translate(120,120) scale(.62)">
+      <path d="M0 0 h24 v72 h48 v24 h-72 z" transform="translate(-58,-48)"></path>
+      <path d="M0 0 h24 v72 h48 v24 h-72 z" transform="translate(58,48) rotate(180)"></path>
+    </g>
+  </svg>
+</template>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,400&amp;display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; scroll-padding-top: 70px; background: #FFFFFF; -webkit-text-size-adjust: 100%; }
+  @media (max-width: 700px) { html { scroll-padding-top: 60px; } }
+  body { margin: 0; background: #FFFFFF; color: #0B0B0C; font-family: Figtree, system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  * { box-sizing: border-box; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: var(--acc, #D4553D); }
+  ::selection { background: #0B0B0C; color: #fff; }
+  @keyframes v3-mq { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
+  @keyframes v3-blink { 0%,100% { opacity: 1; } 50% { opacity: .3; } }
+  @keyframes v3-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+  @keyframes v3-lockA { 0% { transform: translate(-340px,0); opacity: 0; } 45% { opacity: 1; } 100% { transform: translate(0,0); opacity: 1; } }
+  @keyframes v3-lockB { 0% { transform: translate(340px,0); opacity: 0; } 45% { opacity: 1; } 100% { transform: translate(0,0); opacity: 1; } }
+  @keyframes v3-lockWiggle { 0% { transform: rotate(0) scale(1); } 22% { transform: rotate(-7deg) scale(1.06); } 48% { transform: rotate(5.5deg) scale(1.03); } 72% { transform: rotate(-2.5deg) scale(1.01); } 100% { transform: rotate(0) scale(1); } }
+  @keyframes v3-letter { from { transform: translateY(110%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  @keyframes v3-jiggle { 0%,86%,100% { transform: rotate(0) scale(1); } 89% { transform: rotate(-7deg) scale(1.06); } 92% { transform: rotate(6deg) scale(1.04); } 95% { transform: rotate(-3deg) scale(1.02); } 98% { transform: rotate(1deg) scale(1); } }
+  @keyframes v3-spin { to { transform: rotate(360deg); } }
+  @keyframes v3-spinRev { to { transform: rotate(-360deg); } }
+  @keyframes v3-bloomA { 0%,100% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(64px,34px,0) scale(1.12); } }
+  @keyframes v3-bloomB { 0%,100% { transform: translate3d(0,0,0) scale(1.08); } 50% { transform: translate3d(-72px,24px,0) scale(1); } }
+  /* third-party injected DOM — cannot be inline-styled */
+  .calendly-badge-widget .calendly-badge-content {
+    position: relative !important;
+    overflow: hidden !important;
+    background: rgba(11,11,12,.52) !important;
+    color: #fff !important;
+    font-family: Figtree, system-ui, sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    letter-spacing: -.015em !important;
+    border-radius: 999px !important;
+    padding: 13px 24px !important;
+    -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+    backdrop-filter: blur(16px) saturate(180%) !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.4), inset 0 0 0 1px rgba(255,255,255,.16), inset 0 -8px 18px -10px rgba(255,255,255,.22), 0 16px 34px -16px rgba(11,11,12,.55) !important;
+    transition: transform .4s cubic-bezier(.22,1,.36,1), background .4s, box-shadow .4s !important;
+  }
+  .calendly-badge-widget .calendly-badge-content::after {
+    content: ''; position: absolute; inset: 0; border-radius: 999px; pointer-events: none;
+    background: linear-gradient(138deg, rgba(255,255,255,.3) 0%, rgba(255,255,255,.06) 30%, transparent 52%, rgba(255,255,255,.1) 100%);
+  }
+  .calendly-badge-widget .calendly-badge-content:hover {
+    transform: translateY(-2px) scale(1.02) !important;
+    background: rgba(11,11,12,.62) !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.55), inset 0 0 0 1px rgba(255,255,255,.24), inset 0 -8px 18px -10px rgba(255,255,255,.3), 0 22px 42px -16px rgba(11,11,12,.65) !important;
+  }
+  .calendly-badge-widget .calendly-badge-content span { color: rgba(255,255,255,.72) !important; }
+  image-slot[data-mini]::part(empty) { opacity: 0; }
+  image-slot[data-mini]::part(ring) { display: none; }
+</style>
+<script src="./image-slot.js"></script>
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async=""></script>
+<script type="text/javascript">
+(function () {
+  if (window.__lumiraCalendly) return;
+  window.__lumiraCalendly = true;
+  var tries = 0;
+  var start = function () {
+    if (window.Calendly && window.Calendly.initBadgeWidget) {
+      window.Calendly.initBadgeWidget({ url: 'https://calendly.com/lumiralabsltd/15-minute-meeting', text: 'Schedule time with us', color: '#0069ff', textColor: '#ffffff', branding: false });
+      return;
+    }
+    if (++tries < 100) setTimeout(start, 150);
+  };
+  if (document.readyState === 'complete') start();
+  else window.addEventListener('load', start);
+})();
+</script>
+</helmet>
+
+<div ref="{{ rootRef }}" style="position:relative;width:100%;background:#FFFFFF;overflow:clip">
+
+  <div data-loader="" ref="{{ loaderRef }}" style="position:fixed;inset:0;z-index:10001;background:#FFFFFF;display:flex;align-items:center;justify-content:center;transition:transform 1.05s cubic-bezier(.76,0,.24,1), border-radius .8s ease">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:clamp(20px,2.4vw,28px)">
+      <div style="position:relative;width:87px;height:72px">
+        <svg viewBox="-58 -48 116 96" fill="currentColor" aria-hidden="true" style="position:relative;width:100%;height:100%;display:block;color:var(--acc,#D4553D);transform-origin:50% 50%;animation:v3-lockWiggle .62s cubic-bezier(.36,1.6,.4,1) .86s both">
+          <g style="animation:v3-lockA .82s cubic-bezier(.2,1,.3,1) both"><path d="M0 0 h24 v72 h48 v24 h-72 z" transform="translate(-58,-48)" fill="var(--accL, currentColor)"></path></g>
+          <g style="animation:v3-lockB .82s cubic-bezier(.2,1,.3,1) both"><path d="M0 0 h24 v72 h48 v24 h-72 z" transform="translate(58,48) rotate(180)" fill="var(--accR, currentColor)"></path></g>
+        </svg>
+      </div>
+      <div style="display:flex;overflow:hidden;padding-bottom:.14em;font-size:clamp(20px,2.2vw,26px);font-weight:800;letter-spacing:-.035em">
+        <span style="display:inline-block;animation:v3-letter .8s cubic-bezier(.22,1,.36,1) .28s both">L</span>
+        <span style="display:inline-block;animation:v3-letter .8s cubic-bezier(.22,1,.36,1) .32s both">u</span>
+        <span style="display:inline-block;animation:v3-letter .8s cubic-bezier(.22,1,.36,1) .36s both">m</span>
+        <span style="display:inline-block;animation:v3-letter .8s cubic-bezier(.22,1,.36,1) .4s both">i</span>
+        <span style="display:inline-block;animation:v3-letter .8s cubic-bezier(.22,1,.36,1) .44s both">r</span>
+        <span style="display:inline-block;animation:v3-letter .8s cubic-bezier(.22,1,.36,1) .48s both">a</span>
+        <span style="display:inline-block;width:.32em"></span>
+        <span style="display:inline-block;animation:v3-letter .8s cubic-bezier(.22,1,.36,1) .56s both">L</span>
+        <span style="display:inline-block;animation:v3-letter .8s cubic-bezier(.22,1,.36,1) .6s both">a</span>
+        <span style="display:inline-block;animation:v3-letter .8s cubic-bezier(.22,1,.36,1) .64s both">b</span>
+        <span style="display:inline-block;animation:v3-letter .8s cubic-bezier(.22,1,.36,1) .68s both">s</span>
+      </div>
+    </div>
+  </div>
+
+  <header ref="{{ navRef }}" style="position:fixed;top:0;left:0;right:0;z-index:9999;height:54px;display:flex;align-items:center;border-bottom:1px solid transparent;transition:background .4s ease, border-color .4s ease, backdrop-filter .4s ease">
+    <div style="width:100%;max-width:1180px;margin:0 auto;padding:0 clamp(18px,3vw,28px);display:flex;align-items:center;justify-content:space-between;gap:22px">
+      <a href="#top" style="display:flex;align-items:center;gap:9px">
+        <svg viewBox="-58 -48 116 96" fill="currentColor" aria-hidden="true" style="display:block;flex:none;height:16px;width:auto;color:var(--acc,#D4553D);animation:v3-jiggle 5s ease-in-out infinite">
+          <path d="M0 0 h24 v72 h48 v24 h-72 z" transform="translate(-58,-48)" fill="var(--accL, currentColor)"></path>
+          <path d="M0 0 h24 v72 h48 v24 h-72 z" transform="translate(58,48) rotate(180)" fill="var(--accR, currentColor)"></path>
+        </svg>
+        <span style="font-size:14.5px;font-weight:700;letter-spacing:-.02em">Lumira Labs</span>
+      </a>
+      <nav ref="{{ navLinksRef }}" style="display:flex;align-items:center;gap:30px;font-size:13px;font-weight:500;color:rgba(11,11,12,.62)">
+        <a href="#work" style="transition:color .25s" style-hover="color:#0B0B0C">What we do</a>
+        <a href="#pipeline" style="transition:color .25s" style-hover="color:#0B0B0C">Pipeline</a>
+        <a href="#team" style="transition:color .25s" style-hover="color:#0B0B0C">Founders</a>
+      </nav>
+      <a href="https://calendly.com/lumiralabsltd/15-minute-meeting" target="_blank" rel="noopener" onClick="{{ book }}" style="padding:8px 16px;border-radius:999px;background:#0B0B0C;color:#fff;font-size:13px;font-weight:600;letter-spacing:-.01em;transition:transform .35s cubic-bezier(.22,1,.36,1), background .3s" style-hover="transform:scale(1.04);color:#fff;background:var(--acc,#D4553D)">Get in touch</a>
+    </div>
+  </header>
+
+  <section id="top" style="position:relative;padding:clamp(112px,13vw,168px) clamp(18px,3vw,28px) clamp(20px,3vw,40px);text-align:center">
+    <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden;mask-image:radial-gradient(ellipse 78% 72% at 50% 30%, #000 0%, rgba(0,0,0,.72) 58%, transparent 92%);-webkit-mask-image:radial-gradient(ellipse 78% 72% at 50% 30%, #000 0%, rgba(0,0,0,.72) 58%, transparent 92%)">
+      <div style="position:absolute;top:-320px;left:50%;margin-left:-680px;width:940px;height:940px;border-radius:50%;background:radial-gradient(circle, var(--wash,rgba(212,85,61,.14)) 0%, transparent 62%);animation:v3-bloomA 19s ease-in-out infinite;will-change:transform"></div>
+      <div style="position:absolute;top:-280px;left:50%;margin-left:-200px;width:860px;height:860px;border-radius:50%;background:radial-gradient(circle, var(--wash2,rgba(212,85,61,.08)) 0%, transparent 60%);animation:v3-bloomB 24s ease-in-out infinite;will-change:transform"></div>
+
+      <div style="position:absolute;top:calc(clamp(112px,13vw,168px) - 6%);left:50%;width:min(1180px,128vw);transform:translateX(-50%)">
+        <svg viewBox="-58 -48 116 96" aria-hidden="true" style="width: 100%; display: block; fill: var(--acc,#D4553D); opacity: 0.45; filter: blur(var(--heroBlur, 2px)); transform-origin: 50% 50%; animation: v3-spin 120s linear infinite; position: static; height: 600px">
+          <path d="M0 0 h24 v72 h48 v24 h-72 z" transform="translate(-58,-48)" fill="var(--accL, currentColor)"></path>
+          <path d="M0 0 h24 v72 h48 v24 h-72 z" transform="translate(58,48) rotate(180)" fill="var(--accR, currentColor)" style="opacity: 1"></path>
+        </svg>
+      </div>
+
+
+      <div style="position:absolute;left:0;right:0;bottom:0;height:200px;background:linear-gradient(to bottom, transparent, #FFFFFF 84%)"></div>
+    </div>
+    <div style="position:relative;max-width:1000px;margin:0 auto">
+      <div data-fade="" style="display:inline-flex;align-items:center;gap:9px;padding:6px 14px 6px 10px;border-radius:999px;background:rgba(255,255,255,.78);box-shadow:inset 0 0 0 1px rgba(11,11,12,.07), 0 8px 20px -14px rgba(11,11,12,.3);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-size:12.5px;font-weight:600;letter-spacing:-.005em;color:rgba(11,11,12,.66)">
+        <span style="width:6px;height:6px;border-radius:50%;background:var(--acc,#D4553D);animation:v3-blink 3s ease-in-out infinite"></span>Venture studio · London
+      </div>
+      <h1 data-split="" style="margin:clamp(22px,2.6vw,34px) 0 0;font-weight:800;font-size:clamp(3rem,8.6vw,7.6rem);line-height:.96;letter-spacing:-.045em">Apps people keep.</h1>
+      <p data-fade="" data-delay="160" style="margin:clamp(20px,2.2vw,30px) auto 0;max-width:44ch;font-size:clamp(17px,1.5vw,21px);line-height:1.5;font-weight:450;color:rgba(11,11,12,.6);text-wrap:pretty">We design and build our own products - and build for founders who want the same standard.</p>
+      <div data-fade="" data-delay="260" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:26px;margin-top:clamp(26px,3vw,40px)">
+        <a href="mailto:hello@lumiralabs.co.uk" style="display:inline-flex;align-items:center;gap:8px;padding:14px 27px;border-radius:999px;background:var(--acc,#D4553D);color:#fff;font-size:15.5px;font-weight:600;letter-spacing:-.015em;transition:transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s" style-hover="transform:translateY(-2px) scale(1.02);color:#fff;box-shadow:0 18px 34px -14px var(--wash,rgba(212,85,61,.5))">Start a project <span style="font-size:17px;line-height:1">›</span></a>
+      </div>
+    </div>
+
+    <div data-wave="" ref="{{ waveRef }}" style="position:relative;width:100vw;margin-left:calc(50% - 50vw);height:clamp(184px,17vw,214px);margin-top:clamp(26px,3.4vw,44px);overflow:hidden;mask-image:linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);-webkit-mask-image:linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%)">
+      <sc-for list="{{ appIcons }}" as="a" hint-placeholder-count="4">
+        <div data-icon="" data-dead="{{ a.dead }}" style="position:absolute;top:50%;left:0;width:clamp(72px,7.4vw,104px);height:clamp(72px,7.4vw,104px);will-change:transform;transition:filter .5s ease, opacity .5s ease">
+          <a href="{{ a.url }}" target="{{ a.target }}" rel="noopener" style="position:absolute;inset:0;border-radius:24%;overflow:hidden;background:#F1F1F4;box-shadow:0 20px 34px -18px rgba(11,11,12,.34), inset 0 0 0 1px rgba(11,11,12,.06), 0 0 0 .5px rgba(255,255,255,.5);display:block;transition:transform .45s cubic-bezier(.22,1,.36,1), box-shadow .45s" style-hover="transform:scale(1.05);box-shadow:0 26px 40px -18px rgba(11,11,12,.42), inset 0 0 0 1px rgba(11,11,12,.06), 0 0 0 .5px rgba(255,255,255,.5)">
+            <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:23px;font-weight:300;color:rgba(11,11,12,.22);pointer-events:none">+</span>
+            <image-slot data-mini="" id="{{ a.id }}" src="{{ a.src }}" shape="rect" placeholder="" style="position:relative"></image-slot>
+            <span style="position:absolute;inset:0;border-radius:24%;pointer-events:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.7), inset 0 0 0 1px rgba(255,255,255,.32), inset 0 -1px 1px rgba(255,255,255,.22), inset 0 0 12px rgba(255,255,255,.14);background:linear-gradient(138deg, rgba(255,255,255,.34) 0%, rgba(255,255,255,.05) 26%, rgba(255,255,255,0) 48%, rgba(255,255,255,0) 70%, rgba(255,255,255,.14) 100%)"></span>
+          </a>
+          <sc-if value="{{ a.dead }}" hint-placeholder-val="{{ false }}">
+            <span style="position:absolute;top:-7px;right:-7px;width:26px;height:26px;border-radius:50%;background:#0B0B0C;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;line-height:1;box-shadow:0 6px 14px -6px rgba(11,11,12,.6);pointer-events:none" title="Sunset">☠️</span>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+
+    <div data-fade="" data-delay="360" style="display:none"></div>
+  </section>
+
+  <div style="position:relative;height:clamp(90px,10vw,150px);margin-top:clamp(20px,2.6vw,40px);background:linear-gradient(to bottom, #FFFFFF 0%, #FAFAFB 46%, #F2F2F5 100%)">
+    <div style="position:absolute;left:50%;bottom:-30px;transform:translateX(-50%);width:min(1200px,120vw);height:220px;pointer-events:none;background:radial-gradient(ellipse at 50% 100%, var(--wash,rgba(212,85,61,.14)) 0%, transparent 70%)"></div>
+  </div>
+
+  <section id="daysout" ref="{{ darkRef }}" style="position:relative;background:#0B0B0C;color:#fff;padding:clamp(80px,9vw,140px) clamp(18px,3vw,28px) clamp(80px,9vw,130px);overflow:clip;border-radius:clamp(26px,3.4vw,48px);box-shadow:0 -34px 70px -44px rgba(11,11,12,.5), 0 34px 70px -44px rgba(11,11,12,.5)">
+    <div ref="{{ spotRef }}" style="position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .6s ease;background:radial-gradient(420px circle at 50% 40%, rgba(255,255,255,.07), transparent 70%)"></div>
+    <div style="position:absolute;top:0;left:0;right:0;height:280px;pointer-events:none;background:linear-gradient(to bottom, rgba(255,255,255,.09) 0%, rgba(255,255,255,.028) 34%, transparent 100%)"></div>
+    <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:min(900px,86vw);height:2px;pointer-events:none;background:linear-gradient(to right, transparent, rgba(255,255,255,.22) 22%, rgba(255,255,255,.34) 50%, rgba(255,255,255,.22) 78%, transparent)"></div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:280px;pointer-events:none;background:linear-gradient(to top, rgba(255,255,255,.09) 0%, rgba(255,255,255,.028) 34%, transparent 100%)"></div>
+    <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:min(900px,86vw);height:1px;pointer-events:none;background:linear-gradient(to right, transparent, rgba(255,255,255,.16) 30%, rgba(255,255,255,.24) 50%, rgba(255,255,255,.16) 70%, transparent)"></div>
+    <div style="position:relative;max-width:1180px;margin:0 auto;text-align:center">
+      <div data-fade="" style="display:inline-flex;align-items:center;gap:16px">
+        <div data-img="" style="width:52px;height:52px;border-radius:14px;overflow:hidden;box-shadow:0 14px 30px -12px rgba(0,0,0,.8)">
+          <image-slot id="v3-icon" src="{{ dsIcon }}" shape="rect" placeholder="Icon"></image-slot>
+        </div>
+        <div style="text-align:left">
+          <div style="font-size:16px;font-weight:700;letter-spacing:-.02em">Daysout</div>
+          <div style="font-size:12.5px;font-weight:500;color:rgba(255,255,255,.5)">Football &amp; Gig Log · iPhone</div>
+        </div>
+      </div>
+      <h2 data-split="" style="margin:clamp(26px,3vw,44px) auto 0;max-width:18ch;font-weight:800;font-size:clamp(2.4rem,6.4vw,5.6rem);line-height:.98;letter-spacing:-.042em">Every match. Every gig. One map.</h2>
+      <p data-fade="" data-delay="140" style="margin:clamp(18px,2vw,28px) auto 0;max-width:48ch;font-size:clamp(16px,1.35vw,19.5px);line-height:1.55;color:rgba(255,255,255,.62);text-wrap:pretty">Scan your camera roll and years of matchdays and gig nights land on a map - fixture, score and setlist found automatically.</p>
+      <a data-fade="" data-delay="220" href="https://apps.apple.com/us/app/daysout-football-gig-log/id6786365554" target="_blank" rel="noopener" style="position:relative;display:inline-flex;align-items:center;gap:8px;margin-top:clamp(24px,2.6vw,36px);padding:14px 26px;border-radius:999px;overflow:hidden;background:rgba(255,255,255,.14);backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%);box-shadow:inset 0 1px 0 rgba(255,255,255,.55), inset 0 0 0 1px rgba(255,255,255,.22), inset 0 -8px 18px -10px rgba(255,255,255,.3), 0 14px 30px -16px rgba(0,0,0,.7);color:#fff;font-size:15px;font-weight:600;letter-spacing:-.015em;transition:transform .4s cubic-bezier(.22,1,.36,1), background .4s, box-shadow .4s" style-hover="transform:translateY(-2px) scale(1.02);color:#fff;background:rgba(255,255,255,.22);box-shadow:inset 0 1px 0 rgba(255,255,255,.7), inset 0 0 0 1px rgba(255,255,255,.3), inset 0 -8px 18px -10px rgba(255,255,255,.4), 0 20px 38px -16px rgba(0,0,0,.8)">
+        <span style="position:absolute;inset:0;border-radius:999px;pointer-events:none;background:linear-gradient(138deg, rgba(255,255,255,.34) 0%, rgba(255,255,255,.06) 30%, transparent 52%, rgba(255,255,255,.1) 100%)"></span>
+        <span style="position:relative">Download on the App Store</span><span style="position:relative;font-size:16px;line-height:1">›</span></a>
+    </div>
+
+    <div data-shots="" ref="{{ heroDeviceRef }}" style="position:relative;max-width:1180px;margin:clamp(48px,6vw,88px) auto 0;display:flex;align-items:flex-end;justify-content:center;gap:clamp(10px,1.6vw,26px);transform-origin:50% 100%">
+      <div data-img="" style="width:clamp(112px,14vw,196px);aspect-ratio:460/998;border-radius:clamp(12px,1.4vw,20px);overflow:hidden;box-shadow:0 34px 66px -26px rgba(0,0,0,.85), 0 0 0 1px rgba(255,255,255,.07);margin-bottom:clamp(14px,2vw,34px)">
+        <image-slot id="v3-shot-2" src="{{ dsShot2 }}" shape="rect" placeholder="Screenshot"></image-slot>
+      </div>
+      <div data-img="" style="width:clamp(150px,18.5vw,262px);aspect-ratio:460/998;border-radius:clamp(16px,1.8vw,26px);overflow:hidden;box-shadow:0 52px 96px -30px rgba(0,0,0,.95), 0 0 0 1px rgba(255,255,255,.09)">
+        <image-slot id="v3-shot-1" src="{{ dsShot1 }}" shape="rect" placeholder="Screenshot"></image-slot>
+      </div>
+      <div data-img="" style="width:clamp(112px,14vw,196px);aspect-ratio:460/998;border-radius:clamp(12px,1.4vw,20px);overflow:hidden;box-shadow:0 34px 66px -26px rgba(0,0,0,.85), 0 0 0 1px rgba(255,255,255,.07);margin-bottom:clamp(14px,2vw,34px)">
+        <image-slot id="v3-shot-3" src="{{ dsShot3 }}" shape="rect" placeholder="Screenshot"></image-slot>
+      </div>
+    </div>
+
+    <div data-featgrid="" style="position:relative;max-width:1180px;margin:clamp(48px,6vw,90px) auto 0;display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(12px,1.4vw,20px)">
+      <sc-for list="{{ features }}" as="f" hint-placeholder-count="4">
+        <div data-feat="" style="padding:clamp(24px,2.6vw,36px);border-radius:24px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08);transition:background .55s ease, border-color .55s ease, transform .55s cubic-bezier(.22,1,.36,1)">
+          <div style="font-size:11.5px;font-weight:700;letter-spacing:.1em;color:var(--accLight,#FF8064)">{{ f.n }}</div>
+          <h3 style="margin:14px 0 0;font-size:clamp(20px,2.1vw,27px);font-weight:700;letter-spacing:-.03em">{{ f.title }}</h3>
+          <p style="margin:10px 0 0;font-size:15.5px;line-height:1.55;color:rgba(255,255,255,.56);max-width:38ch;text-wrap:pretty">{{ f.body }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <div style="position:relative;height:clamp(90px,10vw,150px);background:linear-gradient(to top, #F4F4F7 0%, #FAFAFB 54%, #FFFFFF 100%)">
+    
+  </div>
+
+  <section id="work" style="background:linear-gradient(to bottom, #F4F4F7 0%, #F4F4F7 86%, #F8F8FA 94%, #FFFFFF 100%);padding:clamp(40px,5vw,70px) clamp(18px,3vw,28px) clamp(80px,9vw,140px)">
+    <div style="max-width:1180px;margin:0 auto;text-align:center">
+      <h2 data-split="" style="margin:0 auto;max-width:20ch;font-weight:800;font-size:clamp(2.2rem,5.6vw,4.8rem);line-height:1;letter-spacing:-.042em">Design. Engineering. Ownership.</h2>
+      <p data-fade="" data-delay="140" style="margin:clamp(18px,2vw,26px) auto 0;max-width:50ch;font-size:clamp(16px,1.35vw,19.5px);line-height:1.55;color:rgba(11,11,12,.58);text-wrap:pretty">We take on a small number of outside projects — a design system, an app, or the whole thing from idea to App Store.</p>
+    </div>
+
+    <div data-grid="" style="max-width:1180px;margin:clamp(40px,4.6vw,70px) auto 0;display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(12px,1.4vw,20px)">
+      <div data-tile="" data-col="1 / span 3" style="grid-column:1 / span 3;padding:clamp(28px,3vw,44px);border-radius:30px;background:var(--acc,#D4553D);color:#fff;min-height:clamp(280px,26vw,360px);display:flex;flex-direction:column;justify-content:space-between;transition:transform .6s cubic-bezier(.22,1,.36,1), box-shadow .6s" style-hover="transform:translateY(-5px);box-shadow:0 30px 60px -26px var(--wash,rgba(212,85,61,.6))">
+        <div style="font-size:12px;font-weight:700;letter-spacing:.1em;opacity:.7">01 — DESIGN</div>
+        <div>
+          <h3 style="margin:0;font-size:clamp(26px,3vw,40px);font-weight:800;letter-spacing:-.035em;line-height:1.04">Interfaces that feel expensive.</h3>
+          <p style="margin:14px 0 0;max-width:32ch;font-size:15.5px;line-height:1.55;color:rgba(255,255,255,.8)">Product design, brand and design systems — the detail that makes people trust an app in the first five seconds.</p>
+          <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ designTags }}" as="t" hint-placeholder-count="3">
+              <span style="padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.18);font-size:12px;font-weight:600">{{ t }}</span>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+      <div data-tile="" data-col="4 / span 3" style="grid-column:4 / span 3;padding:clamp(28px,3vw,44px);border-radius:30px;background:#fff;min-height:clamp(280px,26vw,360px);display:flex;flex-direction:column;justify-content:space-between;transition:transform .6s cubic-bezier(.22,1,.36,1), box-shadow .6s" style-hover="transform:translateY(-5px);box-shadow:0 30px 60px -30px rgba(11,11,12,.28)">
+        <div style="font-size:12px;font-weight:700;letter-spacing:.1em;color:rgba(11,11,12,.4)">02 — ENGINEERING</div>
+        <div>
+          <h3 style="margin:0;font-size:clamp(26px,3vw,40px);font-weight:800;letter-spacing:-.035em;line-height:1.04">Built to hold up.</h3>
+          <p style="margin:14px 0 0;max-width:32ch;font-size:15.5px;line-height:1.55;color:rgba(11,11,12,.56)">iOS and web on architecture that survives real users. Handed over clean, or kept on retainer.</p>
+          <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ engTags }}" as="t" hint-placeholder-count="3">
+              <span style="padding:6px 12px;border-radius:999px;background:rgba(11,11,12,.06);font-size:12px;font-weight:600;color:rgba(11,11,12,.66)">{{ t }}</span>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+      <div data-tile="" data-col="1 / span 2" style="grid-column:1 / span 2;padding:clamp(26px,2.6vw,36px);border-radius:30px;background:#0B0B0C;color:#fff;display:flex;flex-direction:column;justify-content:space-between;min-height:clamp(200px,18vw,250px);transition:transform .6s cubic-bezier(.22,1,.36,1)" style-hover="transform:translateY(-5px)">
+        <div style="font-size:12px;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.45)">03 — VENTURE BUILD</div>
+        <div>
+          <h3 style="margin:0;font-size:clamp(22px,2.3vw,30px);font-weight:800;letter-spacing:-.03em;line-height:1.06">Idea, no team.</h3>
+          <p style="margin:12px 0 0;font-size:15px;line-height:1.55;color:rgba(255,255,255,.6)">Napkin to App Store — for a fee, for equity, or both.</p>
+        </div>
+      </div>
+
+      <div data-tile="" data-col="3 / span 4" style="grid-column:3 / span 4;padding:clamp(26px,2.6vw,36px);border-radius:30px;background:#fff;transition:transform .6s cubic-bezier(.22,1,.36,1), box-shadow .6s" style-hover="transform:translateY(-5px);box-shadow:0 30px 60px -30px rgba(11,11,12,.24)">
+        <div style="font-size:12px;font-weight:700;letter-spacing:.1em;color:rgba(11,11,12,.4)">HOW IT GOES</div>
+        <div data-grid2="" style="margin-top:26px;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.6vw,24px)">
+          <sc-for list="{{ process }}" as="p" hint-placeholder-count="4">
+            <div>
+              <div style="font-size:13px;font-weight:700;color:var(--acc,#D4553D)">{{ p.n }}</div>
+              <div style="margin-top:10px;font-size:16.5px;font-weight:700;letter-spacing:-.02em">{{ p.title }}</div>
+              <div style="margin-top:6px;font-size:13.5px;line-height:1.5;color:rgba(11,11,12,.52)">{{ p.body }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <sc-if value="{{ showPipeline }}" hint-placeholder-val="{{ true }}">
+  <section id="pipeline" style="padding:clamp(30px,3.6vw,52px) clamp(18px,3vw,28px)">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(44px,5.4vw,86px) clamp(22px,3.4vw,60px);border-radius:clamp(28px,3.2vw,44px);background:linear-gradient(to bottom, #FDFDFE 0%, #F6F6F8 100%);box-shadow:inset 0 0 0 1px rgba(11,11,12,.07), 0 24px 60px -40px rgba(11,11,12,.22)">
+      <div style="text-align:center">
+        <h2 data-split="" style="margin:0;font-weight:800;font-size:clamp(2.2rem,5.6vw,4.8rem);line-height:1;letter-spacing:-.042em">More on the way.</h2>
+        <p data-fade="" data-delay="140" style="margin:clamp(16px,1.8vw,24px) auto 0;max-width:44ch;font-size:clamp(16px,1.35vw,19px);line-height:1.55;color:rgba(11,11,12,.56)">Next out of the studio. The list hears first.</p>
+      </div>
+      <div style="margin-top:clamp(36px,4vw,64px);border-top:1px solid rgba(11,11,12,.1)">
+        <sc-for list="{{ pipeline }}" as="p" hint-placeholder-count="1">
+          <div data-lift="" data-row="" style="display:flex;align-items:center;gap:clamp(14px,2.4vw,40px);padding:clamp(20px,2.2vw,30px) clamp(6px,1vw,14px);border-bottom:1px solid rgba(11,11,12,.1);transition:padding-left .5s cubic-bezier(.22,1,.36,1), background .4s" style-hover="padding-left:26px;background:rgba(11,11,12,.025)">
+            <span style="flex:none;width:44px;font-size:13px;font-weight:700;color:rgba(11,11,12,.34)">{{ p.n }}</span>
+            <span style="flex:1;min-width:0;font-size:clamp(20px,2.4vw,31px);font-weight:800;letter-spacing:-.032em">{{ p.title }}</span>
+            <span style="flex:0 1 320px;font-size:14.5px;line-height:1.5;color:rgba(11,11,12,.52)">{{ p.body }}</span>
+            <span style="flex:none;padding:6px 13px;border-radius:999px;background:rgba(11,11,12,.06);font-size:12px;font-weight:600;color:rgba(11,11,12,.6)">{{ p.tag }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div data-fade="" style="text-align:center;margin-top:clamp(30px,3.4vw,48px)">
+        <a href="mailto:hello@lumiralabs.co.uk?subject=Add%20me%20to%20the%20Lumira%20list" style="display:inline-flex;align-items:center;gap:7px;font-size:15px;font-weight:600;color:var(--acc,#D4553D);transition:gap .35s" style-hover="gap:13px">Join the list <span style="font-size:17px;line-height:1">›</span></a>
+      </div>
+    </div>
+  </section>
+  </sc-if>
+
+  <sc-if value="{{ showFounders }}" hint-placeholder-val="{{ true }}">
+  <section id="team" style="padding:clamp(30px,3.6vw,52px) clamp(18px,3vw,28px)">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(44px,5.4vw,86px) clamp(22px,3.4vw,60px);border-radius:clamp(28px,3.2vw,44px);background:linear-gradient(to bottom, #FDFDFE 0%, #F6F6F8 100%);box-shadow:inset 0 0 0 1px rgba(11,11,12,.07), 0 24px 60px -40px rgba(11,11,12,.22)">
+      <div style="text-align:center">
+        <h2 data-split="" style="margin:0;font-weight:800;font-size:clamp(2.2rem,5.6vw,4.8rem);line-height:1;letter-spacing:-.042em">Two founders. No layers.</h2>
+        <p data-fade="" data-delay="140" style="margin:clamp(16px,1.8vw,24px) auto 0;max-width:46ch;font-size:clamp(16px,1.35vw,19px);line-height:1.55;color:rgba(11,11,12,.56)">You talk to the people building it. J.P. Morgan alumni, based in London.</p>
+      </div>
+      <div style="margin-top:clamp(36px,4vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(14px,1.6vw,24px)">
+        <sc-for list="{{ founders }}" as="f" hint-placeholder-count="2">
+          <div data-tile="" style="border-radius:30px;background:#fff;overflow:hidden;box-shadow:0 12px 30px -22px rgba(11,11,12,.18);transition:transform .6s cubic-bezier(.22,1,.36,1), box-shadow .6s" style-hover="transform:translateY(-5px);box-shadow:0 34px 70px -32px rgba(11,11,12,.3)">
+            <div style="position:relative;width:100%;aspect-ratio:4/5;background:#E7E7EC">
+              <image-slot id="{{ f.slot }}" src="{{ f.src }}" shape="rect" placeholder="{{ f.ph }}"></image-slot>
+              <div style="position:absolute;left:0;right:0;bottom:0;height:62%;background:linear-gradient(to top, rgba(11,11,12,.88) 0%, rgba(11,11,12,.42) 48%, transparent 100%);pointer-events:none"></div>
+              <div style="position:absolute;left:clamp(22px,2.2vw,32px);right:clamp(22px,2.2vw,32px);bottom:clamp(20px,2.2vw,30px);pointer-events:none">
+                <div style="font-size:11px;font-weight:700;letter-spacing:.14em;color:rgba(255,255,255,.6)">{{ f.role }}</div>
+                <div style="margin-top:8px;font-size:clamp(23px,2.3vw,31px);font-weight:800;letter-spacing:-.035em;line-height:1.04;color:#fff">{{ f.name }}</div>
+              </div>
+            </div>
+            <div style="padding:clamp(26px,2.6vw,38px)">
+              <div style="font-size:clamp(17px,1.65vw,21.5px);font-weight:700;letter-spacing:-.028em;line-height:1.32;text-wrap:pretty">{{ f.line }}</div>
+              <p style="margin:15px 0 0;font-size:15px;line-height:1.62;color:rgba(11,11,12,.55);text-wrap:pretty">{{ f.bio }}</p>
+              <div style="margin-top:clamp(22px,2.2vw,30px);padding-top:18px;border-top:1px solid rgba(11,11,12,.09);display:flex;align-items:center;justify-content:space-between;gap:14px">
+                <span style="font-size:12.5px;font-weight:600;letter-spacing:-.005em;color:rgba(11,11,12,.42)">{{ f.prev }}</span>
+                <a href="{{ f.mail }}" style="display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:4px 0;font-size:13.5px;font-weight:600;color:var(--acc,#D4553D);transition:gap .35s" style-hover="gap:11px">Get in touch <span style="font-size:15px;line-height:1">›</span></a>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+  </sc-if>
+
+  <section id="pricing" style="position:relative;padding:clamp(30px,3.6vw,52px) clamp(18px,3vw,28px) clamp(40px,5vw,70px);overflow:clip">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(44px,5.4vw,86px) clamp(22px,3.4vw,60px);border-radius:clamp(28px,3.2vw,44px);background:linear-gradient(to bottom, #FDFDFE 0%, #F6F6F8 100%);box-shadow:inset 0 0 0 1px rgba(11,11,12,.07), 0 24px 60px -40px rgba(11,11,12,.22)">
+      <div style="text-align:center">
+        <h2 data-split="" style="margin:0 auto;max-width:22ch;font-weight:800;font-size:clamp(2.2rem,5.6vw,4.8rem);line-height:1;letter-spacing:-.042em">Two ways to work with us.</h2>
+        <p data-fade="" data-delay="140" style="margin:clamp(16px,1.8vw,24px) auto 0;max-width:46ch;font-size:clamp(16px,1.35vw,19px);line-height:1.55;color:rgba(11,11,12,.56);text-wrap:pretty">A defined build with a fixed scope, or design capacity on tap every month.</p>
+      </div>
+
+      <div data-price="" style="margin-top:clamp(36px,4vw,60px);display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,1.6vw,22px);align-items:stretch">
+        
+
+        <div data-tile="" style="display:flex;flex-direction:column;padding:clamp(28px,3vw,44px);border-radius:30px;background:#fff;box-shadow:inset 0 0 0 1px rgba(11,11,12,.06), 0 12px 30px -22px rgba(11,11,12,.18);transition:transform .6s cubic-bezier(.22,1,.36,1), box-shadow .6s" style-hover="transform:translateY(-5px);box-shadow:inset 0 0 0 1px rgba(11,11,12,.08), 0 30px 60px -30px rgba(11,11,12,.24)">
+          <div style="font-size:12px;font-weight:700;letter-spacing:.1em;color:rgba(11,11,12,.4)">ONE OFF PROJECT</div>
+          <div style="margin-top:clamp(18px,2vw,26px);display:flex;align-items:baseline;gap:10px">
+            <span style="font-size:clamp(34px,4vw,54px);font-weight:800;letter-spacing:-.04em;line-height:1">Let's talk</span>
+          </div>
+          <p style="margin:12px 0 0;font-size:15.5px;line-height:1.55;color:rgba(11,11,12,.56);max-width:34ch;text-wrap:pretty">Scoped and quoted per project. Best when you know what you need built.</p>
+          <div style="margin-top:clamp(22px,2.4vw,32px);display:flex;flex-direction:column;gap:13px">
+            <sc-for list="{{ oneOff }}" as="i" hint-placeholder-count="4">
+              <div style="display:flex;align-items:flex-start;gap:11px;font-size:15px;line-height:1.45;color:rgba(11,11,12,.72)">
+                <span style="flex:none;margin-top:3px;width:16px;height:16px;border-radius:50%;background:rgba(11,11,12,.06);color:rgba(11,11,12,.6);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800">✓</span>{{ i }}
+              </div>
+            </sc-for>
+          </div><a href="https://calendly.com/lumiralabsltd/15-minute-meeting" target="_blank" rel="noopener" onClick="{{ book }}" style="margin-top: clamp(26px,3vw,38px); display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 15px 26px; border-radius: 999px; background: #0B0B0C; color: #fff; font-size: 15px; font-weight: 600; letter-spacing: -.015em; transition: transform .4s cubic-bezier(.22,1,.36,1), background .35s; padding-top: 15px; padding-bottom: 15px" style-hover="transform:translateY(-2px);color:#fff;background:var(--acc,#D4553D)">Book a 15 min call<br><span style="font-size: 16px; line-height: 1;">›</span></a>
+          
+        </div><div data-tile="" style="position: relative; display: flex; flex-direction: column; padding: clamp(28px,3vw,44px); border-radius: 30px; color: #fff; overflow: hidden; transition: transform .6s cubic-bezier(.22,1,.36,1), box-shadow .6s; background-color: #4D4DD3" style-hover="transform:translateY(-5px);box-shadow:0 34px 70px -32px rgba(11,11,12,.5)">
+          <div style="position:absolute;top:-40%;right:-20%;width:520px;height:520px;border-radius:50%;pointer-events:none;background:radial-gradient(circle, var(--wash,rgba(212,85,61,.14)) 0%, transparent 62%)"></div>
+          <div style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px">
+            <div style="font-size:12px;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.5)">MONTHLY RETAINER</div>
+            <span style="padding: 5px 11px; border-radius: 999px; background: rgba(255,255,255,.1); font-size: 11px; font-weight: 700; letter-spacing: .06em; color: #EDEDED">MOST POPULAR</span>
+          </div>
+          <div style="position:relative;margin-top:clamp(18px,2vw,26px);display:flex;align-items:baseline;gap:9px">
+            <span style="font-size:clamp(34px,4vw,54px);font-weight:800;letter-spacing:-.04em;line-height:1">£1,150</span>
+            <span style="font-size:15px;font-weight:600;color:rgba(255,255,255,.5)">/ month</span>
+          </div>
+          <p style="position:relative;margin:12px 0 0;font-size:15.5px;line-height:1.55;color:rgba(255,255,255,.58);max-width:34ch;text-wrap:pretty">Ongoing design and build capacity. Pause or cancel whenever you like.</p>
+          <div style="position:relative;margin-top:clamp(22px,2.4vw,32px);display:flex;flex-direction:column;gap:13px">
+            <sc-for list="{{ retainer }}" as="i" hint-placeholder-count="4">
+              <div style="display:flex;align-items:flex-start;gap:11px;font-size:15px;line-height:1.45;color:rgba(255,255,255,.82)">
+                <span style="flex:none;margin-top:3px;width:16px;height:16px;border-radius:50%;background:rgba(255,255,255,.12);color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800">✓</span>{{ i }}
+              </div>
+            </sc-for>
+          </div><a href="https://calendly.com/lumiralabsltd/15-minute-meeting" target="_blank" rel="noopener" onClick="{{ book }}" style="position:relative;margin-top:clamp(26px,3vw,38px);display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 26px;border-radius:999px;overflow:hidden;background:rgba(255,255,255,.14);backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%);box-shadow:inset 0 1px 0 rgba(255,255,255,.55), inset 0 0 0 1px rgba(255,255,255,.22), 0 14px 30px -16px rgba(0,0,0,.7);color:#fff;font-size:15px;font-weight:600;letter-spacing:-.015em;transition:transform .4s cubic-bezier(.22,1,.36,1), background .4s" style-hover="transform:translateY(-2px);color:#fff;background:rgba(255,255,255,.22)">Book a 15 min call <span style="font-size:16px;line-height:1">›</span></a>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="position:relative;padding:clamp(96px,11vw,170px) clamp(18px,3vw,28px);text-align:center;overflow:clip">
+    <div style="position: absolute; bottom: -40%; left: 50%; transform: translateX(-50%); width: min(1100px,120vw); height: 620px; pointer-events: none"></div>
+    <div style="position:relative;max-width:900px;margin:0 auto">
+      <h2 data-split="" style="margin:0;font-weight:800;font-size:clamp(2.5rem,7vw,6.2rem);line-height:.98;letter-spacing:-.045em">Let’s build something extraordinary.</h2>
+      <p data-fade="" data-delay="140" style="margin:clamp(18px,2vw,28px) auto 0;max-width:42ch;font-size:clamp(16px,1.4vw,20px);line-height:1.55;color:rgba(11,11,12,.58)">Partner, invest, or just send the idea you can’t stop thinking about.</p>
+      <a data-fade="" data-delay="220" href="mailto:hello@lumiralabs.co.uk" style="display:inline-flex;align-items:center;gap:9px;margin-top:clamp(26px,3vw,42px);padding:16px 30px;border-radius:999px;background:#0B0B0C;color:#fff;font-size:16px;font-weight:600;letter-spacing:-.015em;transition:transform .4s cubic-bezier(.22,1,.36,1), background .35s" style-hover="transform:translateY(-3px) scale(1.03);color:#fff;background:var(--acc,#D4553D)">hello@lumiralabs.co.uk</a>
+    </div>
+  </section>
+
+  <footer style="border-top:1px solid rgba(11,11,12,.09);padding:24px clamp(18px,3vw,28px) 30px">
+    <div style="max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;font-size:12.5px;font-weight:500;color:rgba(11,11,12,.45)">
+      <div style="display:flex;align-items:center;gap:9px;color:#0B0B0C;font-weight:700">
+        <svg viewBox="-58 -48 116 96" fill="currentColor" aria-hidden="true" style="display:block;flex:none;height:13px;width:auto;color:var(--acc,#D4553D)">
+          <path d="M0 0 h24 v72 h48 v24 h-72 z" transform="translate(-58,-48)" fill="var(--accL, currentColor)"></path>
+          <path d="M0 0 h24 v72 h48 v24 h-72 z" transform="translate(58,48) rotate(180)" fill="var(--accR, currentColor)"></path>
+        </svg>Lumira Labs
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:24px">
+        <span>London, UK</span>
+        <a href="mailto:hello@lumiralabs.co.uk">hello@lumiralabs.co.uk</a>
+        <span>© 2026 Lumira Labs</span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;options&quot;:[&quot;#D4553D&quot;,&quot;#0B0B0C&quot;,&quot;#2F62E8&quot;,&quot;#1E7A5F&quot;],&quot;default&quot;:&quot;#2F62E8&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;accentCustom&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;heroBlur&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:0,&quot;max&quot;:40,&quot;step&quot;:1,&quot;default&quot;:19,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;accentLeft&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;options&quot;:[&quot;#D4553D&quot;,&quot;#0B0B0C&quot;,&quot;#2F62E8&quot;,&quot;#1E7A5F&quot;],&quot;default&quot;:&quot;#0B0B0C&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Logo&quot;},&quot;accentLeftCustom&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Logo&quot;},&quot;accentRight&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;options&quot;:[&quot;#0B0B0C&quot;,&quot;#D4553D&quot;,&quot;#2F62E8&quot;,&quot;#1E7A5F&quot;],&quot;default&quot;:&quot;#D4553D&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Logo&quot;},&quot;accentRightCustom&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#FF421A&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Logo&quot;},&quot;showPipeline&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Sections&quot;},&quot;showFounders&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Sections&quot;},&quot;appCount&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:1,&quot;max&quot;:8,&quot;step&quot;:1,&quot;default&quot;:4,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Carousel&quot;},&quot;appOrder&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;1,2,3,5&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Carousel&quot;},&quot;slot1Url&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://apps.apple.com/us/app/daysout-football-gig-log/id6786365554&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Carousel · slot 1&quot;},&quot;slot1Dead&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Carousel · slot 1&quot;},&quot;slot2Url&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Carousel · slot 2&quot;},&quot;slot2Dead&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Carousel · slot 2&quot;},&quot;slot3Url&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Carousel · slot 3&quot;},&quot;slot3Dead&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Carousel · slot 3&quot;},&quot;slot4Url&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Carousel · slot 4&quot;},&quot;slot4Dead&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Carousel · slot 4&quot;},&quot;slot5Url&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Carousel · slot 5&quot;},&quot;slot5Dead&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Carousel · slot 5&quot;},&quot;slot6Url&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Carousel · slot 6&quot;},&quot;slot6Dead&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Carousel · slot 6&quot;},&quot;slot7Url&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Carousel · slot 7&quot;},&quot;slot7Dead&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Carousel · slot 7&quot;},&quot;slot8Url&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Carousel · slot 8&quot;},&quot;slot8Dead&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Carousel · slot 8&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    ['rootRef','navRef','navLinksRef','heroDeviceRef','darkRef','spotRef','waveRef','loaderRef'].forEach((k) => { this[k] = React.createRef(); });
+    this.EASE = 'cubic-bezier(.22,1,.36,1)';
+    this.tilt = { x: 0, y: 0, tx: 0, ty: 0 };
+    this.ready = false;
+    this.queued = [];
+  }
+
+  componentDidMount() {
+    this.applyTheme();
+    this.layout();
+    this.split();
+    this.prepare();
+    this.observe();
+    this.runLoader();
+    this.onScroll = () => this.frameWork();
+    this.onResize = () => { this.layout(); this.frameWork(); };
+    this.onMove = (e) => { this.spot(e); this.aimTilt(e); };
+    this.onDarkLeave = () => {
+      if (this.spotRef.current) this.spotRef.current.style.opacity = '0';
+      this.tilt.tx = 0; this.tilt.ty = 0;
+    };
+    window.addEventListener('scroll', this.onScroll, true);
+    window.addEventListener('resize', this.onResize);
+    window.addEventListener('load', this.onResize);
+    this.touch = window.matchMedia && window.matchMedia('(hover: none)').matches;
+    if (this.darkRef.current && !this.touch) {
+      this.darkRef.current.addEventListener('mousemove', this.onMove);
+      this.darkRef.current.addEventListener('mouseleave', this.onDarkLeave);
+    }
+    this.raf = requestAnimationFrame(() => this.tick());
+    [80, 300, 800, 1600, 2400].forEach((t) => setTimeout(() => { this.layout(); this.scan(); this.frameWork(); }, t));
+  }
+
+  componentDidUpdate() { this.applyTheme(); this.layout(); }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll, true);
+    window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('load', this.onResize);
+    if (this.darkRef.current) {
+      this.darkRef.current.removeEventListener('mousemove', this.onMove);
+      this.darkRef.current.removeEventListener('mouseleave', this.onDarkLeave);
+    }
+    if (this.unbindDrag) this.unbindDrag();
+    if (this.io) this.io.disconnect();
+    if (this.raf) cancelAnimationFrame(this.raf);
+    document.documentElement.style.overflow = '';
+    clearTimeout(this.loadT1);
+    clearTimeout(this.loadT2);
+  }
+
+  /* intro curtain — holds reveals until it lifts (self-healing across remounts) */
+  runLoader() {
+    const el = this.loaderRef.current || document.querySelector('[data-loader]');
+    this.t0 = performance.now();
+    const played = window.__lumiraIntroPlayed === true;
+    if (!el) { this.goReady(); return; }
+    if (played) {
+      el.style.display = 'none';
+      this.goReady();
+      return;
+    }
+    this.hold = 1750;
+    document.documentElement.style.overflow = 'hidden';
+    if (window.scrollTo) window.scrollTo(0, 0);
+    this.loadT1 = setTimeout(() => this.lift(), this.hold);
+    this.loadT2 = setTimeout(() => { if (el) el.style.display = 'none'; }, this.hold + 1200);
+  }
+
+  lift() {
+    const el = this.loaderRef.current || document.querySelector('[data-loader]');
+    if (el && el.style.display !== 'none') {
+      el.style.borderRadius = '32px';
+      el.style.transform = 'translate3d(0,-101%,0)';
+      el.style.pointerEvents = 'none';
+      setTimeout(() => { if (el) el.style.display = 'none'; }, 1200);
+    }
+    window.__lumiraIntroPlayed = true;
+    document.documentElement.style.overflow = '';
+    this.goReady();
+  }
+
+  goReady() {
+    if (this.ready) return;
+    this.ready = true;
+    document.documentElement.style.overflow = '';
+    const q = (this.queued || []).slice();
+    this.queued = [];
+    q.forEach((item, i) => setTimeout(() => this.reveal(item), i * 80));
+    this.scan();
+    this.frameWork();
+  }
+
+  applyTheme() {
+    const el = this.live();
+    if (!el || el === document) return;
+    const acc = this.pick(this.props.accentCustom) || this.pick(this.props.accent) || '#D4553D';
+    el.style.setProperty('--acc', acc);
+    el.style.setProperty('--accLight', this.onDark(acc));
+    el.style.setProperty('--wash', this.rgba(acc, 0.14));
+    el.style.setProperty('--wash2', this.rgba(acc, 0.075));
+    const hb = parseFloat(this.props.heroBlur);
+    el.style.setProperty('--heroBlur', (Number.isFinite(hb) ? Math.max(0, Math.min(60, hb)) : 2) + 'px');
+    this.layout();
+    const aL = this.pick(this.props.accentLeftCustom) || this.pick(this.props.accentLeft) || acc;
+    const aR = this.pick(this.props.accentRightCustom) || this.pick(this.props.accentRight) || acc;
+    el.style.setProperty('--accL', aL);
+    el.style.setProperty('--accR', aR);
+    document.documentElement.style.setProperty('--accL', aL);
+    document.documentElement.style.setProperty('--accR', aR);
+    el.style.setProperty('--washDeep', this.rgba(acc, 0.2));
+    document.documentElement.style.setProperty('--acc', acc);
+  }
+
+  /* accepts #abc / #aabbcc, with or without the hash */
+  pick(v) {
+    if (typeof v !== 'string') return null;
+    const s = v.trim();
+    if (!s) return null;
+    const h = s.charAt(0) === '#' ? s : '#' + s;
+    return /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(h) ? h : null;
+  }
+
+  hex(c) {
+    const h = c.replace('#', '');
+    const f = h.length === 3 ? h.split('').map((x) => x + x).join('') : h;
+    return [parseInt(f.slice(0, 2), 16), parseInt(f.slice(2, 4), 16), parseInt(f.slice(4, 6), 16)];
+  }
+  rgba(c, a) { const v = this.hex(c); return 'rgba(' + v[0] + ',' + v[1] + ',' + v[2] + ',' + a + ')'; }
+  /* accent tinted light enough to stay legible on the #0B0B0C band */
+  onDark(c) {
+    const v = this.hex(c);
+    const lum = (0.299 * v[0] + 0.587 * v[1] + 0.114 * v[2]) / 255;
+    if (lum < 0.28) return 'rgba(255,255,255,.72)';
+    return this.lighten(c, Math.max(0.34, 0.62 - lum * 0.5));
+  }
+
+  lighten(c, amt) {
+    const v = this.hex(c).map((x) => Math.round(x + (255 - x) * amt));
+    return 'rgb(' + v[0] + ',' + v[1] + ',' + v[2] + ')';
+  }
+
+  layout() {
+    const root = this.live();
+    if (!root) return;
+    const w = window.innerWidth;
+    const narrow = w < 900;
+    root.querySelectorAll('[data-grid]').forEach((g) => { g.style.gridTemplateColumns = narrow ? '1fr' : 'repeat(12,1fr)'; });
+    root.querySelectorAll('[data-grid2]').forEach((g) => { g.style.gridTemplateColumns = w < 700 ? 'repeat(2,1fr)' : 'repeat(4,1fr)'; });
+    root.querySelectorAll('[data-featgrid]').forEach((g) => { g.style.gridTemplateColumns = w < 760 ? '1fr' : 'repeat(2,1fr)'; });
+    root.querySelectorAll('[data-price]').forEach((g) => { g.style.gridTemplateColumns = w < 860 ? '1fr' : 'repeat(2,1fr)'; });
+    root.querySelectorAll('[data-col]').forEach((c) => {
+      const spec = c.getAttribute('data-col') || 'auto';
+      c.style.gridColumn = narrow ? '1 / -1' : spec;
+    });
+    root.querySelectorAll('[data-tile]').forEach((t) => {
+      const spec = t.getAttribute('data-col');
+      if (spec) t.style.gridColumn = narrow ? '1 / -1' : spec;
+    });
+    const bento = root.querySelector('[data-tile][data-col]');
+    if (bento && bento.parentNode) bento.parentNode.style.gridTemplateColumns = narrow ? '1fr' : 'repeat(6,1fr)';
+    root.querySelectorAll('[data-row]').forEach((r) => { r.style.flexWrap = narrow ? 'wrap' : 'nowrap'; });
+    const nl = this.navLinksRef.current;
+    if (nl) {
+      nl.style.display = w < 560 ? 'none' : 'flex';
+      nl.style.gap = w < 880 ? '18px' : '30px';
+      nl.style.fontSize = w < 880 ? '12.5px' : '13px';
+    }
+    /* keep blur + rotation on phones; promote the layer so iOS composites it */
+    const bigMark = root.querySelector('#top svg[aria-hidden]');
+    if (bigMark) {
+      const px = getComputedStyle(root).getPropertyValue('--heroBlur').trim() || '2px';
+      /* iOS Safari drops filter() that resolves through a var inside a masked ancestor */
+      bigMark.style.webkitFilter = 'blur(' + px + ')';
+      bigMark.style.filter = 'blur(' + px + ')';
+      bigMark.style.animationPlayState = 'running';
+      bigMark.style.willChange = 'transform';
+      bigMark.style.backfaceVisibility = 'hidden';
+      const wrap = bigMark.parentNode;
+      if (wrap && wrap.style) { wrap.style.willChange = 'transform'; wrap.style.webkitTransform = 'translateX(-50%) translateZ(0)'; }
+    }
+    root.querySelectorAll('[data-wave]').forEach((b) => {
+      const narrow = w < 760;
+      b.style.width = narrow ? '100%' : '100vw';
+      b.style.marginLeft = narrow ? '0' : 'calc(50% - 50vw)';
+    });
+    const icons = Array.prototype.slice.call(root.querySelectorAll('[data-icon]'));
+    icons.forEach((el) => {
+      const dead = el.getAttribute('data-dead') === 'true';
+      el.style.filter = dead ? 'grayscale(1)' : 'none';
+      el.style.opacity = dead ? '.6' : '1';
+    });
+    if (!this.icons || this.icons.length !== icons.length || (icons[0] && this.icons[0] !== icons[0])) this.icons = icons;
+    this.wave(performance.now());
+  }
+
+  split() {
+    const root = this.live();
+    if (!root) return;
+    root.querySelectorAll('[data-split]').forEach((h) => {
+      if (h.getAttribute('data-done')) return;
+      const words = [];
+      const push = (t, st) => {
+        if (/^[.,;:!?)\u2019']+$/.test(t) && words.length) { words[words.length - 1].tail = t; return; }
+        words.push({ text: t, style: st || '' });
+      };
+      Array.prototype.slice.call(h.childNodes).forEach((n) => {
+        if (n.nodeType === 3) n.textContent.split(/\s+/).forEach((w) => { if (w) push(w); });
+        else if (n.nodeType === 1) { const st = n.getAttribute('style') || ''; n.textContent.split(/\s+/).forEach((w) => { if (w) push(w, st); }); }
+      });
+      if (!words.length) return;
+      h.setAttribute('data-done', '1');
+      h.textContent = '';
+      words.forEach((u, i) => {
+        const mask = document.createElement('span');
+        mask.style.cssText = 'display:inline-block;overflow:hidden;vertical-align:top;padding:.02em .04em .22em 0;margin:0 0 -.22em 0';
+        const word = document.createElement('span');
+        word.setAttribute('data-word', '1');
+        word.style.cssText = 'display:inline-block;transform:translateY(115%);opacity:0;transition:transform .95s ' + this.EASE + ' ' + (i * 42) + 'ms, opacity .7s ease ' + (i * 42) + 'ms';
+        const g = document.createElement('span');
+        if (u.style) g.setAttribute('style', u.style);
+        g.textContent = u.text;
+        word.appendChild(g);
+        if (u.tail) { const t = document.createElement('span'); t.textContent = u.tail; word.appendChild(t); }
+        mask.appendChild(word);
+        h.appendChild(mask);
+        h.appendChild(document.createTextNode(' '));
+      });
+    });
+  }
+
+  prepare() {
+    const root = this.live();
+    if (!root) return;
+    root.querySelectorAll('[data-fade]').forEach((el) => {
+      if (el.getAttribute('data-shown')) return;
+      const d = el.getAttribute('data-delay') || 0;
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(14px)';
+      el.style.transition = 'opacity .85s ease ' + d + 'ms, transform 1s ' + this.EASE + ' ' + d + 'ms';
+    });
+    root.querySelectorAll('[data-lift],[data-tile],[data-feat]').forEach((el) => {
+      if (el.getAttribute('data-shown')) return;
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(26px) scale(.985)';
+      el.style.transition = 'opacity .9s ease, transform 1.05s ' + this.EASE;
+    });
+    root.querySelectorAll('[data-img]').forEach((el) => {
+      if (el.getAttribute('data-shown')) return;
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px) scale(.96)';
+      el.style.transition = 'opacity 1s ease, transform 1.3s ' + this.EASE;
+    });
+  }
+
+  reveal(el) {
+    if (!el || el.getAttribute('data-shown')) return;
+    if (window.__lumiraIntroPlayed !== true) { if (this.queued.indexOf(el) === -1) this.queued.push(el); return; }
+    el.setAttribute('data-shown', '1');
+    if (el.hasAttribute('data-split')) {
+      el.querySelectorAll('[data-word]').forEach((w) => { w.style.transform = 'none'; w.style.opacity = '1'; });
+      return;
+    }
+    el.style.opacity = '1';
+    if (el.hasAttribute('data-feat') || el.hasAttribute('data-tile') || el.hasAttribute('data-lift') || el.hasAttribute('data-img')) {
+      el.style.transform = 'translateY(0) scale(1)';
+    } else el.style.transform = 'none';
+  }
+
+  observe() {
+    const root = this.live();
+    if (!root) return;
+    this.pending = Array.prototype.slice.call(root.querySelectorAll('[data-split],[data-fade],[data-lift],[data-tile],[data-feat],[data-img]'));
+    if ('IntersectionObserver' in window) {
+      this.io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { this.reveal(e.target); if (this.ready) this.io.unobserve(e.target); } });
+      }, { threshold: 0.05, rootMargin: '0px 0px -4% 0px' });
+      this.pending.forEach((t) => this.io.observe(t));
+    }
+    this.scan();
+  }
+
+  /* resolves to the attached tree — a stale instance must never strand an element */
+  live() {
+    const el = this.rootRef.current;
+    if (el && document.body && document.body.contains(el)) return el;
+    return document;
+  }
+
+  scan() {
+    const root = this.live();
+    if (!root) return;
+    const vh = window.innerHeight;
+    let stagger = 0;
+    root.querySelectorAll('[data-split],[data-fade],[data-lift],[data-tile],[data-feat],[data-img]').forEach((el) => {
+      if (el.getAttribute('data-shown')) {
+        if (!el.hasAttribute('data-split') && el.style.opacity !== '1') { el.style.opacity = '1'; el.style.transform = el.hasAttribute('data-fade') ? 'none' : 'translateY(0) scale(1)'; }
+        return;
+      }
+      const r = el.getBoundingClientRect();
+      if (r.top < vh * 0.94 && r.bottom > -240) {
+        const d = stagger; stagger += 70;
+        setTimeout(() => this.reveal(el), d);
+        if (this.io && window.__lumiraIntroPlayed === true) this.io.unobserve(el);
+      }
+    });
+  }
+
+  spot(e) {
+    const s = this.spotRef.current;
+    const d = this.darkRef.current;
+    if (!s || !d) return;
+    const r = d.getBoundingClientRect();
+    s.style.opacity = '1';
+    s.style.background = 'radial-gradient(460px circle at ' + (e.clientX - r.left) + 'px ' + (e.clientY - r.top) + 'px, rgba(255,255,255,.075), transparent 68%)';
+  }
+
+  aimTilt(e) {
+    const dev = this.heroDeviceRef.current;
+    if (!dev) return;
+    const r = dev.getBoundingClientRect();
+    this.tilt.tx = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width / 2)) / (r.width / 2)));
+    this.tilt.ty = Math.max(-1, Math.min(1, (e.clientY - (r.top + r.height / 2)) / (r.height / 2)));
+  }
+
+  /* scroll-linked: nav chrome, device scale, active feature card */
+  frameWork() {
+    if (!this.navRef.current || !document.body.contains(this.navRef.current)) this.navRef.current = document.querySelector('header');
+    if (!this.heroDeviceRef.current || !document.body.contains(this.heroDeviceRef.current)) this.heroDeviceRef.current = document.querySelector('[data-shots]');
+    const doc = document.scrollingElement || document.documentElement;
+    const y = doc.scrollTop || window.scrollY || 0;
+    const nav = this.navRef.current;
+    if (nav) {
+      const on = y > 8;
+      nav.style.background = on ? 'rgba(255,255,255,.78)' : 'transparent';
+      nav.style.backdropFilter = on ? 'saturate(180%) blur(18px)' : 'none';
+      nav.style.webkitBackdropFilter = on ? 'saturate(180%) blur(18px)' : 'none';
+      nav.style.borderBottomColor = on ? 'rgba(11,11,12,.08)' : 'transparent';
+      nav.style.height = (y > 40 ? 46 : 54) + 'px';
+      nav.style.transition = 'background .4s ease, border-color .4s ease, backdrop-filter .4s ease, height .5s ' + this.EASE;
+    }
+    const dev = this.heroDeviceRef.current;
+    if (dev) {
+      const vh = window.innerHeight;
+      const r = dev.getBoundingClientRect();
+      const p = Math.max(0, Math.min(1, (vh - r.top) / (vh * 0.85)));
+      this.heroScale = 0.94 + p * 0.06;
+    }
+    const root = this.live();
+    if (root) {
+      const feats = root.querySelectorAll('[data-feat]');
+      const mid = (doc.scrollTop || 0) + window.innerHeight * 0.52;
+      let best = null, bestD = Infinity;
+      /* measure from layout offsets, not rects: the active card is scaled,
+         and reading its transformed rect feeds its own state back in */
+      feats.forEach((f) => {
+        let top = 0;
+        for (let n = f; n; n = n.offsetParent) top += n.offsetTop;
+        const d = Math.abs(top + f.offsetHeight / 2 - mid);
+        if (d < bestD) { bestD = d; best = f; }
+      });
+      /* hysteresis: hold the current card until another is clearly closer */
+      if (this.activeFeat && this.activeFeat !== best && document.body.contains(this.activeFeat)) {
+        let top = 0;
+        for (let n = this.activeFeat; n; n = n.offsetParent) top += n.offsetTop;
+        const dCur = Math.abs(top + this.activeFeat.offsetHeight / 2 - mid);
+        if (dCur - bestD < 56) best = this.activeFeat;
+      }
+      this.activeFeat = best;
+      feats.forEach((el) => {
+        const on = el === best && el.getAttribute('data-shown') === '1';
+        const key = on ? '1' : '0';
+        if (el.getAttribute('data-active') === key) return;
+        el.setAttribute('data-active', key);
+        el.style.background = on ? 'rgba(255,255,255,.09)' : 'rgba(255,255,255,.045)';
+        el.style.borderColor = on ? 'rgba(255,255,255,.2)' : 'rgba(255,255,255,.08)';
+        if (el.getAttribute('data-shown') === '1') el.style.transform = on ? 'translateY(0) scale(1.012)' : 'translateY(0) scale(1)';
+      });
+    }
+    this.scan();
+  }
+
+  /* drag / swipe the conveyor; on release the flick decays back into the drift */
+  bindDrag(band) {
+    if (this.dragBound === band) return;
+    this.dragBound = band;
+    band.style.touchAction = 'pan-y';
+    band.style.cursor = 'grab';
+
+    const pt = (e) => (e.touches && e.touches[0] ? e.touches[0].clientX : e.clientX);
+    const down = (e) => {
+      if (e.button !== undefined && e.button !== 0) return;
+      this.drag = true;
+      this.moved = 0;
+      this.dragStartX = this.dragX = pt(e);
+      this.dragStartPos = this.pos || 0;
+      this.samples = [{ x: this.dragX, t: performance.now() }];
+      band.style.cursor = 'grabbing';
+    };
+    const move = (e) => {
+      if (!this.drag) return;
+      const x = pt(e);
+      this.moved = Math.abs(x - this.dragStartX);
+      this.dragX = x;
+      this.samples.push({ x: x, t: performance.now() });
+      if (this.samples.length > 6) this.samples.shift();
+      if (this.moved > 6 && e.cancelable) e.preventDefault();
+    };
+    const up = () => {
+      if (!this.drag) return;
+      this.drag = false;
+      band.style.cursor = 'grab';
+      const s = this.samples || [];
+      const a = s[0], b = s[s.length - 1];
+      const dt = b && a ? b.t - a.t : 0;
+      this.vel = dt > 8 ? Math.max(-2.6, Math.min(2.6, -(b.x - a.x) / dt)) : 0.042;
+      /* a real drag shouldn't also fire the icon's link */
+      if (this.moved > 6) {
+        const kill = (ev) => { ev.preventDefault(); ev.stopPropagation(); };
+        band.addEventListener('click', kill, { capture: true, once: true });
+        setTimeout(() => band.removeEventListener('click', kill, true), 40);
+      }
+    };
+
+    band.addEventListener('pointerdown', down);
+    band.addEventListener('pointermove', move, { passive: false });
+    window.addEventListener('pointerup', up);
+    window.addEventListener('pointercancel', up);
+    band.addEventListener('touchstart', down, { passive: true });
+    band.addEventListener('touchmove', move, { passive: false });
+    window.addEventListener('touchend', up);
+    band.addEventListener('dragstart', (e) => e.preventDefault());
+    this.unbindDrag = () => {
+      window.removeEventListener('pointerup', up);
+      window.removeEventListener('pointercancel', up);
+      window.removeEventListener('touchend', up);
+    };
+  }
+
+  /* infinite conveyor of app icons with a sine wave */
+  wave(now) {
+    let band = this.waveRef.current;
+    if (!band || !document.body.contains(band)) band = document.querySelector('[data-wave]');
+    if (!band) return;
+    const found = Array.prototype.slice.call(band.querySelectorAll('[data-icon]'));
+    if (!found.length) return;
+    if (!this.icons || this.icons.length !== found.length || this.icons[0] !== found[0]) this.icons = found;
+    const size = this.icons[0].offsetWidth || 84;
+    const n = this.icons.length;
+    const spacing = Math.max(size * 1.9, (band.clientWidth + size * 2.4) / n);
+    const span = spacing * n;
+    const amp = Math.min(15, Math.max(7, size * 0.13));
+
+    this.bindDrag(band);
+    const AUTO = 0.042;
+    const dt = Math.min(48, this.lastT ? now - this.lastT : 16);
+    this.lastT = now;
+    if (this.pos === undefined) this.pos = 0;
+    if (this.drag) {
+      this.pos = this.dragStartPos - (this.dragX - this.dragStartX);
+    } else {
+      /* released flick decays until it matches the idle drift */
+      if (this.vel === undefined) this.vel = AUTO;
+      this.vel += (AUTO - this.vel) * (1 - Math.pow(0.94, dt / 16));
+      this.pos += this.vel * dt;
+    }
+    let t = this.pos % span;
+    if (t < 0) t += span;
+    for (let i = 0; i < n; i++) {
+      let x = (i * spacing - t) % span;
+      if (x < 0) x += span;
+      x -= spacing;
+      const ph = this.pos * 0.026 + i * 0.72;
+      const y = Math.sin(ph) * amp;
+      const rot = Math.sin(ph) * 3.4;
+      const sc = 0.95 + (Math.cos(ph) + 1) * 0.035;
+      this.icons[i].style.transform = 'translate3d(' + x.toFixed(1) + 'px, calc(-50% + ' + y.toFixed(1) + 'px), 0) rotate(' + rot.toFixed(2) + 'deg) scale(' + sc.toFixed(3) + ')';
+    }
+  }
+
+  /* pointer parallax on the Daysout screenshots */
+  heroTilt() {
+    const dev = this.heroDeviceRef.current;
+    if (!dev) return;
+    if (this.touch) {
+      dev.style.transform = 'scale(' + (this.heroScale || 1).toFixed(4) + ')';
+      return;
+    }
+    this.tilt.x += (this.tilt.tx - this.tilt.x) * 0.06;
+    this.tilt.y += (this.tilt.ty - this.tilt.y) * 0.06;
+    dev.style.transform = 'perspective(1400px) rotateY(' + (this.tilt.x * 3).toFixed(2) + 'deg) rotateX(' + (-this.tilt.y * 1.8).toFixed(2) + 'deg) scale(' + (this.heroScale || 1).toFixed(4) + ')';
+  }
+
+  tick() {
+    const now = performance.now();
+    try {
+      if (!this.ready && this.t0 && now - this.t0 > (this.hold || 0) + 260) this.lift();
+      this.f = (this.f || 0) + 1;
+      if (this.f % 6 === 0) this.frameWork();
+      if (this.f % 24 === 0) this.scan();
+      this.wave(now);
+      this.heroTilt();
+    } catch (err) { /* keep the loop alive */ }
+    this.raf = requestAnimationFrame(() => this.tick());
+  }
+
+  /* carousel slots — count, per-slot link and sunset flag come from Tweaks */
+  apps() {
+    const p = this.props;
+    let order = [];
+    if (typeof p.appOrder === 'string' && p.appOrder.trim()) {
+      p.appOrder.split(/[^0-9]+/).forEach((s) => {
+        const v = parseInt(s, 10);
+        if (v >= 1 && v <= 8 && order.indexOf(v) === -1) order.push(v);
+      });
+    }
+    /* the order list is authoritative; appCount only tops it up */
+    const n = Math.max(1, Math.min(8, parseInt(p.appCount, 10) || 4));
+    for (let i = 1; order.length < n && i <= 8; i++) if (order.indexOf(i) === -1) order.push(i);
+    const out = [];
+    order.forEach((i) => {
+      const raw = p['slot' + i + 'Url'];
+      const url = (typeof raw === 'string' && raw.trim()) ? raw.trim() : undefined;
+      out.push({
+        id: 'v3-app-' + i,
+        src: this.iconSrc(i),
+        dead: p['slot' + i + 'Dead'] === true,
+        url: url,
+        target: url ? '_blank' : undefined
+      });
+    });
+    return out;
+  }
+
+  /* slot art: real files first, so a published build never depends on editor state */
+  iconSrc(i) {
+    const res = window.__resources || {};
+    if (i === 1) return res.dsIcon || 'assets/daysout-icon.webp';
+    if (i <= 5) return res['app' + i] || 'assets/app-' + i + '.webp';
+    return '';
+  }
+
+  /* Calendly popup, with the href as the no-JS fallback */
+  book(e) {
+    if (window.Calendly && window.Calendly.initPopupWidget) {
+      e.preventDefault();
+      window.Calendly.initPopupWidget({ url: 'https://calendly.com/lumiralabsltd/15-minute-meeting' });
+    }
+  }
+
+  renderVals() {
+    const r = {};
+    ['rootRef','navRef','navLinksRef','heroDeviceRef','darkRef','spotRef','waveRef','loaderRef'].forEach((k) => { r[k] = this[k]; });
+    const p = this.props;
+    const res = window.__resources || {};
+    return Object.assign(r, {
+      dsIcon: res.dsIcon || 'assets/daysout-icon.webp',
+      dsShot1: res.dsShot1 || 'assets/daysout-1.webp',
+      dsShot2: res.dsShot2 || 'assets/daysout-2.webp',
+      dsShot3: res.dsShot3 || 'assets/daysout-3.webp',
+      book: (e) => this.book(e),
+      oneOff: ['Ad-hoc consultancy and design consultations', 'Custom illustrations, icons and brand assets', 'Fixed scope, fixed price, agreed up front', 'Handover of source files and code'],
+      retainer: ['Unlimited design requests', 'One request in progress at a time', 'Average 48-hour turnaround', 'Pause or cancel any month'],
+      showPipeline: p.showPipeline !== false,
+      showFounders: p.showFounders !== false,
+      ticker: ['Product design', 'iOS engineering', 'Design systems', 'Brand identity', 'Web apps', 'Venture build', 'London'],
+      appIcons: this.apps(),
+      features: [
+        { n: '01', title: 'Found in your photos', body: 'Scan the camera roll and years of events land on the map, already labelled.' },
+        { n: '02', title: 'Two taps tonight', body: 'Capture the game or the gig while you\u2019re still standing in it.' },
+        { n: '03', title: 'Your season, wrapped', body: 'Grounds, away miles, matches, gigs \u2014 and what it all cost.' },
+        { n: '04', title: 'Shared albums', body: 'One album for everyone who was there with you.' }
+      ],
+      designTags: ['UI / UX', 'Design systems', 'Branding'],
+      engTags: ['iOS apps', 'Web apps', 'Retainers'],
+      process: [
+        { n: '01', title: 'Scope', body: 'A week to define the smallest thing worth shipping.' },
+        { n: '02', title: 'Design', body: 'Flows, screens, a system to grow into.' },
+        { n: '03', title: 'Build', body: 'Weekly builds in your hands.' },
+        { n: '04', title: 'Ship', body: 'Submission, launch, iteration.' }
+      ],
+      pipeline: [
+        { n: '002', title: 'Project Atlas', body: 'Something big. If you\u2019re on the list, you hear first.', tag: 'Stealth' }
+      ],
+      founders: [
+        {
+          slot: 'v3-founder-su', src: res.founderSu || 'assets/founder-su-crop.webp', ph: 'Drop Sukhpinder\u2019s photo', name: 'Sukhpinder Ubhi', role: 'CO-FOUNDER',
+          line: 'Owns the product and the brand - from first sketch to the App Store listing.',
+          bio: 'Sets creative direction, positioning and growth. Decides what gets built, what gets cut, and how it should feel in the hand.',
+          prev: 'Previously J.P. Morgan', mail: 'mailto:hello@lumiralabs.co.uk?subject=For%20Sukhpinder'
+        },
+        {
+          slot: 'v3-founder-ne', src: res.founderNe || 'assets/founder-ne-crop.webp', ph: 'Drop Nikolaos\u2019 photo', name: 'Nikolaos Efthymiopoulos', role: 'CO-FOUNDER',
+          line: 'Owns the engineering - architecture that still holds at ten thousand users.',
+          bio: 'Builds the systems behind every release: iOS, backend and infrastructure, shipped on a weekly cadence with no shortcuts left behind.',
+          prev: 'Previously J.P. Morgan', mail: 'mailto:hello@lumiralabs.co.uk?subject=For%20Nikolaos'
+        }
+      ]
+    });
+  }
+}
+
+</script>
+</body>
+</html>
