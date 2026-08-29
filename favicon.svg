@@ -2,6 +2,6 @@
   <rect width="240" height="240" fill="#FFFFFF"/>
   <g transform="translate(120,120) scale(.62)">
     <path fill="#0B0B0C" d="M0 0 h24 v72 h48 v24 h-72 z" transform="translate(-58,-48)"/>
-    <path fill="#D4553D" d="M0 0 h24 v72 h48 v24 h-72 z" transform="translate(58,48) rotate(180)"/>
+    <path fill="#FF421A" d="M0 0 h24 v72 h48 v24 h-72 z" transform="translate(58,48) rotate(180)"/>
   </g>
 </svg>
