@@ -1,0 +1,3 @@
+OWNERDOMAIN=lumiralabs.co.uk
+google.com, pub-7169477070945755, DIRECT, f08c47fec0942fa0
+ironsrc.com, 687459, DIRECT, 79929e88b2ba73bc
