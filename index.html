@@ -3,13 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumira Labs — a London startup building its own iPhone apps</title>
+<meta name="description" content="Lumira Labs Ltd is a London startup that codes its own iPhone apps, with Claude at the base of how it builds. Our first app, Daysout, is live on the App Store. Founded in 2026 by Sukhpinder Ubhi and Nikolaos Efthymiopoulos.">
+<link rel="canonical" href="https://lumiralabs.co.uk/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumira Labs">
+<meta property="og:url" content="https://lumiralabs.co.uk/">
+<meta property="og:title" content="Lumira Labs — a London startup building its own iPhone apps">
+<meta property="og:description" content="We code our own iPhone apps, with Claude at the base of how we build. Daysout, our first, is live on the App Store.">
+<meta property="og:image" content="https://lumiralabs.co.uk/assets/daysout-icon.webp">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
 <script src="./support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Lumira Labs — Venture Studio</title>
+<title>Lumira Labs — a London startup building its own iPhone apps</title>
 <meta name="ext-resource-dependency" content="assets/daysout-icon.webp" data-resource-id="dsIcon">
 <meta name="ext-resource-dependency" content="assets/daysout-1.webp" data-resource-id="dsShot1">
 <meta name="ext-resource-dependency" content="assets/daysout-2.webp" data-resource-id="dsShot2">
@@ -104,9 +115,9 @@
 </script>
 </helmet>
 
-<div ref="{{ rootRef }}" style="position:relative;width:100%;background:#FFFFFF;overflow:clip">
+<div data-root="" style="position:relative;width:100%;background:#FFFFFF;overflow:clip">
 
-  <div data-loader="" ref="{{ loaderRef }}" style="position:fixed;inset:0;z-index:10001;background:#FFFFFF;display:flex;align-items:center;justify-content:center;transition:transform 1.05s cubic-bezier(.76,0,.24,1), border-radius .8s ease">
+  <div data-loader="" style="position:fixed;inset:0;z-index:10001;background:#FFFFFF;display:flex;align-items:center;justify-content:center;transition:transform 1.05s cubic-bezier(.76,0,.24,1), border-radius .8s ease">
     <div style="display:flex;flex-direction:column;align-items:center;gap:clamp(20px,2.4vw,28px)">
       <div style="position:relative;width:87px;height:72px">
         <svg viewBox="-58 -48 116 96" fill="currentColor" aria-hidden="true" style="position:relative;width:100%;height:100%;display:block;color:var(--acc,#D4553D);transform-origin:50% 50%;animation:v3-lockWiggle .62s cubic-bezier(.36,1.6,.4,1) .86s both">
@@ -130,7 +141,7 @@
     </div>
   </div>
 
-  <header ref="{{ navRef }}" style="position:fixed;top:0;left:0;right:0;z-index:9999;height:54px;display:flex;align-items:center;border-bottom:1px solid transparent;transition:background .4s ease, border-color .4s ease, backdrop-filter .4s ease">
+  <header style="position:fixed;top:0;left:0;right:0;z-index:9999;height:54px;display:flex;align-items:center;border-bottom:1px solid transparent;transition:background .4s ease, border-color .4s ease, backdrop-filter .4s ease">
     <div style="width:100%;max-width:1180px;margin:0 auto;padding:0 clamp(18px,3vw,28px);display:flex;align-items:center;justify-content:space-between;gap:22px">
       <a href="#top" style="display:flex;align-items:center;gap:9px">
         <svg viewBox="-58 -48 116 96" fill="currentColor" aria-hidden="true" style="display:block;flex:none;height:16px;width:auto;color:var(--acc,#D4553D);animation:v3-jiggle 5s ease-in-out infinite">
@@ -139,12 +150,12 @@
         </svg>
         <span style="font-size:14.5px;font-weight:700;letter-spacing:-.02em">Lumira Labs</span>
       </a>
-      <nav ref="{{ navLinksRef }}" style="display:flex;align-items:center;gap:30px;font-size:13px;font-weight:500;color:rgba(11,11,12,.62)">
-        <a href="#work" style="transition:color .25s" style-hover="color:#0B0B0C">What we do</a>
+      <nav style="display:flex;align-items:center;gap:30px;font-size:13px;font-weight:500;color:rgba(11,11,12,.62)">
+        <a href="#about" style="transition:color .25s" style-hover="color:#0B0B0C">About</a>
         <a href="#pipeline" style="transition:color .25s" style-hover="color:#0B0B0C">Pipeline</a>
         <a href="#team" style="transition:color .25s" style-hover="color:#0B0B0C">Founders</a>
       </nav>
-      <a href="https://calendly.com/lumiralabsltd/15-minute-meeting" target="_blank" rel="noopener" onClick="{{ book }}" style="padding:8px 16px;border-radius:999px;background:#0B0B0C;color:#fff;font-size:13px;font-weight:600;letter-spacing:-.01em;transition:transform .35s cubic-bezier(.22,1,.36,1), background .3s" style-hover="transform:scale(1.04);color:#fff;background:var(--acc,#D4553D)">Get in touch</a>
+      <a href="https://calendly.com/lumiralabsltd/15-minute-meeting" target="_blank" rel="noopener" style="padding:8px 16px;border-radius:999px;background:#0B0B0C;color:#fff;font-size:13px;font-weight:600;letter-spacing:-.01em;transition:transform .35s cubic-bezier(.22,1,.36,1), background .3s" style-hover="transform:scale(1.04);color:#fff;background:var(--acc,#D4553D)">Get in touch</a>
     </div>
   </header>
 
@@ -165,28 +176,44 @@
     </div>
     <div style="position:relative;max-width:1000px;margin:0 auto">
       <div data-fade="" style="display:inline-flex;align-items:center;gap:9px;padding:6px 14px 6px 10px;border-radius:999px;background:rgba(255,255,255,.78);box-shadow:inset 0 0 0 1px rgba(11,11,12,.07), 0 8px 20px -14px rgba(11,11,12,.3);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-size:12.5px;font-weight:600;letter-spacing:-.005em;color:rgba(11,11,12,.66)">
-        <span style="width:6px;height:6px;border-radius:50%;background:var(--acc,#D4553D);animation:v3-blink 3s ease-in-out infinite"></span>Venture studio · London
+        <span style="width:6px;height:6px;border-radius:50%;background:var(--acc,#D4553D);animation:v3-blink 3s ease-in-out infinite"></span>App startup · London
       </div>
       <h1 data-split="" style="margin:clamp(22px,2.6vw,34px) 0 0;font-weight:800;font-size:clamp(3rem,8.6vw,7.6rem);line-height:.96;letter-spacing:-.045em">Apps people keep.</h1>
-      <p data-fade="" data-delay="160" style="margin:clamp(20px,2.2vw,30px) auto 0;max-width:44ch;font-size:clamp(17px,1.5vw,21px);line-height:1.5;font-weight:450;color:rgba(11,11,12,.6);text-wrap:pretty">We design and build our own products - and build for founders who want the same standard.</p>
+      <p data-fade="" data-delay="160" style="margin:clamp(20px,2.2vw,30px) auto 0;max-width:44ch;font-size:clamp(17px,1.5vw,21px);line-height:1.5;font-weight:450;color:rgba(11,11,12,.6);text-wrap:pretty">We’re a London startup coding our own iPhone apps, with Claude at the base of how we build. Daysout, our first, is live on the App Store.</p>
       <div data-fade="" data-delay="260" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:26px;margin-top:clamp(26px,3vw,40px)">
-        <a href="mailto:hello@lumiralabs.co.uk" style="display:inline-flex;align-items:center;gap:8px;padding:14px 27px;border-radius:999px;background:var(--acc,#D4553D);color:#fff;font-size:15.5px;font-weight:600;letter-spacing:-.015em;transition:transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s" style-hover="transform:translateY(-2px) scale(1.02);color:#fff;box-shadow:0 18px 34px -14px var(--wash,rgba(212,85,61,.5))">Start a project <span style="font-size:17px;line-height:1">›</span></a>
+        <a href="mailto:hello@lumiralabs.co.uk" style="display:inline-flex;align-items:center;gap:8px;padding:14px 27px;border-radius:999px;background:var(--acc,#D4553D);color:#fff;font-size:15.5px;font-weight:600;letter-spacing:-.015em;transition:transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s" style-hover="transform:translateY(-2px) scale(1.02);color:#fff;box-shadow:0 18px 34px -14px var(--wash,rgba(212,85,61,.5))">Get in touch <span style="font-size:17px;line-height:1">›</span></a>
       </div>
     </div>
 
-    <div data-wave="" ref="{{ waveRef }}" style="position:relative;width:100vw;margin-left:calc(50% - 50vw);height:clamp(184px,17vw,214px);margin-top:clamp(26px,3.4vw,44px);overflow:hidden;mask-image:linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);-webkit-mask-image:linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%)">
-      <sc-for list="{{ appIcons }}" as="a" hint-placeholder-count="4">
-        <div data-icon="" data-dead="{{ a.dead }}" style="position:absolute;top:50%;left:0;width:clamp(72px,7.4vw,104px);height:clamp(72px,7.4vw,104px);will-change:transform;transition:filter .5s ease, opacity .5s ease">
-          <a href="{{ a.url }}" target="{{ a.target }}" rel="noopener" style="position:absolute;inset:0;border-radius:24%;overflow:hidden;background:#F1F1F4;box-shadow:0 20px 34px -18px rgba(11,11,12,.34), inset 0 0 0 1px rgba(11,11,12,.06), 0 0 0 .5px rgba(255,255,255,.5);display:block;transition:transform .45s cubic-bezier(.22,1,.36,1), box-shadow .45s" style-hover="transform:scale(1.05);box-shadow:0 26px 40px -18px rgba(11,11,12,.42), inset 0 0 0 1px rgba(11,11,12,.06), 0 0 0 .5px rgba(255,255,255,.5)">
-            <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:23px;font-weight:300;color:rgba(11,11,12,.22);pointer-events:none">+</span>
-            <image-slot data-mini="" id="{{ a.id }}" src="{{ a.src }}" shape="rect" placeholder="" style="position:relative"></image-slot>
-            <span style="position:absolute;inset:0;border-radius:24%;pointer-events:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.7), inset 0 0 0 1px rgba(255,255,255,.32), inset 0 -1px 1px rgba(255,255,255,.22), inset 0 0 12px rgba(255,255,255,.14);background:linear-gradient(138deg, rgba(255,255,255,.34) 0%, rgba(255,255,255,.05) 26%, rgba(255,255,255,0) 48%, rgba(255,255,255,0) 70%, rgba(255,255,255,.14) 100%)"></span>
-          </a>
-          <sc-if value="{{ a.dead }}" hint-placeholder-val="{{ false }}">
-            <span style="position:absolute;top:-7px;right:-7px;width:26px;height:26px;border-radius:50%;background:#0B0B0C;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;line-height:1;box-shadow:0 6px 14px -6px rgba(11,11,12,.6);pointer-events:none" title="Sunset">☠️</span>
-          </sc-if>
-        </div>
-      </sc-for>
+    <div data-wave="" style="position:relative;width:100vw;margin-left:calc(50% - 50vw);height:clamp(184px,17vw,214px);margin-top:clamp(26px,3.4vw,44px);overflow:hidden;mask-image:linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);-webkit-mask-image:linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%)">
+      <div data-icon="" data-dead="false" style="position:absolute;top:50%;left:0;width:clamp(72px,7.4vw,104px);height:clamp(72px,7.4vw,104px);will-change:transform;transition:filter .5s ease, opacity .5s ease">
+        <a href="https://apps.apple.com/us/app/daysout-football-gig-log/id6786365554" target="_blank" rel="noopener" style="position:absolute;inset:0;border-radius:24%;overflow:hidden;background:#F1F1F4;box-shadow:0 20px 34px -18px rgba(11,11,12,.34), inset 0 0 0 1px rgba(11,11,12,.06), 0 0 0 .5px rgba(255,255,255,.5);display:block;transition:transform .45s cubic-bezier(.22,1,.36,1), box-shadow .45s" style-hover="transform:scale(1.05);box-shadow:0 26px 40px -18px rgba(11,11,12,.42), inset 0 0 0 1px rgba(11,11,12,.06), 0 0 0 .5px rgba(255,255,255,.5)">
+          <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:23px;font-weight:300;color:rgba(11,11,12,.22);pointer-events:none">+</span>
+          <image-slot data-mini="" id="v3-app-1" src="assets/daysout-icon.webp" shape="rect" placeholder="" style="position:relative"></image-slot>
+          <span style="position:absolute;inset:0;border-radius:24%;pointer-events:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.7), inset 0 0 0 1px rgba(255,255,255,.32), inset 0 -1px 1px rgba(255,255,255,.22), inset 0 0 12px rgba(255,255,255,.14);background:linear-gradient(138deg, rgba(255,255,255,.34) 0%, rgba(255,255,255,.05) 26%, rgba(255,255,255,0) 48%, rgba(255,255,255,0) 70%, rgba(255,255,255,.14) 100%)"></span>
+        </a>
+      </div>
+      <div data-icon="" data-dead="false" style="position:absolute;top:50%;left:0;width:clamp(72px,7.4vw,104px);height:clamp(72px,7.4vw,104px);will-change:transform;transition:filter .5s ease, opacity .5s ease">
+        <a rel="noopener" style="position:absolute;inset:0;border-radius:24%;overflow:hidden;background:#F1F1F4;box-shadow:0 20px 34px -18px rgba(11,11,12,.34), inset 0 0 0 1px rgba(11,11,12,.06), 0 0 0 .5px rgba(255,255,255,.5);display:block;transition:transform .45s cubic-bezier(.22,1,.36,1), box-shadow .45s" style-hover="transform:scale(1.05);box-shadow:0 26px 40px -18px rgba(11,11,12,.42), inset 0 0 0 1px rgba(11,11,12,.06), 0 0 0 .5px rgba(255,255,255,.5)">
+          <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:23px;font-weight:300;color:rgba(11,11,12,.22);pointer-events:none">+</span>
+          <image-slot data-mini="" id="v3-app-2" src="assets/app-2.webp" shape="rect" placeholder="" style="position:relative"></image-slot>
+          <span style="position:absolute;inset:0;border-radius:24%;pointer-events:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.7), inset 0 0 0 1px rgba(255,255,255,.32), inset 0 -1px 1px rgba(255,255,255,.22), inset 0 0 12px rgba(255,255,255,.14);background:linear-gradient(138deg, rgba(255,255,255,.34) 0%, rgba(255,255,255,.05) 26%, rgba(255,255,255,0) 48%, rgba(255,255,255,0) 70%, rgba(255,255,255,.14) 100%)"></span>
+        </a>
+      </div>
+      <div data-icon="" data-dead="false" style="position:absolute;top:50%;left:0;width:clamp(72px,7.4vw,104px);height:clamp(72px,7.4vw,104px);will-change:transform;transition:filter .5s ease, opacity .5s ease">
+        <a rel="noopener" style="position:absolute;inset:0;border-radius:24%;overflow:hidden;background:#F1F1F4;box-shadow:0 20px 34px -18px rgba(11,11,12,.34), inset 0 0 0 1px rgba(11,11,12,.06), 0 0 0 .5px rgba(255,255,255,.5);display:block;transition:transform .45s cubic-bezier(.22,1,.36,1), box-shadow .45s" style-hover="transform:scale(1.05);box-shadow:0 26px 40px -18px rgba(11,11,12,.42), inset 0 0 0 1px rgba(11,11,12,.06), 0 0 0 .5px rgba(255,255,255,.5)">
+          <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:23px;font-weight:300;color:rgba(11,11,12,.22);pointer-events:none">+</span>
+          <image-slot data-mini="" id="v3-app-3" src="assets/app-3.webp" shape="rect" placeholder="" style="position:relative"></image-slot>
+          <span style="position:absolute;inset:0;border-radius:24%;pointer-events:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.7), inset 0 0 0 1px rgba(255,255,255,.32), inset 0 -1px 1px rgba(255,255,255,.22), inset 0 0 12px rgba(255,255,255,.14);background:linear-gradient(138deg, rgba(255,255,255,.34) 0%, rgba(255,255,255,.05) 26%, rgba(255,255,255,0) 48%, rgba(255,255,255,0) 70%, rgba(255,255,255,.14) 100%)"></span>
+        </a>
+      </div>
+      <div data-icon="" data-dead="false" style="position:absolute;top:50%;left:0;width:clamp(72px,7.4vw,104px);height:clamp(72px,7.4vw,104px);will-change:transform;transition:filter .5s ease, opacity .5s ease">
+        <a rel="noopener" style="position:absolute;inset:0;border-radius:24%;overflow:hidden;background:#F1F1F4;box-shadow:0 20px 34px -18px rgba(11,11,12,.34), inset 0 0 0 1px rgba(11,11,12,.06), 0 0 0 .5px rgba(255,255,255,.5);display:block;transition:transform .45s cubic-bezier(.22,1,.36,1), box-shadow .45s" style-hover="transform:scale(1.05);box-shadow:0 26px 40px -18px rgba(11,11,12,.42), inset 0 0 0 1px rgba(11,11,12,.06), 0 0 0 .5px rgba(255,255,255,.5)">
+          <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:23px;font-weight:300;color:rgba(11,11,12,.22);pointer-events:none">+</span>
+          <image-slot data-mini="" id="v3-app-5" src="assets/app-5.webp" shape="rect" placeholder="" style="position:relative"></image-slot>
+          <span style="position:absolute;inset:0;border-radius:24%;pointer-events:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.7), inset 0 0 0 1px rgba(255,255,255,.32), inset 0 -1px 1px rgba(255,255,255,.22), inset 0 0 12px rgba(255,255,255,.14);background:linear-gradient(138deg, rgba(255,255,255,.34) 0%, rgba(255,255,255,.05) 26%, rgba(255,255,255,0) 48%, rgba(255,255,255,0) 70%, rgba(255,255,255,.14) 100%)"></span>
+        </a>
+      </div>
     </div>
 
     <div data-fade="" data-delay="360" style="display:none"></div>
@@ -196,8 +223,8 @@
     <div style="position:absolute;left:50%;bottom:-30px;transform:translateX(-50%);width:min(1200px,120vw);height:220px;pointer-events:none;background:radial-gradient(ellipse at 50% 100%, var(--wash,rgba(212,85,61,.14)) 0%, transparent 70%)"></div>
   </div>
 
-  <section id="daysout" ref="{{ darkRef }}" style="position:relative;background:#0B0B0C;color:#fff;padding:clamp(80px,9vw,140px) clamp(18px,3vw,28px) clamp(80px,9vw,130px);overflow:clip;border-radius:clamp(26px,3.4vw,48px);box-shadow:0 -34px 70px -44px rgba(11,11,12,.5), 0 34px 70px -44px rgba(11,11,12,.5)">
-    <div ref="{{ spotRef }}" style="position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .6s ease;background:radial-gradient(420px circle at 50% 40%, rgba(255,255,255,.07), transparent 70%)"></div>
+  <section id="daysout" style="position:relative;background:#0B0B0C;color:#fff;padding:clamp(80px,9vw,140px) clamp(18px,3vw,28px) clamp(80px,9vw,130px);overflow:clip;border-radius:clamp(26px,3.4vw,48px);box-shadow:0 -34px 70px -44px rgba(11,11,12,.5), 0 34px 70px -44px rgba(11,11,12,.5)">
+    <div style="position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .6s ease;background:radial-gradient(420px circle at 50% 40%, rgba(255,255,255,.07), transparent 70%)"></div>
     <div style="position:absolute;top:0;left:0;right:0;height:280px;pointer-events:none;background:linear-gradient(to bottom, rgba(255,255,255,.09) 0%, rgba(255,255,255,.028) 34%, transparent 100%)"></div>
     <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:min(900px,86vw);height:2px;pointer-events:none;background:linear-gradient(to right, transparent, rgba(255,255,255,.22) 22%, rgba(255,255,255,.34) 50%, rgba(255,255,255,.22) 78%, transparent)"></div>
     <div style="position:absolute;bottom:0;left:0;right:0;height:280px;pointer-events:none;background:linear-gradient(to top, rgba(255,255,255,.09) 0%, rgba(255,255,255,.028) 34%, transparent 100%)"></div>
@@ -205,7 +232,7 @@
     <div style="position:relative;max-width:1180px;margin:0 auto;text-align:center">
       <div data-fade="" style="display:inline-flex;align-items:center;gap:16px">
         <div data-img="" style="width:52px;height:52px;border-radius:14px;overflow:hidden;box-shadow:0 14px 30px -12px rgba(0,0,0,.8)">
-          <image-slot id="v3-icon" src="{{ dsIcon }}" shape="rect" placeholder="Icon"></image-slot>
+          <image-slot id="v3-icon" src="assets/daysout-icon.webp" shape="rect" placeholder="Icon"></image-slot>
         </div>
         <div style="text-align:left">
           <div style="font-size:16px;font-weight:700;letter-spacing:-.02em">Daysout</div>
@@ -219,26 +246,39 @@
         <span style="position:relative">Download on the App Store</span><span style="position:relative;font-size:16px;line-height:1">›</span></a>
     </div>
 
-    <div data-shots="" ref="{{ heroDeviceRef }}" style="position:relative;max-width:1180px;margin:clamp(48px,6vw,88px) auto 0;display:flex;align-items:flex-end;justify-content:center;gap:clamp(10px,1.6vw,26px);transform-origin:50% 100%">
+    <div data-shots="" style="position:relative;max-width:1180px;margin:clamp(48px,6vw,88px) auto 0;display:flex;align-items:flex-end;justify-content:center;gap:clamp(10px,1.6vw,26px);transform-origin:50% 100%">
       <div data-img="" style="width:clamp(112px,14vw,196px);aspect-ratio:460/998;border-radius:clamp(12px,1.4vw,20px);overflow:hidden;box-shadow:0 34px 66px -26px rgba(0,0,0,.85), 0 0 0 1px rgba(255,255,255,.07);margin-bottom:clamp(14px,2vw,34px)">
-        <image-slot id="v3-shot-2" src="{{ dsShot2 }}" shape="rect" placeholder="Screenshot"></image-slot>
+        <image-slot id="v3-shot-2" src="assets/daysout-2.webp" shape="rect" placeholder="Screenshot"></image-slot>
       </div>
       <div data-img="" style="width:clamp(150px,18.5vw,262px);aspect-ratio:460/998;border-radius:clamp(16px,1.8vw,26px);overflow:hidden;box-shadow:0 52px 96px -30px rgba(0,0,0,.95), 0 0 0 1px rgba(255,255,255,.09)">
-        <image-slot id="v3-shot-1" src="{{ dsShot1 }}" shape="rect" placeholder="Screenshot"></image-slot>
+        <image-slot id="v3-shot-1" src="assets/daysout-1.webp" shape="rect" placeholder="Screenshot"></image-slot>
       </div>
       <div data-img="" style="width:clamp(112px,14vw,196px);aspect-ratio:460/998;border-radius:clamp(12px,1.4vw,20px);overflow:hidden;box-shadow:0 34px 66px -26px rgba(0,0,0,.85), 0 0 0 1px rgba(255,255,255,.07);margin-bottom:clamp(14px,2vw,34px)">
-        <image-slot id="v3-shot-3" src="{{ dsShot3 }}" shape="rect" placeholder="Screenshot"></image-slot>
+        <image-slot id="v3-shot-3" src="assets/daysout-3.webp" shape="rect" placeholder="Screenshot"></image-slot>
       </div>
     </div>
 
     <div data-featgrid="" style="position:relative;max-width:1180px;margin:clamp(48px,6vw,90px) auto 0;display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(12px,1.4vw,20px)">
-      <sc-for list="{{ features }}" as="f" hint-placeholder-count="4">
-        <div data-feat="" style="padding:clamp(24px,2.6vw,36px);border-radius:24px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08);transition:background .55s ease, border-color .55s ease, transform .55s cubic-bezier(.22,1,.36,1)">
-          <div style="font-size:11.5px;font-weight:700;letter-spacing:.1em;color:var(--accLight,#FF8064)">{{ f.n }}</div>
-          <h3 style="margin:14px 0 0;font-size:clamp(20px,2.1vw,27px);font-weight:700;letter-spacing:-.03em">{{ f.title }}</h3>
-          <p style="margin:10px 0 0;font-size:15.5px;line-height:1.55;color:rgba(255,255,255,.56);max-width:38ch;text-wrap:pretty">{{ f.body }}</p>
-        </div>
-      </sc-for>
+      <div data-feat="" style="padding:clamp(24px,2.6vw,36px);border-radius:24px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08);transition:background .55s ease, border-color .55s ease, transform .55s cubic-bezier(.22,1,.36,1)">
+        <div style="font-size:11.5px;font-weight:700;letter-spacing:.1em;color:var(--accLight,#FF8064)">01</div>
+        <h3 style="margin:14px 0 0;font-size:clamp(20px,2.1vw,27px);font-weight:700;letter-spacing:-.03em">Found in your photos</h3>
+        <p style="margin:10px 0 0;font-size:15.5px;line-height:1.55;color:rgba(255,255,255,.56);max-width:38ch;text-wrap:pretty">Scan the camera roll and years of events land on the map, already labelled.</p>
+      </div>
+      <div data-feat="" style="padding:clamp(24px,2.6vw,36px);border-radius:24px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08);transition:background .55s ease, border-color .55s ease, transform .55s cubic-bezier(.22,1,.36,1)">
+        <div style="font-size:11.5px;font-weight:700;letter-spacing:.1em;color:var(--accLight,#FF8064)">02</div>
+        <h3 style="margin:14px 0 0;font-size:clamp(20px,2.1vw,27px);font-weight:700;letter-spacing:-.03em">Two taps tonight</h3>
+        <p style="margin:10px 0 0;font-size:15.5px;line-height:1.55;color:rgba(255,255,255,.56);max-width:38ch;text-wrap:pretty">Capture the game or the gig while you’re still standing in it.</p>
+      </div>
+      <div data-feat="" style="padding:clamp(24px,2.6vw,36px);border-radius:24px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08);transition:background .55s ease, border-color .55s ease, transform .55s cubic-bezier(.22,1,.36,1)">
+        <div style="font-size:11.5px;font-weight:700;letter-spacing:.1em;color:var(--accLight,#FF8064)">03</div>
+        <h3 style="margin:14px 0 0;font-size:clamp(20px,2.1vw,27px);font-weight:700;letter-spacing:-.03em">Your season, wrapped</h3>
+        <p style="margin:10px 0 0;font-size:15.5px;line-height:1.55;color:rgba(255,255,255,.56);max-width:38ch;text-wrap:pretty">Grounds, away miles, matches, gigs — and what it all cost.</p>
+      </div>
+      <div data-feat="" style="padding:clamp(24px,2.6vw,36px);border-radius:24px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08);transition:background .55s ease, border-color .55s ease, transform .55s cubic-bezier(.22,1,.36,1)">
+        <div style="font-size:11.5px;font-weight:700;letter-spacing:.1em;color:var(--accLight,#FF8064)">04</div>
+        <h3 style="margin:14px 0 0;font-size:clamp(20px,2.1vw,27px);font-weight:700;letter-spacing:-.03em">Shared albums</h3>
+        <p style="margin:10px 0 0;font-size:15.5px;line-height:1.55;color:rgba(255,255,255,.56);max-width:38ch;text-wrap:pretty">One album for everyone who was there with you.</p>
+      </div>
     </div>
   </section>
 
@@ -246,63 +286,13 @@
     
   </div>
 
-  <section id="work" style="background:linear-gradient(to bottom, #F4F4F7 0%, #F4F4F7 86%, #F8F8FA 94%, #FFFFFF 100%);padding:clamp(40px,5vw,70px) clamp(18px,3vw,28px) clamp(80px,9vw,140px)">
+  <section id="about" style="background:linear-gradient(to bottom, #F4F4F7 0%, #F4F4F7 86%, #F8F8FA 94%, #FFFFFF 100%);padding:clamp(40px,5vw,70px) clamp(18px,3vw,28px) clamp(80px,9vw,140px)">
     <div style="max-width:1180px;margin:0 auto;text-align:center">
-      <h2 data-split="" style="margin:0 auto;max-width:20ch;font-weight:800;font-size:clamp(2.2rem,5.6vw,4.8rem);line-height:1;letter-spacing:-.042em">Design. Engineering. Ownership.</h2>
-      <p data-fade="" data-delay="140" style="margin:clamp(18px,2vw,26px) auto 0;max-width:50ch;font-size:clamp(16px,1.35vw,19.5px);line-height:1.55;color:rgba(11,11,12,.58);text-wrap:pretty">We take on a small number of outside projects — a design system, an app, or the whole thing from idea to App Store.</p>
-    </div>
-
-    <div data-grid="" style="max-width:1180px;margin:clamp(40px,4.6vw,70px) auto 0;display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(12px,1.4vw,20px)">
-      <div data-tile="" data-col="1 / span 3" style="grid-column:1 / span 3;padding:clamp(28px,3vw,44px);border-radius:30px;background:var(--acc,#D4553D);color:#fff;min-height:clamp(280px,26vw,360px);display:flex;flex-direction:column;justify-content:space-between;transition:transform .6s cubic-bezier(.22,1,.36,1), box-shadow .6s" style-hover="transform:translateY(-5px);box-shadow:0 30px 60px -26px var(--wash,rgba(212,85,61,.6))">
-        <div style="font-size:12px;font-weight:700;letter-spacing:.1em;opacity:.7">01 — DESIGN</div>
-        <div>
-          <h3 style="margin:0;font-size:clamp(26px,3vw,40px);font-weight:800;letter-spacing:-.035em;line-height:1.04">Interfaces that feel expensive.</h3>
-          <p style="margin:14px 0 0;max-width:32ch;font-size:15.5px;line-height:1.55;color:rgba(255,255,255,.8)">Product design, brand and design systems — the detail that makes people trust an app in the first five seconds.</p>
-          <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:8px">
-            <sc-for list="{{ designTags }}" as="t" hint-placeholder-count="3">
-              <span style="padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.18);font-size:12px;font-weight:600">{{ t }}</span>
-            </sc-for>
-          </div>
-        </div>
-      </div>
-
-      <div data-tile="" data-col="4 / span 3" style="grid-column:4 / span 3;padding:clamp(28px,3vw,44px);border-radius:30px;background:#fff;min-height:clamp(280px,26vw,360px);display:flex;flex-direction:column;justify-content:space-between;transition:transform .6s cubic-bezier(.22,1,.36,1), box-shadow .6s" style-hover="transform:translateY(-5px);box-shadow:0 30px 60px -30px rgba(11,11,12,.28)">
-        <div style="font-size:12px;font-weight:700;letter-spacing:.1em;color:rgba(11,11,12,.4)">02 — ENGINEERING</div>
-        <div>
-          <h3 style="margin:0;font-size:clamp(26px,3vw,40px);font-weight:800;letter-spacing:-.035em;line-height:1.04">Built to hold up.</h3>
-          <p style="margin:14px 0 0;max-width:32ch;font-size:15.5px;line-height:1.55;color:rgba(11,11,12,.56)">iOS and web on architecture that survives real users. Handed over clean, or kept on retainer.</p>
-          <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:8px">
-            <sc-for list="{{ engTags }}" as="t" hint-placeholder-count="3">
-              <span style="padding:6px 12px;border-radius:999px;background:rgba(11,11,12,.06);font-size:12px;font-weight:600;color:rgba(11,11,12,.66)">{{ t }}</span>
-            </sc-for>
-          </div>
-        </div>
-      </div>
-
-      <div data-tile="" data-col="1 / span 2" style="grid-column:1 / span 2;padding:clamp(26px,2.6vw,36px);border-radius:30px;background:#0B0B0C;color:#fff;display:flex;flex-direction:column;justify-content:space-between;min-height:clamp(200px,18vw,250px);transition:transform .6s cubic-bezier(.22,1,.36,1)" style-hover="transform:translateY(-5px)">
-        <div style="font-size:12px;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.45)">03 — VENTURE BUILD</div>
-        <div>
-          <h3 style="margin:0;font-size:clamp(22px,2.3vw,30px);font-weight:800;letter-spacing:-.03em;line-height:1.06">Idea, no team.</h3>
-          <p style="margin:12px 0 0;font-size:15px;line-height:1.55;color:rgba(255,255,255,.6)">Napkin to App Store — for a fee, for equity, or both.</p>
-        </div>
-      </div>
-
-      <div data-tile="" data-col="3 / span 4" style="grid-column:3 / span 4;padding:clamp(26px,2.6vw,36px);border-radius:30px;background:#fff;transition:transform .6s cubic-bezier(.22,1,.36,1), box-shadow .6s" style-hover="transform:translateY(-5px);box-shadow:0 30px 60px -30px rgba(11,11,12,.24)">
-        <div style="font-size:12px;font-weight:700;letter-spacing:.1em;color:rgba(11,11,12,.4)">HOW IT GOES</div>
-        <div data-grid2="" style="margin-top:26px;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.6vw,24px)">
-          <sc-for list="{{ process }}" as="p" hint-placeholder-count="4">
-            <div>
-              <div style="font-size:13px;font-weight:700;color:var(--acc,#D4553D)">{{ p.n }}</div>
-              <div style="margin-top:10px;font-size:16.5px;font-weight:700;letter-spacing:-.02em">{{ p.title }}</div>
-              <div style="margin-top:6px;font-size:13.5px;line-height:1.5;color:rgba(11,11,12,.52)">{{ p.body }}</div>
-            </div>
-          </sc-for>
-        </div>
-      </div>
+      <h2 data-split="" style="margin:0 auto;max-width:20ch;font-weight:800;font-size:clamp(2.2rem,5.6vw,4.8rem);line-height:1;letter-spacing:-.042em">About Lumira Labs.</h2>
+      <p data-fade="" data-delay="140" style="margin:clamp(18px,2vw,26px) auto 0;max-width:50ch;font-size:clamp(16px,1.35vw,19.5px);line-height:1.55;color:rgba(11,11,12,.58);text-wrap:pretty">Lumira Labs Ltd is a London company, started on 7 April 2026 by Sukhpinder Ubhi and Nikolaos Efthymiopoulos. We’re developers who write all our own code, design our own apps and run them ourselves, with Claude at the base of how we build. Daysout, a log of the football matches and gigs you’ve been to, is the first one out. More are in development.</p>
     </div>
   </section>
 
-  <sc-if value="{{ showPipeline }}" hint-placeholder-val="{{ true }}">
   <section id="pipeline" style="padding:clamp(30px,3.6vw,52px) clamp(18px,3vw,28px)">
     <div style="max-width:1180px;margin:0 auto;padding:clamp(44px,5.4vw,86px) clamp(22px,3.4vw,60px);border-radius:clamp(28px,3.2vw,44px);background:linear-gradient(to bottom, #FDFDFE 0%, #F6F6F8 100%);box-shadow:inset 0 0 0 1px rgba(11,11,12,.07), 0 24px 60px -40px rgba(11,11,12,.22)">
       <div style="text-align:center">
@@ -310,98 +300,61 @@
         <p data-fade="" data-delay="140" style="margin:clamp(16px,1.8vw,24px) auto 0;max-width:44ch;font-size:clamp(16px,1.35vw,19px);line-height:1.55;color:rgba(11,11,12,.56)">Next out of the studio. The list hears first.</p>
       </div>
       <div style="margin-top:clamp(36px,4vw,64px);border-top:1px solid rgba(11,11,12,.1)">
-        <sc-for list="{{ pipeline }}" as="p" hint-placeholder-count="1">
-          <div data-lift="" data-row="" style="display:flex;align-items:center;gap:clamp(14px,2.4vw,40px);padding:clamp(20px,2.2vw,30px) clamp(6px,1vw,14px);border-bottom:1px solid rgba(11,11,12,.1);transition:padding-left .5s cubic-bezier(.22,1,.36,1), background .4s" style-hover="padding-left:26px;background:rgba(11,11,12,.025)">
-            <span style="flex:none;width:44px;font-size:13px;font-weight:700;color:rgba(11,11,12,.34)">{{ p.n }}</span>
-            <span style="flex:1;min-width:0;font-size:clamp(20px,2.4vw,31px);font-weight:800;letter-spacing:-.032em">{{ p.title }}</span>
-            <span style="flex:0 1 320px;font-size:14.5px;line-height:1.5;color:rgba(11,11,12,.52)">{{ p.body }}</span>
-            <span style="flex:none;padding:6px 13px;border-radius:999px;background:rgba(11,11,12,.06);font-size:12px;font-weight:600;color:rgba(11,11,12,.6)">{{ p.tag }}</span>
-          </div>
-        </sc-for>
+        <div data-lift="" data-row="" style="display:flex;align-items:center;gap:clamp(14px,2.4vw,40px);padding:clamp(20px,2.2vw,30px) clamp(6px,1vw,14px);border-bottom:1px solid rgba(11,11,12,.1);transition:padding-left .5s cubic-bezier(.22,1,.36,1), background .4s" style-hover="padding-left:26px;background:rgba(11,11,12,.025)">
+          <span style="flex:none;width:44px;font-size:13px;font-weight:700;color:rgba(11,11,12,.34)">002</span>
+          <span style="flex:1;min-width:0;font-size:clamp(20px,2.4vw,31px);font-weight:800;letter-spacing:-.032em">Project Atlas</span>
+          <span style="flex:0 1 320px;font-size:14.5px;line-height:1.5;color:rgba(11,11,12,.52)">Something big. If you’re on the list, you hear first.</span>
+          <span style="flex:none;padding:6px 13px;border-radius:999px;background:rgba(11,11,12,.06);font-size:12px;font-weight:600;color:rgba(11,11,12,.6)">Stealth</span>
+        </div>
       </div>
       <div data-fade="" style="text-align:center;margin-top:clamp(30px,3.4vw,48px)">
         <a href="mailto:hello@lumiralabs.co.uk?subject=Add%20me%20to%20the%20Lumira%20list" style="display:inline-flex;align-items:center;gap:7px;font-size:15px;font-weight:600;color:var(--acc,#D4553D);transition:gap .35s" style-hover="gap:13px">Join the list <span style="font-size:17px;line-height:1">›</span></a>
       </div>
     </div>
   </section>
-  </sc-if>
 
-  <sc-if value="{{ showFounders }}" hint-placeholder-val="{{ true }}">
   <section id="team" style="padding:clamp(30px,3.6vw,52px) clamp(18px,3vw,28px)">
     <div style="max-width:1180px;margin:0 auto;padding:clamp(44px,5.4vw,86px) clamp(22px,3.4vw,60px);border-radius:clamp(28px,3.2vw,44px);background:linear-gradient(to bottom, #FDFDFE 0%, #F6F6F8 100%);box-shadow:inset 0 0 0 1px rgba(11,11,12,.07), 0 24px 60px -40px rgba(11,11,12,.22)">
       <div style="text-align:center">
         <h2 data-split="" style="margin:0;font-weight:800;font-size:clamp(2.2rem,5.6vw,4.8rem);line-height:1;letter-spacing:-.042em">Two founders. No layers.</h2>
-        <p data-fade="" data-delay="140" style="margin:clamp(16px,1.8vw,24px) auto 0;max-width:46ch;font-size:clamp(16px,1.35vw,19px);line-height:1.55;color:rgba(11,11,12,.56)">You talk to the people building it. J.P. Morgan alumni, based in London.</p>
+        <p data-fade="" data-delay="140" style="margin:clamp(16px,1.8vw,24px) auto 0;max-width:46ch;font-size:clamp(16px,1.35vw,19px);line-height:1.55;color:rgba(11,11,12,.56)">We’re both degree apprentices at J.P. Morgan, a programme that takes around the top 1% of applicants. We build Lumira Labs alongside it, in London.</p>
       </div>
       <div style="margin-top:clamp(36px,4vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(14px,1.6vw,24px)">
-        <sc-for list="{{ founders }}" as="f" hint-placeholder-count="2">
-          <div data-tile="" style="border-radius:30px;background:#fff;overflow:hidden;box-shadow:0 12px 30px -22px rgba(11,11,12,.18);transition:transform .6s cubic-bezier(.22,1,.36,1), box-shadow .6s" style-hover="transform:translateY(-5px);box-shadow:0 34px 70px -32px rgba(11,11,12,.3)">
-            <div style="position:relative;width:100%;aspect-ratio:4/5;background:#E7E7EC">
-              <image-slot id="{{ f.slot }}" src="{{ f.src }}" shape="rect" placeholder="{{ f.ph }}"></image-slot>
-              <div style="position:absolute;left:0;right:0;bottom:0;height:62%;background:linear-gradient(to top, rgba(11,11,12,.88) 0%, rgba(11,11,12,.42) 48%, transparent 100%);pointer-events:none"></div>
-              <div style="position:absolute;left:clamp(22px,2.2vw,32px);right:clamp(22px,2.2vw,32px);bottom:clamp(20px,2.2vw,30px);pointer-events:none">
-                <div style="font-size:11px;font-weight:700;letter-spacing:.14em;color:rgba(255,255,255,.6)">{{ f.role }}</div>
-                <div style="margin-top:8px;font-size:clamp(23px,2.3vw,31px);font-weight:800;letter-spacing:-.035em;line-height:1.04;color:#fff">{{ f.name }}</div>
-              </div>
-            </div>
-            <div style="padding:clamp(26px,2.6vw,38px)">
-              <div style="font-size:clamp(17px,1.65vw,21.5px);font-weight:700;letter-spacing:-.028em;line-height:1.32;text-wrap:pretty">{{ f.line }}</div>
-              <p style="margin:15px 0 0;font-size:15px;line-height:1.62;color:rgba(11,11,12,.55);text-wrap:pretty">{{ f.bio }}</p>
-              <div style="margin-top:clamp(22px,2.2vw,30px);padding-top:18px;border-top:1px solid rgba(11,11,12,.09);display:flex;align-items:center;justify-content:space-between;gap:14px">
-                <span style="font-size:12.5px;font-weight:600;letter-spacing:-.005em;color:rgba(11,11,12,.42)">{{ f.prev }}</span>
-                <a href="{{ f.mail }}" style="display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:4px 0;font-size:13.5px;font-weight:600;color:var(--acc,#D4553D);transition:gap .35s" style-hover="gap:11px">Get in touch <span style="font-size:15px;line-height:1">›</span></a>
-              </div>
+        <div data-tile="" style="border-radius:30px;background:#fff;overflow:hidden;box-shadow:0 12px 30px -22px rgba(11,11,12,.18);transition:transform .6s cubic-bezier(.22,1,.36,1), box-shadow .6s" style-hover="transform:translateY(-5px);box-shadow:0 34px 70px -32px rgba(11,11,12,.3)">
+          <div style="position:relative;width:100%;aspect-ratio:4/5;background:#E7E7EC">
+            <image-slot id="v3-founder-su" src="assets/founder-su-crop.webp" shape="rect" placeholder="Drop Sukhpinder’s photo"></image-slot>
+            <div style="position:absolute;left:0;right:0;bottom:0;height:62%;background:linear-gradient(to top, rgba(11,11,12,.88) 0%, rgba(11,11,12,.42) 48%, transparent 100%);pointer-events:none"></div>
+            <div style="position:absolute;left:clamp(22px,2.2vw,32px);right:clamp(22px,2.2vw,32px);bottom:clamp(20px,2.2vw,30px);pointer-events:none">
+              <div style="font-size:11px;font-weight:700;letter-spacing:.14em;color:rgba(255,255,255,.6)">CO-FOUNDER</div>
+              <div style="margin-top:8px;font-size:clamp(23px,2.3vw,31px);font-weight:800;letter-spacing:-.035em;line-height:1.04;color:#fff">Sukhpinder Ubhi</div>
             </div>
           </div>
-        </sc-for>
-      </div>
-    </div>
-  </section>
-  </sc-if>
-
-  <section id="pricing" style="position:relative;padding:clamp(30px,3.6vw,52px) clamp(18px,3vw,28px) clamp(40px,5vw,70px);overflow:clip">
-    <div style="max-width:1180px;margin:0 auto;padding:clamp(44px,5.4vw,86px) clamp(22px,3.4vw,60px);border-radius:clamp(28px,3.2vw,44px);background:linear-gradient(to bottom, #FDFDFE 0%, #F6F6F8 100%);box-shadow:inset 0 0 0 1px rgba(11,11,12,.07), 0 24px 60px -40px rgba(11,11,12,.22)">
-      <div style="text-align:center">
-        <h2 data-split="" style="margin:0 auto;max-width:22ch;font-weight:800;font-size:clamp(2.2rem,5.6vw,4.8rem);line-height:1;letter-spacing:-.042em">Two ways to work with us.</h2>
-        <p data-fade="" data-delay="140" style="margin:clamp(16px,1.8vw,24px) auto 0;max-width:46ch;font-size:clamp(16px,1.35vw,19px);line-height:1.55;color:rgba(11,11,12,.56);text-wrap:pretty">A defined build with a fixed scope, or design capacity on tap every month.</p>
-      </div>
-
-      <div data-price="" style="margin-top:clamp(36px,4vw,60px);display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,1.6vw,22px);align-items:stretch">
-        
-
-        <div data-tile="" style="display:flex;flex-direction:column;padding:clamp(28px,3vw,44px);border-radius:30px;background:#fff;box-shadow:inset 0 0 0 1px rgba(11,11,12,.06), 0 12px 30px -22px rgba(11,11,12,.18);transition:transform .6s cubic-bezier(.22,1,.36,1), box-shadow .6s" style-hover="transform:translateY(-5px);box-shadow:inset 0 0 0 1px rgba(11,11,12,.08), 0 30px 60px -30px rgba(11,11,12,.24)">
-          <div style="font-size:12px;font-weight:700;letter-spacing:.1em;color:rgba(11,11,12,.4)">ONE OFF PROJECT</div>
-          <div style="margin-top:clamp(18px,2vw,26px);display:flex;align-items:baseline;gap:10px">
-            <span style="font-size:clamp(34px,4vw,54px);font-weight:800;letter-spacing:-.04em;line-height:1">Let's talk</span>
+          <div style="padding:clamp(26px,2.6vw,38px)">
+            <div style="font-size:clamp(17px,1.65vw,21.5px);font-weight:700;letter-spacing:-.028em;line-height:1.32;text-wrap:pretty">Owns the product and the brand - from first sketch to the App Store listing.</div>
+            <p style="margin:15px 0 0;font-size:15px;line-height:1.62;color:rgba(11,11,12,.55);text-wrap:pretty">Sets creative direction, positioning and growth. Decides what gets built, what gets cut, and how it should feel in the hand.</p>
+            <div style="margin-top:clamp(22px,2.2vw,30px);padding-top:18px;border-top:1px solid rgba(11,11,12,.09);display:flex;align-items:center;justify-content:space-between;gap:14px">
+              <span style="font-size:12.5px;font-weight:600;letter-spacing:-.005em;color:rgba(11,11,12,.42)">J.P. Morgan degree apprentice</span>
+              <a href="mailto:hello@lumiralabs.co.uk?subject=For%20Sukhpinder" style="display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:4px 0;font-size:13.5px;font-weight:600;color:var(--acc,#D4553D);transition:gap .35s" style-hover="gap:11px">Get in touch <span style="font-size:15px;line-height:1">›</span></a>
+            </div>
           </div>
-          <p style="margin:12px 0 0;font-size:15.5px;line-height:1.55;color:rgba(11,11,12,.56);max-width:34ch;text-wrap:pretty">Scoped and quoted per project. Best when you know what you need built.</p>
-          <div style="margin-top:clamp(22px,2.4vw,32px);display:flex;flex-direction:column;gap:13px">
-            <sc-for list="{{ oneOff }}" as="i" hint-placeholder-count="4">
-              <div style="display:flex;align-items:flex-start;gap:11px;font-size:15px;line-height:1.45;color:rgba(11,11,12,.72)">
-                <span style="flex:none;margin-top:3px;width:16px;height:16px;border-radius:50%;background:rgba(11,11,12,.06);color:rgba(11,11,12,.6);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800">✓</span>{{ i }}
-              </div>
-            </sc-for>
-          </div><a href="https://calendly.com/lumiralabsltd/15-minute-meeting" target="_blank" rel="noopener" onClick="{{ book }}" style="margin-top: clamp(26px,3vw,38px); display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 15px 26px; border-radius: 999px; background: #0B0B0C; color: #fff; font-size: 15px; font-weight: 600; letter-spacing: -.015em; transition: transform .4s cubic-bezier(.22,1,.36,1), background .35s; padding-top: 15px; padding-bottom: 15px" style-hover="transform:translateY(-2px);color:#fff;background:var(--acc,#D4553D)">Book a 15 min call<br><span style="font-size: 16px; line-height: 1;">›</span></a>
-          
-        </div><div data-tile="" style="position: relative; display: flex; flex-direction: column; padding: clamp(28px,3vw,44px); border-radius: 30px; color: #fff; overflow: hidden; transition: transform .6s cubic-bezier(.22,1,.36,1), box-shadow .6s; background-color: #4D4DD3" style-hover="transform:translateY(-5px);box-shadow:0 34px 70px -32px rgba(11,11,12,.5)">
-          <div style="position:absolute;top:-40%;right:-20%;width:520px;height:520px;border-radius:50%;pointer-events:none;background:radial-gradient(circle, var(--wash,rgba(212,85,61,.14)) 0%, transparent 62%)"></div>
-          <div style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px">
-            <div style="font-size:12px;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.5)">MONTHLY RETAINER</div>
-            <span style="padding: 5px 11px; border-radius: 999px; background: rgba(255,255,255,.1); font-size: 11px; font-weight: 700; letter-spacing: .06em; color: #EDEDED">MOST POPULAR</span>
+        </div>
+        <div data-tile="" style="border-radius:30px;background:#fff;overflow:hidden;box-shadow:0 12px 30px -22px rgba(11,11,12,.18);transition:transform .6s cubic-bezier(.22,1,.36,1), box-shadow .6s" style-hover="transform:translateY(-5px);box-shadow:0 34px 70px -32px rgba(11,11,12,.3)">
+          <div style="position:relative;width:100%;aspect-ratio:4/5;background:#E7E7EC">
+            <image-slot id="v3-founder-ne" src="assets/founder-ne-crop.webp" shape="rect" placeholder="Drop Nikolaos’ photo"></image-slot>
+            <div style="position:absolute;left:0;right:0;bottom:0;height:62%;background:linear-gradient(to top, rgba(11,11,12,.88) 0%, rgba(11,11,12,.42) 48%, transparent 100%);pointer-events:none"></div>
+            <div style="position:absolute;left:clamp(22px,2.2vw,32px);right:clamp(22px,2.2vw,32px);bottom:clamp(20px,2.2vw,30px);pointer-events:none">
+              <div style="font-size:11px;font-weight:700;letter-spacing:.14em;color:rgba(255,255,255,.6)">CO-FOUNDER</div>
+              <div style="margin-top:8px;font-size:clamp(23px,2.3vw,31px);font-weight:800;letter-spacing:-.035em;line-height:1.04;color:#fff">Nikolaos Efthymiopoulos</div>
+            </div>
           </div>
-          <div style="position:relative;margin-top:clamp(18px,2vw,26px);display:flex;align-items:baseline;gap:9px">
-            <span style="font-size:clamp(34px,4vw,54px);font-weight:800;letter-spacing:-.04em;line-height:1">£1,150</span>
-            <span style="font-size:15px;font-weight:600;color:rgba(255,255,255,.5)">/ month</span>
+          <div style="padding:clamp(26px,2.6vw,38px)">
+            <div style="font-size:clamp(17px,1.65vw,21.5px);font-weight:700;letter-spacing:-.028em;line-height:1.32;text-wrap:pretty">Owns the engineering - architecture that still holds at ten thousand users.</div>
+            <p style="margin:15px 0 0;font-size:15px;line-height:1.62;color:rgba(11,11,12,.55);text-wrap:pretty">Builds the systems behind every release: iOS, backend and infrastructure, shipped on a weekly cadence with no shortcuts left behind.</p>
+            <div style="margin-top:clamp(22px,2.2vw,30px);padding-top:18px;border-top:1px solid rgba(11,11,12,.09);display:flex;align-items:center;justify-content:space-between;gap:14px">
+              <span style="font-size:12.5px;font-weight:600;letter-spacing:-.005em;color:rgba(11,11,12,.42)">J.P. Morgan degree apprentice</span>
+              <a href="mailto:hello@lumiralabs.co.uk?subject=For%20Nikolaos" style="display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:4px 0;font-size:13.5px;font-weight:600;color:var(--acc,#D4553D);transition:gap .35s" style-hover="gap:11px">Get in touch <span style="font-size:15px;line-height:1">›</span></a>
+            </div>
           </div>
-          <p style="position:relative;margin:12px 0 0;font-size:15.5px;line-height:1.55;color:rgba(255,255,255,.58);max-width:34ch;text-wrap:pretty">Ongoing design and build capacity. Pause or cancel whenever you like.</p>
-          <div style="position:relative;margin-top:clamp(22px,2.4vw,32px);display:flex;flex-direction:column;gap:13px">
-            <sc-for list="{{ retainer }}" as="i" hint-placeholder-count="4">
-              <div style="display:flex;align-items:flex-start;gap:11px;font-size:15px;line-height:1.45;color:rgba(255,255,255,.82)">
-                <span style="flex:none;margin-top:3px;width:16px;height:16px;border-radius:50%;background:rgba(255,255,255,.12);color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800">✓</span>{{ i }}
-              </div>
-            </sc-for>
-          </div><a href="https://calendly.com/lumiralabsltd/15-minute-meeting" target="_blank" rel="noopener" onClick="{{ book }}" style="position:relative;margin-top:clamp(26px,3vw,38px);display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 26px;border-radius:999px;overflow:hidden;background:rgba(255,255,255,.14);backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%);box-shadow:inset 0 1px 0 rgba(255,255,255,.55), inset 0 0 0 1px rgba(255,255,255,.22), 0 14px 30px -16px rgba(0,0,0,.7);color:#fff;font-size:15px;font-weight:600;letter-spacing:-.015em;transition:transform .4s cubic-bezier(.22,1,.36,1), background .4s" style-hover="transform:translateY(-2px);color:#fff;background:rgba(255,255,255,.22)">Book a 15 min call <span style="font-size:16px;line-height:1">›</span></a>
-          
         </div>
       </div>
     </div>
@@ -410,8 +363,8 @@
   <section id="contact" style="position:relative;padding:clamp(96px,11vw,170px) clamp(18px,3vw,28px);text-align:center;overflow:clip">
     <div style="position: absolute; bottom: -40%; left: 50%; transform: translateX(-50%); width: min(1100px,120vw); height: 620px; pointer-events: none"></div>
     <div style="position:relative;max-width:900px;margin:0 auto">
-      <h2 data-split="" style="margin:0;font-weight:800;font-size:clamp(2.5rem,7vw,6.2rem);line-height:.98;letter-spacing:-.045em">Let’s build something extraordinary.</h2>
-      <p data-fade="" data-delay="140" style="margin:clamp(18px,2vw,28px) auto 0;max-width:42ch;font-size:clamp(16px,1.4vw,20px);line-height:1.55;color:rgba(11,11,12,.58)">Partner, invest, or just send the idea you can’t stop thinking about.</p>
+      <h2 data-split="" style="margin:0;font-weight:800;font-size:clamp(2.5rem,7vw,6.2rem);line-height:.98;letter-spacing:-.045em">Say hello.</h2>
+      <p data-fade="" data-delay="140" style="margin:clamp(18px,2vw,28px) auto 0;max-width:42ch;font-size:clamp(16px,1.4vw,20px);line-height:1.55;color:rgba(11,11,12,.58)">Questions about our apps, feedback on Daysout, or anything else. Both founders read every email.</p>
       <a data-fade="" data-delay="220" href="mailto:hello@lumiralabs.co.uk" style="display:inline-flex;align-items:center;gap:9px;margin-top:clamp(26px,3vw,42px);padding:16px 30px;border-radius:999px;background:#0B0B0C;color:#fff;font-size:16px;font-weight:600;letter-spacing:-.015em;transition:transform .4s cubic-bezier(.22,1,.36,1), background .35s" style-hover="transform:translateY(-3px) scale(1.03);color:#fff;background:var(--acc,#D4553D)">hello@lumiralabs.co.uk</a>
     </div>
   </section>
@@ -425,9 +378,9 @@
         </svg>Lumira Labs
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:24px">
-        <span>London, UK</span>
+        <span>Lumira Labs Ltd · Registered in England and Wales · Company no. 17138788 · London, UK</span>
         <a href="mailto:hello@lumiralabs.co.uk">hello@lumiralabs.co.uk</a>
-        <span>© 2026 Lumira Labs</span>
+        <span>© 2026 Lumira Labs Ltd</span>
       </div>
     </div>
   </footer>
@@ -445,7 +398,26 @@ class Component extends DCLogic {
     this.queued = [];
   }
 
+  /* markup is static (readable without JS), so refs are resolved from the DOM */
+  bindRefs() {
+    const q = (sel) => document.querySelector(sel);
+    const map = {
+      rootRef: '[data-root]', navRef: 'header', navLinksRef: 'header nav',
+      heroDeviceRef: '[data-shots]', darkRef: '#daysout', spotRef: '#daysout > div',
+      waveRef: '[data-wave]', loaderRef: '[data-loader]'
+    };
+    Object.keys(map).forEach((k) => {
+      if (!this[k].current || !document.body.contains(this[k].current)) this[k].current = q(map[k]);
+    });
+    document.querySelectorAll('a[href^="https://calendly.com/"]').forEach((a) => {
+      if (a.__lumiraBook) return;
+      a.__lumiraBook = true;
+      a.addEventListener('click', (e) => this.book(e));
+    });
+  }
+
   componentDidMount() {
+    this.bindRefs();
     this.applyTheme();
     this.layout();
     this.split();
@@ -471,7 +443,7 @@ class Component extends DCLogic {
     [80, 300, 800, 1600, 2400].forEach((t) => setTimeout(() => { this.layout(); this.scan(); this.frameWork(); }, t));
   }
 
-  componentDidUpdate() { this.applyTheme(); this.layout(); }
+  componentDidUpdate() { this.bindRefs(); this.applyTheme(); this.layout(); }
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.onScroll, true);
@@ -944,42 +916,6 @@ class Component extends DCLogic {
     this.raf = requestAnimationFrame(() => this.tick());
   }
 
-  /* carousel slots — count, per-slot link and sunset flag come from Tweaks */
-  apps() {
-    const p = this.props;
-    let order = [];
-    if (typeof p.appOrder === 'string' && p.appOrder.trim()) {
-      p.appOrder.split(/[^0-9]+/).forEach((s) => {
-        const v = parseInt(s, 10);
-        if (v >= 1 && v <= 8 && order.indexOf(v) === -1) order.push(v);
-      });
-    }
-    /* the order list is authoritative; appCount only tops it up */
-    const n = Math.max(1, Math.min(8, parseInt(p.appCount, 10) || 4));
-    for (let i = 1; order.length < n && i <= 8; i++) if (order.indexOf(i) === -1) order.push(i);
-    const out = [];
-    order.forEach((i) => {
-      const raw = p['slot' + i + 'Url'];
-      const url = (typeof raw === 'string' && raw.trim()) ? raw.trim() : undefined;
-      out.push({
-        id: 'v3-app-' + i,
-        src: this.iconSrc(i),
-        dead: p['slot' + i + 'Dead'] === true,
-        url: url,
-        target: url ? '_blank' : undefined
-      });
-    });
-    return out;
-  }
-
-  /* slot art: real files first, so a published build never depends on editor state */
-  iconSrc(i) {
-    const res = window.__resources || {};
-    if (i === 1) return res.dsIcon || 'assets/daysout-icon.webp';
-    if (i <= 5) return res['app' + i] || 'assets/app-' + i + '.webp';
-    return '';
-  }
-
   /* Calendly popup, with the href as the no-JS fallback */
   book(e) {
     if (window.Calendly && window.Calendly.initPopupWidget) {
@@ -988,55 +924,9 @@ class Component extends DCLogic {
     }
   }
 
+  /* all content is written into the markup above; nothing is bound at render time */
   renderVals() {
-    const r = {};
-    ['rootRef','navRef','navLinksRef','heroDeviceRef','darkRef','spotRef','waveRef','loaderRef'].forEach((k) => { r[k] = this[k]; });
-    const p = this.props;
-    const res = window.__resources || {};
-    return Object.assign(r, {
-      dsIcon: res.dsIcon || 'assets/daysout-icon.webp',
-      dsShot1: res.dsShot1 || 'assets/daysout-1.webp',
-      dsShot2: res.dsShot2 || 'assets/daysout-2.webp',
-      dsShot3: res.dsShot3 || 'assets/daysout-3.webp',
-      book: (e) => this.book(e),
-      oneOff: ['Ad-hoc consultancy and design consultations', 'Custom illustrations, icons and brand assets', 'Fixed scope, fixed price, agreed up front', 'Handover of source files and code'],
-      retainer: ['Unlimited design requests', 'One request in progress at a time', 'Average 48-hour turnaround', 'Pause or cancel any month'],
-      showPipeline: p.showPipeline !== false,
-      showFounders: p.showFounders !== false,
-      ticker: ['Product design', 'iOS engineering', 'Design systems', 'Brand identity', 'Web apps', 'Venture build', 'London'],
-      appIcons: this.apps(),
-      features: [
-        { n: '01', title: 'Found in your photos', body: 'Scan the camera roll and years of events land on the map, already labelled.' },
-        { n: '02', title: 'Two taps tonight', body: 'Capture the game or the gig while you\u2019re still standing in it.' },
-        { n: '03', title: 'Your season, wrapped', body: 'Grounds, away miles, matches, gigs \u2014 and what it all cost.' },
-        { n: '04', title: 'Shared albums', body: 'One album for everyone who was there with you.' }
-      ],
-      designTags: ['UI / UX', 'Design systems', 'Branding'],
-      engTags: ['iOS apps', 'Web apps', 'Retainers'],
-      process: [
-        { n: '01', title: 'Scope', body: 'A week to define the smallest thing worth shipping.' },
-        { n: '02', title: 'Design', body: 'Flows, screens, a system to grow into.' },
-        { n: '03', title: 'Build', body: 'Weekly builds in your hands.' },
-        { n: '04', title: 'Ship', body: 'Submission, launch, iteration.' }
-      ],
-      pipeline: [
-        { n: '002', title: 'Project Atlas', body: 'Something big. If you\u2019re on the list, you hear first.', tag: 'Stealth' }
-      ],
-      founders: [
-        {
-          slot: 'v3-founder-su', src: res.founderSu || 'assets/founder-su-crop.webp', ph: 'Drop Sukhpinder\u2019s photo', name: 'Sukhpinder Ubhi', role: 'CO-FOUNDER',
-          line: 'Owns the product and the brand - from first sketch to the App Store listing.',
-          bio: 'Sets creative direction, positioning and growth. Decides what gets built, what gets cut, and how it should feel in the hand.',
-          prev: 'Previously J.P. Morgan', mail: 'mailto:hello@lumiralabs.co.uk?subject=For%20Sukhpinder'
-        },
-        {
-          slot: 'v3-founder-ne', src: res.founderNe || 'assets/founder-ne-crop.webp', ph: 'Drop Nikolaos\u2019 photo', name: 'Nikolaos Efthymiopoulos', role: 'CO-FOUNDER',
-          line: 'Owns the engineering - architecture that still holds at ten thousand users.',
-          bio: 'Builds the systems behind every release: iOS, backend and infrastructure, shipped on a weekly cadence with no shortcuts left behind.',
-          prev: 'Previously J.P. Morgan', mail: 'mailto:hello@lumiralabs.co.uk?subject=For%20Nikolaos'
-        }
-      ]
-    });
+    return {};
   }
 }
 
