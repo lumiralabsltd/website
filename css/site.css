@@ -79,7 +79,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* the measured page: two column guides run the full height, with a registration mark on every rule */
 .page { position: relative; overflow-x: clip; }  /* body's overflow goes to the viewport, which phones ignore; clip here */
-.page::before, .page::after { content: ""; position: absolute; top: 0; bottom: 0; width: 1px; background: var(--line); pointer-events: none; }
+.page::before, .page::after { content: none; }
 .page::before { left: max(var(--pad), calc(50% - var(--wrap) / 2)); }
 .page::after { right: max(var(--pad), calc(50% - var(--wrap) / 2)); }
 .rule { position: relative; height: 1px; background: var(--line); margin-bottom: 48px; }
@@ -149,6 +149,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 /* sections */
 .sec { position: relative; z-index: 1; padding: 0 0 var(--sec); }
 .sec .h2 { margin-bottom: 48px; }
+.rule { display: none; }
 #products .rule, #products .h2 { margin-bottom: 32px; }
 
 /* product cards */
@@ -164,8 +165,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 .panel {
   position: relative; overflow: hidden; border-radius: 16px; background-color: var(--panel);
-  background-image: linear-gradient(rgba(17, 19, 23, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(17, 19, 23, .05) 1px, transparent 1px);
-  background-size: 24px 24px; background-position: -1px -1px;
 }
 .panel figcaption { position: absolute; left: 16px; bottom: 12px; color: var(--ink-2); font-size: 10.5px; }
 
