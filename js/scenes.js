@@ -1,6 +1,6 @@
 /* Builds each 3D scene once. They are set up one at a time while the page is idle after load, so
    nothing has to compile in the middle of a scroll; a section that comes into view first jumps the queue. */
-import { webglOK, small, activity } from './kit.js?v=6';
+import { webglOK, small, activity } from './kit.js?v=7';
 
 if (webglOK()) {
   const jobs = [];
@@ -17,10 +17,10 @@ if (webglOK()) {
       jobs.push(j);
     });
   };
-  if (!small()) add('#pitch', () => import('./pitch.js?v=6'));   // phones and the pitch stay as images on small screens
-  if (!small()) add('.devices', () => import('./devices.js?v=6'));
-  add('#court', () => import('./court.js?v=6'));
-  add('#endmark', () => import('./mark.js?v=6'));
+  if (!small()) add('#pitch', () => import('./pitch.js?v=7'));   // phones and the pitch stay as images on small screens
+  if (!small()) add('.devices', () => import('./devices.js?v=7'));
+  add('#court', () => import('./court.js?v=7'));
+  add('#endmark', () => import('./mark.js?v=7'));
 
   const idle = () => new Promise((r) => (window.requestIdleCallback ? requestIdleCallback(() => r(), { timeout: 1200 }) : setTimeout(r, 250)));
   const wait = (ms) => new Promise((r) => setTimeout(r, ms));

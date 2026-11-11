@@ -1,7 +1,10 @@
 /* Lanyard badge physics. No rendering in here, so it can be tested on its own.
    Units are CSS pixels, y up. One Badge = an elastic strap (a chain of particles that only resists
    stretch) clipped to a rigid card (four corners, two apex particles for stiffness, one clip point).
-   Solver: XPBD with small substeps, one pass per substep, so momentum is kept through a drag and release. */
+   Solver: XPBD with small substeps, one pass per substep, so momentum is kept through a drag and release.
+
+   The strap never lets go. Pull it and it resists more the further it goes, up to `maxStretch`; let
+   go and it snaps back, losing most of its energy on the way like real elastic does. */
 
 const SUB = 6;            // substeps per fixed step
 const FIXED = 1 / 120;    // fixed step, seconds
@@ -26,9 +29,13 @@ export class Badge {
     this.rigid = [];
     this.give = o.give || 1.10;                            // how far the strap sits stretched under the card's weight
     this.zeta = o.zeta === undefined ? 0.34 : o.zeta;      // strap damping ratio: under 1 bounces, 1 would not
-    this.air = o.air === undefined ? 1.1 : o.air;          // card air drag, 1/s
-    this.acc = 0; this.state = 'gone'; this.free = false; this.age = 0;
-    this.grabW = null; this.tx = 0; this.ty = 0; this.ptx = 0; this.pty = 0;
+    this.air = o.air === undefined ? 1.35 : o.air;         // card air drag, 1/s
+    this.maxStretch = o.maxStretch || 1.7;                 // how far a hand can pull the strap, against its slack length
+    this.zetaHi = o.zetaHi === undefined ? 0.4 : o.zetaHi; // extra damping when the strap is stretched hard (rubber hysteresis)
+    this.walls = o.walls || null;                          // { l, r, t }: the edges of the page, which a thrown card bumps into
+    this.inside = false;                                   // they only count once the card has dropped in past the top one
+    this.acc = 0; this.state = 'gone'; this.age = 0;
+    this.grabW = null; this.gv = 0.5; this.tx = 0; this.ty = 0; this.ptx = 0; this.pty = 0;
     this.setAnchor(o.ax, o.ay, o.len);
     this._rigid();
   }
@@ -41,7 +48,7 @@ export class Badge {
     this.L0 = len / this.give;
     this.compMain = 1 / kTotal;                            // the elastic that carries the load, anchor to clip
     this.compliance = 1 / (0.18 * kTotal * this.links);    // the visible strap rides along and adds a little
-    this.dash = 2 * this.zeta * Math.sqrt(kTotal * M);
+    this.dashK = 2 * Math.sqrt(kTotal * M);                // critical damping of the card on its strap
   }
 
   _rigid() {
@@ -84,31 +91,37 @@ export class Badge {
 
   /* Hang at rest (used for reduced motion and after a resize). */
   hang() {
-    this.free = false; this.state = 'hang'; this.grabW = null; this.iw[0] = 0;
+    this.state = 'hang'; this.grabW = null; this.iw[0] = 0; this.inside = true;
     this.place(this.ax, this.ay - this.len - this.clipUp - this.h / 2, 0, 0);
   }
 
   /* Start above the anchor and let it fall in. */
   drop(rand = Math.random) {
-    this.free = false; this.state = 'hang'; this.grabW = null; this.iw[0] = 0; this.age = 0;
+    this.state = 'hang'; this.grabW = null; this.iw[0] = 0; this.age = 0; this.inside = false;
     const roll = (rand() - 0.5) * 0.9, yaw = (rand() - 0.5) * 1.6;
     this.place(this.ax + (rand() - 0.5) * 30 * this.s, this.ay + this.h * 0.62, roll, yaw);
     const sx = (rand() - 0.5) * 180 * this.s;
     for (let i = this.C; i < this.n; i++) { this.vx[i] = sx; this.vy[i] = -500 * this.s; }
   }
 
-  /* Let go of the anchor: strap and card fly on with whatever momentum they have. */
-  detach() {
-    if (this.free) return;
-    this.free = true; this.state = 'free'; this.iw[0] = 1 / this.mChain; this.freeAge = 0;
-  }
-
   /* u, v are the grab point on the card face, 0..1 from bottom-left. */
   grab(u, v, tx, ty) {
     this.grabW = [(1 - u) * v, u * v, u * (1 - v), (1 - u) * (1 - v)];   // TL TR BR BL
-    this.tx = this.ptx = tx; this.ty = this.pty = ty;
+    this.gv = v;
+    [this.tx, this.ty] = this._limit(tx, ty); this.ptx = this.tx; this.pty = this.ty;
   }
-  drag(tx, ty) { this.tx = tx; this.ty = ty; }
+  drag(tx, ty) { [this.tx, this.ty] = this._limit(tx, ty); }
+
+  /* Where the hand can actually take the card. Near its hanging length the card follows the pointer
+     exactly; past that the strap gives less and less, and it never goes beyond its full stretch. */
+  _limit(tx, ty) {
+    const dx = tx - this.ax, dy = ty - this.ay, d = Math.hypot(dx, dy);
+    const off = this.clipUp + (1 - this.gv) * this.h;       // clip to the grabbed point, once the card is pulled into line
+    const soft = this.L0 * 1.16 + off, hard = this.L0 * this.maxStretch + off;
+    if (d <= soft) return [tx, ty];
+    const r = soft + (hard - soft) * (1 - Math.exp(-(d - soft) / (hard - soft)));
+    return [this.ax + dx / d * r, this.ay + dy / d * r];
+  }
   release() { this.grabW = null; return this.speed(); }
 
   centre(out = {}) {
@@ -154,7 +167,11 @@ export class Badge {
     for (let k = 0; k < n; k++) this._fixed(x0 + dx * k / n, y0 + dy * k / n, x0 + dx * (k + 1) / n, y0 + dy * (k + 1) / n);
     if (n > 0) { this.ptx = this.tx; this.pty = this.ty; }
     this.acc = n === 6 ? 0 : this.acc - n * FIXED;
-    this.age += dt; if (this.free) this.freeAge += dt;
+    this.age += dt;
+    if (!this.inside && this.walls) {
+      const { y, TL, TR, BR, BL } = this;
+      if (Math.max(y[TL], y[TR], y[BR], y[BL]) < this.walls.t) this.inside = true;
+    }
   }
 
   _fixed(sx0, sy0, sx1, sy1) {
@@ -162,7 +179,8 @@ export class Badge {
     const { x, y, z, px, py, pz, vx, vy, vz, iw, n, C, TL, TR, BR, BL } = this;
     const corners = [TL, TR, BR, BL];
     const dragLin = Math.exp(-this.air * h), dragChain = Math.exp(-1.8 * h);
-    const kz = 46, kT = 64, cN = 5.2, cYaw = 0.55;
+    const kz = 46, kT = 64, cN = 5.2, cYaw = 0.55, KW = 9000, CW = 90;
+    const walls = this.walls, walled = !!walls && this.inside;
     const aT = this.compliance / (h * h), aM = this.compMain / (h * h);
 
     for (let s = 0; s < SUB; s++) {
@@ -181,6 +199,13 @@ export class Badge {
           const rx = x[i] - f.x, ry = y[i] - f.y, rz = z[i] - f.z;
           // facing spring: a = τ × r
           ax += tqy * rz; ay += -tqx * rz; az += tqx * ry - tqy * rx;
+          if (i !== C && walled) {
+            // the edges of the page push back on a corner that crosses them, and take most of its speed
+            let pen;
+            // (the push is capped, so a card let go half off the page is eased back in, not fired back)
+            if ((pen = walls.l - x[i]) > 0) ax += KW * Math.min(pen, 36) - CW * vx[i]; else if ((pen = x[i] - walls.r) > 0) ax -= KW * Math.min(pen, 36) + CW * vx[i];
+            if ((pen = y[i] - walls.t) > 0) ay -= KW * Math.min(pen, 36) + CW * vy[i];
+          }
           if (i !== C) {
             // air pushes on the flat of the card, not along it
             const vn = vx[i] * f.Zx + vy[i] * f.Zy + vz[i] * f.Zz;
@@ -195,17 +220,24 @@ export class Badge {
         px[i] = x[i]; py[i] = y[i]; pz[i] = z[i];
         x[i] += vx[i] * h; y[i] += vy[i] * h; z[i] += vz[i] * h;
       }
-      if (!this.free) {
+      {
         x[0] = this.ax; y[0] = this.ay; z[0] = this.zL;
         /* the elastic: one spring from the anchor to the clip, pulling only when stretched */
         const dx = x[C] - x[0], dy = y[C] - y[0], dz = z[C] - z[0];
-        const d = Math.hypot(dx, dy, dz);
+        let d = Math.hypot(dx, dy, dz);
         if (d > this.L0) {
           const l = -(d - this.L0) / (iw[C] + aM) / d * iw[C];
           x[C] += dx * l; y[C] += dy * l; z[C] += dz * l;
-          // and it loses energy as it works, which is what stops the bounce going on for ever
+          // elastic has an end: just past a hand's reach it stops giving altogether
+          const end = this.L0 * (this.maxStretch + 0.22);
+          d = Math.hypot(x[C] - x[0], y[C] - y[0], z[C] - z[0]);
+          if (d > end) { const q = end / d; x[C] = x[0] + (x[C] - x[0]) * q; y[C] = y[0] + (y[C] - y[0]) * q; z[C] = z[0] + (z[C] - z[0]) * q; }
+          // it loses energy as it works, and far more when stretched hard, which is what brings a
+          // released card back in a few bounces and stops it catapulting off the page
+          const st = d / this.L0, e = Math.min(1, Math.max(0, (st - 1.18) / 0.4));
+          const zeta = this.zeta + this.zetaHi * e * e * (3 - 2 * e);
           const vr = (vx[C] * dx + vy[C] * dy + vz[C] * dz) / d;
-          const k = -Math.min(0.9, this.dash * iw[C] * h) * vr / d;
+          const k = -Math.min(0.92, this.dashK * zeta * iw[C] * h) * vr / d;
           this._dvx = dx * k; this._dvy = dy * k; this._dvz = dz * k;
         } else this._dvx = this._dvy = this._dvz = 0;
       }
@@ -247,7 +279,7 @@ export class Badge {
         vx[i] = (x[i] - px[i]) / h; vy[i] = (y[i] - py[i]) / h; vz[i] = (z[i] - pz[i]) / h;
       }
 
-      if (!this.free && (this._dvx || this._dvy || this._dvz)) { vx[C] += this._dvx; vy[C] += this._dvy; vz[C] += this._dvz; }
+      if (this._dvx || this._dvy || this._dvz) { vx[C] += this._dvx; vy[C] += this._dvy; vz[C] += this._dvz; }
     }
   }
 }

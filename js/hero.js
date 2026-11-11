@@ -1,7 +1,7 @@
 /* Hero scene: the chrome LL mark and two founder passes on elastic lanyards.
    Physics lives in lanyard.js; this file draws it and connects the pointer. World units are CSS pixels. */
-import { THREE, BLUE, reduced, small, webglOK, makeRenderer, studioEnv, buildMark, addLoop, ease, clamp, lerp, loadImage, fontsReady, pixelRatioFor, activity } from './kit.js?v=6';
-import { Badge, jostle } from './lanyard.js?v=6';
+import { THREE, BLUE, reduced, small, webglOK, makeRenderer, studioEnv, buildMark, addLoop, ease, clamp, lerp, loadImage, fontsReady, pixelRatioFor, activity } from './kit.js?v=7';
+import { Badge, jostle } from './lanyard.js?v=7';
 
 const root = document.documentElement;
 const hero = document.querySelector('.hero');
@@ -205,7 +205,7 @@ async function init() {
     FOUNDERS.forEach((f, i) => {
       const cs = L.cw / 190, clipUp = 34 * cs;
       const len = L.top - (L.b[i].cy + L.ch / 2 + clipUp);
-      const sim = new Badge({ w: L.cw, h: L.ch, ax: L.b[i].x, ay: L.top, len, z: i * 22 });
+      const sim = new Badge({ w: L.cw, h: L.ch, ax: L.b[i].x, ay: L.top, len, z: i * 22, walls: { l: -W / 2, r: W / 2, t: H / 2 } });
       sim.founder = f; sims.push(sim);
       views.push(makeView(sim, i));
     });
@@ -306,7 +306,7 @@ async function init() {
     } else {
       sims.forEach((s, i) => {
         const len = L.top - (L.b[i].cy + L.ch / 2 + s.clipUp);
-        s.setAnchor(L.b[i].x, L.top, len);
+        s.setAnchor(L.b[i].x, L.top, len); s.walls = { l: -W / 2, r: W / 2, t: H / 2 };
       });
     }
   }
@@ -377,8 +377,8 @@ async function init() {
     const click = ptr.moved < 7 && performance.now() - ptr.t0 < 320;
     ptr.grab = -1; canvas.classList.remove('grabbing');
     setTimeout(() => window.removeEventListener('click', swallow, { capture: true }), 60);
-    if (click && !s.free) { s.nudge(0, 0, 420 * s.s); if (window.LL) window.LL.openBio(s.founder.id); }
-    else if (!s.free && speed > FLICK * s.s) s.detach();
+    if (click) { s.nudge(0, 0, 420 * s.s); if (window.LL) window.LL.openBio(s.founder.id); }
+    void speed;   // the strap never lets go: a thrown pass swings out and comes back
   }
   window.addEventListener('pointerup', up, true);
   window.addEventListener('pointercancel', up, true);
@@ -456,13 +456,8 @@ async function init() {
 
     for (let i = 0; i < sims.length; i++) {
       const s = sims[i];
-      if (s.state === 'gone') { if (respawn[i] && t >= respawn[i]) { respawn[i] = 0; s.drop(rnd); } continue; }
-      if (ptr.grab === i && !s.free && s.stretch() > POP) s.detach();
+      if (s.state === 'gone') continue;
       s.step(dt);
-      if (s.free && ptr.grab !== i) {
-        s.centre(c0);
-        if (c0.y < -H / 2 - s.h * 1.2 || Math.abs(c0.x) > W / 2 + s.w * 2.5 || c0.y > H / 2 + 2400 || s.freeAge > 6) { s.state = 'gone'; respawn[i] = t + RESPAWN; }
-      }
     }
     if (sims.length === 2) jostle(sims[0], sims[1]);
     views.forEach((v) => v.sync());
@@ -478,7 +473,7 @@ async function init() {
       asleep: () => idle > 30, pr: () => renderer.getPixelRatio(),
       info: () => sims.map((s) => { const c = s.centre(); return { state: s.state, x: Math.round(c.x), y: Math.round(c.y), speed: Math.round(s.speed()), stretch: +s.stretch().toFixed(2), facing: +s.frame({}).Zz.toFixed(2) }; }),
       layout: () => ({ W, H, L, introDone, started }),
-      fling: (i, vx, vy) => { sims[i].nudge(vx, vy); if (Math.hypot(vx, vy) > FLICK * sims[i].s) sims[i].detach(); },
+      fling: (i, vx, vy) => { sims[i].nudge(vx, vy); },
       // the preview pane throttles animation frames, so tests drive the clock themselves
       run: (sec) => { loop.paused = true; let now = (window.__badges.clock || 0); for (let k = 0; k < sec * 60; k++) { now += 1 / 60; frame(1 / 60, now); } window.__badges.clock = now; },
       ptr,

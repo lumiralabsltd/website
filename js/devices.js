@@ -1,6 +1,6 @@
 /* Phones for the app sections. One realistic iPhone body, reused, each showing a real app screen.
    Units are millimetres, so the proportions are the real ones. */
-import { THREE, reduced, makeRenderer, studioEnv, addLoop, fit, clamp, ease } from './kit.js?v=6';
+import { THREE, reduced, makeRenderer, studioEnv, addLoop, fit, clamp, ease } from './kit.js?v=7';
 
 const BW = 71.5, BH = 149.6, BR = 12, DEPTH = 7.6, BEV = 1.1;
 const SW = 65.9, SH = 144, SR = 9.2;

@@ -1,5 +1,5 @@
 /* Closing section: the chrome LL mark, turning slowly. Drag it to spin it. */
-import { THREE, reduced, makeRenderer, studioEnv, buildMark, addLoop, fit, clamp } from './kit.js?v=6';
+import { THREE, reduced, makeRenderer, studioEnv, buildMark, addLoop, fit, clamp } from './kit.js?v=7';
 
 export default async function (el) {
   const canvas = el.querySelector('canvas');

@@ -1,6 +1,6 @@
 /* Tracelob: a padel court with a simulated rally, drawn the way the tracker sees a match:
    four player boxes, one small ball and the path it has just taken. Units are metres. */
-import { THREE, reduced, makeRenderer, addLoop, fit, clamp, lerp, fontsReady } from './kit.js?v=6';
+import { THREE, reduced, makeRenderer, addLoop, fit, clamp, lerp, fontsReady } from './kit.js?v=7';
 import { Line2 } from 'three/addons/lines/Line2.js';
 import { LineGeometry } from 'three/addons/lines/LineGeometry.js';
 import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
