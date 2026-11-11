@@ -67,7 +67,7 @@ export default async function (el) {
   const texs = await Promise.all(el.dataset.screens.split(',').map((u) => loader.loadAsync(u.trim())));
   const renderer = makeRenderer(canvas, { shadows: true });
   const scene = new THREE.Scene();
-  scene.environment = studioEnv(renderer);
+  scene.environment = studioEnv(renderer, 0.5);
   const camera = new THREE.PerspectiveCamera(20, 1, 50, 2000);
   const dist = cfg.frame / 2 / Math.tan(THREE.MathUtils.degToRad(10));
   camera.position.set(0, 0, dist);
@@ -109,6 +109,8 @@ export default async function (el) {
     });
     renderer.render(scene, camera);
   };
+  fit(renderer, el); camera.aspect = el.clientWidth / el.clientHeight; camera.updateProjectionMatrix();
+  if (renderer.compileAsync) await renderer.compileAsync(scene, camera);
   frame(0.016, 0);
   el.classList.add('gl-on');
   addLoop(el, frame, { margin: '0px' });

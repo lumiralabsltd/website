@@ -1,6 +1,6 @@
 /* Hero scene: the chrome LL mark and two founder passes on elastic lanyards.
    Physics lives in lanyard.js; this file draws it and connects the pointer. World units are CSS pixels. */
-import { THREE, BLUE, reduced, small, webglOK, makeRenderer, studioEnv, buildMark, addLoop, ease, clamp, lerp, loadImage, fontsReady } from './kit.js';
+import { THREE, BLUE, reduced, small, webglOK, makeRenderer, studioEnv, buildMark, addLoop, ease, clamp, lerp, loadImage, fontsReady, pixelRatioFor, activity } from './kit.js';
 import { Badge, jostle } from './lanyard.js';
 
 const root = document.documentElement;
@@ -292,7 +292,7 @@ async function init() {
     if (!force && w === W && h === H) return;
     const prev = L;
     L = measure();
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setPixelRatio(pixelRatioFor(W, H));
     renderer.setSize(W, H, false);
     camZ = H / 2 / tanF;
     camera.aspect = W / H; camera.position.set(0, 0, camZ); camera.updateProjectionMatrix();
@@ -315,6 +315,8 @@ async function init() {
 
   const ray = new THREE.Raycaster(), ndc = new THREE.Vector2(), inv = new THREE.Matrix4(), hitP = new THREE.Vector3();
   const ptr = { x: 0.5, y: 0.5, id: null, grab: -1, moved: 0, t0: 0, sx: 0, sy: 0 };
+  let lastInput = performance.now() / 1000, idle = 0;
+  const poke = () => { lastInput = performance.now() / 1000; };
 
   function toNdc(cx, cy) {
     const r = canvas.getBoundingClientRect();
@@ -342,7 +344,7 @@ async function init() {
   const swallow = (e) => { e.preventDefault(); e.stopPropagation(); };
 
   window.addEventListener('pointermove', (e) => {
-    ptr.x = e.clientX / window.innerWidth; ptr.y = e.clientY / window.innerHeight;
+    ptr.x = e.clientX / window.innerWidth; ptr.y = e.clientY / window.innerHeight; poke();
     if (ptr.grab >= 0 && e.pointerId === ptr.id) {
       const s = sims[ptr.grab], [wx, wy] = worldAt(e.clientX, e.clientY, s.zL);
       s.drag(wx, wy);
@@ -362,7 +364,7 @@ async function init() {
     e.preventDefault();
     const s = sims[h.i], [wx, wy] = worldAt(e.clientX, e.clientY, s.zL);
     s.grab(h.u, h.v, wx, wy);
-    Object.assign(ptr, { id: e.pointerId, grab: h.i, moved: 0, t0: performance.now(), sx: e.clientX, sy: e.clientY });
+    Object.assign(ptr, { id: e.pointerId, grab: h.i, moved: 0, t0: performance.now(), sx: e.clientX, sy: e.clientY }); poke();
     canvas.classList.add('grabbing');
     window.addEventListener('click', swallow, { capture: true, once: true });
     loop.wake();
@@ -393,7 +395,10 @@ async function init() {
   let seed = 20260407; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
 
   resize(true);
-  new ResizeObserver(() => resize(false)).observe(hero);
+  sims.forEach((s) => s.hang()); views.forEach((v) => v.sync());
+  if (renderer.compileAsync) await renderer.compileAsync(scene, camera);   // link shaders off the main thread
+  sims.forEach((s) => { s.state = 'gone'; });
+  new ResizeObserver(() => { resize(false); poke(); }).observe(hero);
   window.addEventListener('ll:fonts', () => resize(true));
 
   function begin(t) {
@@ -417,8 +422,8 @@ async function init() {
       if (t > 1.1 && root.classList.contains('is-intro')) endIntro();
       if (t > 2.3) introDone = true;
     }
-    // ease towards the pointer, with a slow idle turn underneath
-    const tx = -0.16 + (ptr.y - 0.5) * 0.36 + Math.sin(t * 0.5) * 0.04, ty = 0.44 + (ptr.x - 0.5) * 0.7 + Math.sin(t * 0.37) * 0.1;
+    // ease towards the pointer
+    const tx = -0.16 + (ptr.y - 0.5) * 0.36, ty = 0.44 + (ptr.x - 0.5) * 0.7;
     mrot.vx += ((tx - mrot.x) * 26 - mrot.vx * 8) * 0.016; mrot.vy += ((ty - mrot.y) * 26 - mrot.vy * 8) * 0.016;
     mrot.x += mrot.vx * 0.016; mrot.y += mrot.vy * 0.016;
     const k = introDone ? 1 : ease.inOutCubic(clamp((t - 1.0) / 1.2, 0, 1));
@@ -436,7 +441,18 @@ async function init() {
 
     // the page moving under a hanging pass makes it sway
     const sy = window.scrollY, dy = sy - lastScroll; lastScroll = sy;
+    if (dy) poke();
     if (dy && Math.abs(dy) < 400) sims.forEach((s, i) => { if (s.state === 'hang') s.nudge(clamp(dy * 1.3, -160, 160) * (i ? 1 : -1) * s.s, clamp(-dy * 7, -620, 620) * s.s); });
+
+    // Nothing moving and nobody touching it: stop drawing until something does.
+    const busy = !introDone || drops.length > 0 || ptr.grab >= 0 || respawn[0] > 0 || respawn[1] > 0
+      || Math.abs(now - lastInput) < 1.5 || Math.abs(mrot.vx) + Math.abs(mrot.vy) > 0.006
+      || sims.some((s) => s.state === 'free' || (s.state === 'hang' && (s.age < 2 || s.speed() > 6)))
+      || renderer.getPixelRatio() !== pixelRatioFor(W, H);
+    idle = busy ? 0 : idle + 1;
+    if (idle > 30) return;
+    activity.hero = performance.now();
+    if (renderer.getPixelRatio() !== pixelRatioFor(W, H)) { renderer.setPixelRatio(pixelRatioFor(W, H)); renderer.setSize(W, H, false); }
 
     for (let i = 0; i < sims.length; i++) {
       const s = sims[i];
@@ -459,6 +475,7 @@ async function init() {
   if (dbg) {
     window.__badges = {
       frames: 0, sims,
+      asleep: () => idle > 30, pr: () => renderer.getPixelRatio(),
       info: () => sims.map((s) => { const c = s.centre(); return { state: s.state, x: Math.round(c.x), y: Math.round(c.y), speed: Math.round(s.speed()), stretch: +s.stretch().toFixed(2), facing: +s.frame({}).Zz.toFixed(2) }; }),
       layout: () => ({ W, H, L, introDone, started }),
       fling: (i, vx, vy) => { sims[i].nudge(vx, vy); if (Math.hypot(vx, vy) > FLICK * sims[i].s) sims[i].detach(); },

@@ -1,7 +1,7 @@
 /* Closing section: the chrome LL mark, turning slowly. Drag it to spin it. */
 import { THREE, reduced, makeRenderer, studioEnv, buildMark, addLoop, fit, clamp } from './kit.js';
 
-export default function (el) {
+export default async function (el) {
   const canvas = el.querySelector('canvas');
   const renderer = makeRenderer(canvas, { shadows: true });
   const scene = new THREE.Scene();
@@ -37,6 +37,7 @@ export default function (el) {
   const end = () => { drag = null; canvas.style.cursor = 'grab'; };
   canvas.addEventListener('pointerup', end); canvas.addEventListener('pointercancel', end);
 
+  if (renderer.compileAsync) await renderer.compileAsync(scene, camera);
   el.classList.add('gl-on');
   const loop = addLoop(el, (dt) => {
     if (fit(renderer, el)) { camera.aspect = el.clientWidth / el.clientHeight; camera.updateProjectionMatrix(); }

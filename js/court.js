@@ -104,11 +104,20 @@ export default async function (el) {
   const ballTag = label('ball 0.93', '#e9ff57'); ballTag.scale.set(1.5, 0.375, 1); scene.add(ballTag);
 
   const N = 46, trail = new Float32Array(N * 3), cols = new Float32Array(N * 3);
-  const tGeo = new LineGeometry();
-  const tMat = new LineMaterial({ vertexColors: true, linewidth: 2.6, transparent: true, blending: THREE.AdditiveBlending, depthTest: false, worldUnits: false });
-  const tLine = new Line2(tGeo, tMat); tLine.frustumCulled = false; scene.add(tLine);
   const bc = new THREE.Color(BALL);
   for (let i = 0; i < N; i++) { const k = Math.pow(1 - i / (N - 1), 1.7); cols[i * 3] = bc.r * k; cols[i * 3 + 1] = bc.g * k; cols[i * 3 + 2] = bc.b * k; }
+  const tGeo = new LineGeometry();
+  tGeo.setPositions(trail); tGeo.setColors(cols);
+  // setPositions() allocates a new GPU buffer on every call, so after the first one the trail is
+  // written straight into the existing buffer
+  const tBuf = tGeo.attributes.instanceStart.data; tBuf.setUsage(THREE.DynamicDrawUsage);
+  const writeTrail = () => {
+    const a = tBuf.array;
+    for (let i = 0; i < N - 1; i++) { const s = i * 3, d = i * 6; a[d] = trail[s]; a[d + 1] = trail[s + 1]; a[d + 2] = trail[s + 2]; a[d + 3] = trail[s + 3]; a[d + 4] = trail[s + 4]; a[d + 5] = trail[s + 5]; }
+    tBuf.needsUpdate = true;
+  };
+  const tMat = new LineMaterial({ vertexColors: true, linewidth: 2.6, transparent: true, blending: THREE.AdditiveBlending, depthTest: false, worldUnits: false });
+  const tLine = new Line2(tGeo, tMat); tLine.frustumCulled = false; scene.add(tLine);
 
   const rings = Array.from({ length: 6 }, () => {
     const m = new THREE.Mesh(new THREE.RingGeometry(0.2, 0.235, 40), new THREE.MeshBasicMaterial({ color: BALL, transparent: true, opacity: 0, side: THREE.DoubleSide, depthWrite: false }));
@@ -189,7 +198,7 @@ export default async function (el) {
     ball.position.copy(p);
     shadow.position.x = p.x; shadow.position.z = p.z; shadow.material.opacity = clamp(0.55 - p.y * 0.1, 0.12, 0.55);
     reticle.position.copy(p); ballTag.position.set(p.x + 0.38, p.y + 0.2, p.z);
-    tGeo.setPositions(trail); tGeo.setColors(cols);
+    writeTrail();
     for (const r of rings) { r.t += dt; const k = clamp(r.t / 0.9, 0, 1); r.m.scale.setScalar(1 + k * 5); r.m.material.opacity = (1 - k) * 0.85; }
     hudT += dt;
     if (hudT > 0.12) {
@@ -207,7 +216,9 @@ export default async function (el) {
     renderer.render(scene, camera);
   }
 
-  if (reduced) { view(0); draw(0.016, 0); return; }
+  view(0);
+  if (renderer.compileAsync) await renderer.compileAsync(scene, camera);
+  if (reduced) { draw(0.016, 0); return; }
   addLoop(el, (dt, t) => {
     acc += dt; let n = 0;
     while (acc >= 1 / 120 && n < 8) { step(1 / 120); acc -= 1 / 120; n++; }

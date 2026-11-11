@@ -18,19 +18,31 @@ export function webglOK() {
 
 export function makeRenderer(canvas, { shadows = false, alpha = true } = {}) {
   const r = new THREE.WebGLRenderer({ canvas, antialias: true, alpha, powerPreference: 'high-performance' });
-  r.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  r.setPixelRatio(1);   // fit() sets the real ratio from the element's size
   r.outputColorSpace = THREE.SRGBColorSpace;
   r.toneMapping = THREE.NoToneMapping;
   if (shadows) { r.shadowMap.enabled = true; r.shadowMap.type = THREE.VSMShadowMap; }
   return r;
 }
 
+/* Resolution is the main cost. Each canvas gets a pixel budget, so a full-screen scene on a retina
+   display renders at about 1.5× and small ones stay at 2×. `quality.scale` is lowered by the loop
+   below when a device can't hold the frame rate. */
+const BUDGET = 3.0e6;
+export const quality = { scale: 1 };
+export const activity = { hero: 0 };   // when the hero last had something moving, so other work can wait for a quiet moment
+export function pixelRatioFor(w, h) {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  const pr = Math.min(dpr, Math.sqrt(BUDGET / Math.max(1, w * h))) * quality.scale;
+  return Math.round(clamp(pr, Math.min(0.8, dpr), dpr) * 100) / 100;
+}
+
 /* Keep the drawing buffer the size of the element. Returns true when it changed. */
 export function fit(renderer, el) {
   const w = Math.max(1, Math.round(el.clientWidth)), h = Math.max(1, Math.round(el.clientHeight));
-  const c = renderer.domElement;
-  const pr = renderer.getPixelRatio();
-  if (c.width === Math.round(w * pr) && c.height === Math.round(h * pr)) return false;
+  const c = renderer.domElement, pr = pixelRatioFor(w, h);
+  if (renderer.getPixelRatio() === pr && c.width === Math.floor(w * pr) && c.height === Math.floor(h * pr)) return false;
+  renderer.setPixelRatio(pr);
   renderer.setSize(w, h, false);
   return true;
 }
@@ -38,9 +50,10 @@ export function fit(renderer, el) {
 /* A photo studio for chrome to reflect, painted as a 360° panorama: bright sky, a hard dark horizon,
    softboxes with black flags between them, and one blue card low down. Flat chrome faces only read as
    chrome when sharp edges like these slide across them as the object turns. */
-export function studioEnv(renderer) {
-  const c = document.createElement('canvas'); c.width = 2048; c.height = 1024;
-  const g = c.getContext('2d'), W = 2048, H = 1024;
+export function studioEnv(renderer, scale = 1) {
+  const W = 2048 * scale, H = 1024 * scale;
+  const c = document.createElement('canvas'); c.width = W; c.height = H;
+  const g = c.getContext('2d');
   const sky = g.createLinearGradient(0, 0, 0, H * 0.5);
   sky.addColorStop(0, '#ffffff'); sky.addColorStop(0.55, '#e4e6ea'); sky.addColorStop(1, '#b3b7c0');
   g.fillStyle = sky; g.fillRect(0, 0, W, H * 0.5);
@@ -82,22 +95,40 @@ export function buildMark({ depth = 24, bevel = 3.6, chrome = null, tint = null 
 
 /* One requestAnimationFrame for every scene; each scene only ticks while its element is near the viewport. */
 const tasks = new Set();
-let queued = false, last = 0;
+let queued = false, last = 0, slow = 0, tick = 0;
 function frame(t) {
   queued = false;
-  const dt = Math.min(0.05, Math.max(0.001, (t - last) / 1000)); last = t;
-  let any = false;
-  tasks.forEach((k) => { if (k.visible && !k.paused) { any = true; try { k.fn(dt, t / 1000); } catch (e) { console.error(e); k.paused = true; } } });
+  const raw = t - last;
+  const dt = Math.min(0.05, Math.max(0.001, raw / 1000)); last = t;
+  // Sustained frames slower than about 40 a second: render fewer pixels. Gaps over 100ms are a
+  // hidden or throttled tab, not a slow device, so they don't count.
+  if (raw > 25 && raw < 100) slow += 1; else if (raw <= 20) slow = Math.max(0, slow - 1);
+  if (slow > 36 && quality.scale > 0.5) { quality.scale = Math.max(0.5, quality.scale * 0.8); slow = -90; }
+  // Two large canvases drawing in the same frame is what drops frames mid-scroll. The scene with
+  // the most pixels on screen runs every frame; any other visible scene runs every third.
+  let any = false, lead = null;
+  tasks.forEach((k) => { if (k.visible && !k.paused && (!lead || k.area > lead.area)) lead = k; });
+  tick += 1;
+  tasks.forEach((k) => {
+    if (!k.visible || k.paused) return;
+    any = true; k.acc += dt;
+    if (k !== lead && tick % 3 !== 0) return;
+    const d = Math.min(0.05, k.acc); k.acc = 0;
+    try { k.fn(d, t / 1000); } catch (e) { console.error(e); k.paused = true; }
+  });
   if (any) kick();
 }
 function kick() { if (!queued) { queued = true; requestAnimationFrame(frame); } }
 export function addLoop(el, fn, { margin = '160px' } = {}) {
-  const k = { fn, visible: false, paused: false };
+  const k = { fn, visible: false, paused: false, area: 0, acc: 0 };
   tasks.add(k);
   new IntersectionObserver((es) => {
-    k.visible = es[es.length - 1].isIntersecting;
-    if (k.visible) { last = performance.now(); kick(); }
-  }, { rootMargin: margin }).observe(el);
+    const e = es[es.length - 1];
+    const was = k.visible;
+    k.visible = e.isIntersecting;
+    k.area = e.intersectionRect.width * e.intersectionRect.height;
+    if (k.visible && !was) { k.acc = 0; last = performance.now(); kick(); }
+  }, { rootMargin: margin, threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] }).observe(el);
   k.wake = () => { last = performance.now(); kick(); };
   return k;
 }

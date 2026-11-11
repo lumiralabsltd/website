@@ -1,22 +1,36 @@
-/* Loads each 3D scene only when its section is about to scroll into view. */
-import { webglOK, small } from './kit.js';
+/* Builds each 3D scene once. They are set up one at a time while the page is idle after load, so
+   nothing has to compile in the middle of a scroll; a section that comes into view first jumps the queue. */
+import { webglOK, small, activity } from './kit.js';
 
 if (webglOK()) {
-  const lazy = (sel, load) => {
+  const jobs = [];
+  const start = (j) => {
+    if (j.p) return j.p;
+    j.io.disconnect();
+    return (j.p = j.load().then((m) => m.default(j.el)).catch((e) => console.error(e)));
+  };
+  const add = (sel, load) => {
     document.querySelectorAll(sel).forEach((el) => {
-      const io = new IntersectionObserver((es) => {
-        if (!es.some((e) => e.isIntersecting)) return;
-        io.disconnect();
-        load().then((m) => m.default(el)).catch((e) => console.error(e));
-      }, { rootMargin: '700px' });
-      io.observe(el);
+      const j = { el, load, p: null };
+      j.io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) start(j); }, { rootMargin: '500px' });
+      j.io.observe(el);
+      jobs.push(j);
     });
   };
-  lazy('#court', () => import('./court.js'));
-  lazy('#endmark', () => import('./mark.js'));
-  if (!small()) {
-    // phones and the pitch stay as images on small screens
-    lazy('.devices', () => import('./devices.js'));
-    lazy('#pitch', () => import('./pitch.js'));
-  }
+  if (!small()) add('#pitch', () => import('./pitch.js'));   // phones and the pitch stay as images on small screens
+  if (!small()) add('.devices', () => import('./devices.js'));
+  add('#court', () => import('./court.js'));
+  add('#endmark', () => import('./mark.js'));
+
+  const idle = () => new Promise((r) => (window.requestIdleCallback ? requestIdleCallback(() => r(), { timeout: 1200 }) : setTimeout(r, 250)));
+  const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+  const warm = async () => {
+    await wait(document.documentElement.classList.contains('is-intro') ? 5200 : 2600);   // after the passes have dropped
+    for (const j of jobs) {
+      // not while a pass is swinging or being dragged: setting a scene up can cost a frame or two
+      for (let n = 0; n < 60 && performance.now() - activity.hero < 400; n++) await wait(250);
+      await idle(); await start(j); await wait(120);
+    }
+  };
+  if (document.readyState === 'complete') warm(); else window.addEventListener('load', warm, { once: true });
 }

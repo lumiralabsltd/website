@@ -4,11 +4,11 @@ import { THREE, BLUE, reduced, makeRenderer, studioEnv, addLoop, fit, clamp, eas
 
 const L = 105, W = 68;
 
-export default function (el) {
+export default async function (el) {
   const canvas = el.querySelector('canvas');
   const renderer = makeRenderer(canvas, { shadows: true });
   const scene = new THREE.Scene();
-  scene.environment = studioEnv(renderer);
+  scene.environment = studioEnv(renderer, 0.5);
   const camera = new THREE.PerspectiveCamera(24, 1.6, 10, 800);
   scene.add(new THREE.HemisphereLight(0xffffff, 0xcfccc2, 1.4));
   const key = new THREE.DirectionalLight(0xffffff, 2.2);
@@ -97,6 +97,8 @@ export default function (el) {
     renderer.render(scene, camera);
   };
   el.classList.add('gl-on');
+  camera.position.set(0, 119, 188); camera.lookAt(0, -5, 4);
+  if (renderer.compileAsync) await renderer.compileAsync(scene, camera);
   frame(0.016, 0);
   addLoop(el, frame, { margin: '0px' });
   if (/[?&]dbg=1/.test(location.search)) window.__pitch = { run: () => { frame(0.5, 2.6); frame(0.5, 2.6); } };
