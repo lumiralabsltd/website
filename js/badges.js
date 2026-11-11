@@ -3,7 +3,7 @@
    are plain buttons that open the bios. With it they hang on real elastic: drag one to the strap's
    limit and let go, and it springs back. They fall in from above the screen when the page opens at the
    top. The loop sleeps once both cards have been still for 500ms. */
-import { Badge, jostle } from './lanyard.js?v=11';
+import { Badge, jostle } from './lanyard.js?v=12';
 
 const root = document.getElementById('badges');
 const W = 200, H = 316;                                   // card size in the layout, before scaling
@@ -42,7 +42,7 @@ function init() {
     const cw = root.clientWidth, wl = walls();
     sims = cards.map((_, i) => {
       const w = W * conf.k, h = H * conf.k, clipUp = 34 * (w / 190);
-      return new Badge({ w, h, ax: conf.at[i] * cw, ay: 0, len: conf.strap[i] - clipUp, walls: wl, air: 2.4 });
+      return new Badge({ w, h, ax: conf.at[i] * cw, ay: 0, len: conf.strap[i] - clipUp, walls: wl, air: 2.4, maxStretch: 2.4 });
     });
     root.dataset.key = key();
   }
