@@ -10,6 +10,8 @@
   var list = $('.tabs[role=tablist]');
   if (list) {
     var tabs = $$('[role=tab]', list);
+    // the hidden screens carry data-src until they're needed
+    var show = function (im) { if (im.dataset.src && !im.getAttribute('src')) im.src = im.dataset.src; };
     var select = function (t, focus) {
       tabs.forEach(function (b) {
         var on = b === t, panel = doc.getElementById(b.getAttribute('aria-controls'));
@@ -17,7 +19,7 @@
         b.tabIndex = on ? 0 : -1;
         if (panel) {
           var im = panel.querySelector('img');
-          if (on && im) im.loading = 'eager';
+          if (on && im) show(im);
           panel.classList.toggle('on', on);
           panel.tabIndex = on ? 0 : -1;
         }
@@ -33,13 +35,13 @@
         select(tabs[(j + tabs.length) % tabs.length], true);
       });
     });
-    // fetch the other screens once the panel is close, so a switch never shows a gap
+    // fetch the other screens once the panel is on screen (not before: on a phone they'd be 200 KB of the first load)
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (es) {
         if (!es[0].isIntersecting) return;
-        $$('img', list.parentNode).forEach(function (im) { im.loading = 'eager'; });
+        $$('img', list.parentNode).forEach(show);
         io.disconnect();
-      }, { rootMargin: '400px' });
+      }, { threshold: 0.25 });
       io.observe(list);
     }
   }
@@ -117,6 +119,24 @@
     a.addEventListener('keydown', function (e) { if (e.key === ' ') { e.preventDefault(); a.click(); } });
   });
   window.LL = { openBio: openBio };
+
+  /* phone booking bar: shows once the hero's button has scrolled off the top, hides over the footer */
+  var bar = $('#bookbar'), heroCta = $('.hero .ctas'), foot = $('.foot');
+  if (bar && heroCta && foot && 'IntersectionObserver' in window) {
+    var ctaGone = false, footIn = false;
+    var sync = function () { bar.classList.toggle('show', ctaGone && !footIn); };
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.target === heroCta) ctaGone = !e.isIntersecting && e.boundingClientRect.top < 0;
+        else footIn = e.isIntersecting;
+      });
+      sync();
+    }).observe(heroCta);
+    new IntersectionObserver(function (es) {
+      footIn = es[es.length - 1].isIntersecting;
+      sync();
+    }).observe(foot);
+  }
 
   /* booking: Calendly's popup, with the plain link as the fallback */
   var calReady = null;

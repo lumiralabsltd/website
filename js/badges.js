@@ -1,8 +1,9 @@
 /* The founders' badges: DOM cards on SVG straps, moved by the lanyard solver in lanyard.js.
    The page already holds their resting pose, so without this script (or with reduced motion) they
    are plain buttons that open the bios. With it they hang on real elastic: drag one to the strap's
-   limit and let go, and it springs back. The loop sleeps once both cards have been still for 500ms. */
-import { Badge, jostle } from './lanyard.js?v=10';
+   limit and let go, and it springs back. They fall in from above the screen when the page opens at the
+   top. The loop sleeps once both cards have been still for 500ms. */
+import { Badge, jostle } from './lanyard.js?v=11';
 
 const root = document.getElementById('badges');
 const W = 200, H = 316;                                   // card size in the layout, before scaling
@@ -18,15 +19,17 @@ function init() {
   let drag = null, suppress = false;
   const nudged = [false, false];
 
-  /* where the cards hang: beside the headline on desktop, under the buttons below 1080px.
-     The same media queries as the CSS, so the resting pose and the physics always agree. */
+  /* The straps hang from the top of the page, over the menu bar. Desktop: beside the headline.
+     Tablet and phone: above it, smaller, clear of the brand on the left. `strap` is the distance from
+     the top of the page to the top of each card. These match the CSS resting pose and media queries. */
   const mq = q => matchMedia(`(max-width: ${q}px)`);
   const mqTab = mq(1080), mqMid = mq(1279), mqMob = mq(760), mqTiny = mq(359);
   function config() {
-    const side = !mqTab.matches;
-    return side
-      ? { side, k: mqMid.matches ? 0.88 : 1, at: [0.67, 0.87], strap: [170, 230] }
-      : { side, k: mqMob.matches ? 0.75 : 1, at: mqTiny.matches ? [0.25, 0.75] : [0.28, 0.72], strap: mqMob.matches ? [64, 92] : [80, 112] };
+    if (!mqTab.matches) return { side: true, k: mqMid.matches ? 0.88 : 1, at: [0.67, 0.87], strap: [234, 294] };
+    if (!mqMob.matches) return { side: false, k: 0.8, at: [0.45, 0.72], strap: [90, 120] };
+    return mqTiny.matches
+      ? { side: false, k: 0.52, at: [0.46, 0.81], strap: [78, 96] }
+      : { side: false, k: 0.6, at: [0.47, 0.8], strap: [78, 96] };
   }
 
   function walls() {
@@ -147,13 +150,10 @@ function init() {
     build();
     live = true;
     root.classList.add('live');
-    let first = false;
-    try { first = !sessionStorage.getItem('ll-badges'); sessionStorage.setItem('ll-badges', '1'); } catch (_) { first = false; }
-    if (first && conf.side && window.scrollY < 200) sims.forEach(dropIn);  // first visit: they fall in from under the nav
-    else {
-      // otherwise they're already hanging, with a small swing that shows they're loose
-      sims.forEach((b, i) => { b.hang(); b.nudge((i ? -1 : 1) * 70 * b.s, 0); });
-    }
+    // opened at the top of the page: they fall in from above the screen. Opened further down
+    // (a restored scroll position), they're already hanging, with a small swing.
+    if (window.scrollY < 120) sims.forEach(dropIn);
+    else sims.forEach((b, i) => { b.hang(); b.nudge((i ? -1 : 1) * 70 * b.s, 0); });
     render();
     wake();
   }
@@ -192,7 +192,9 @@ function init() {
   });
   reduce.addEventListener('change', () => { if (reduce.matches) stop(); else start(); });
 
-  start();
+  // the drop waits for a quiet moment after the page has painted (the cards are hidden until then)
+  if ('requestIdleCallback' in window) requestIdleCallback(() => start(), { timeout: 400 });
+  else setTimeout(start, 120);
 
   if (/[?&]dbg=1/.test(location.search)) {
     window.__badges = {
