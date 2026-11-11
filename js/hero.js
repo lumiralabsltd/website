@@ -1,7 +1,7 @@
 /* Hero scene: the chrome LL mark and two founder passes on elastic lanyards.
    Physics lives in lanyard.js; this file draws it and connects the pointer. World units are CSS pixels. */
-import { THREE, BLUE, reduced, small, webglOK, makeRenderer, studioEnv, buildMark, addLoop, ease, clamp, lerp, loadImage, fontsReady, pixelRatioFor, activity } from './kit.js';
-import { Badge, jostle } from './lanyard.js';
+import { THREE, BLUE, reduced, small, webglOK, makeRenderer, studioEnv, buildMark, addLoop, ease, clamp, lerp, loadImage, fontsReady, pixelRatioFor, activity } from './kit.js?v=6';
+import { Badge, jostle } from './lanyard.js?v=6';
 
 const root = document.documentElement;
 const hero = document.querySelector('.hero');

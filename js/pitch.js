@@ -1,6 +1,6 @@
 /* Finball: a model football pitch, the kind an architect would put on a table.
    Paper white, ink lines, chrome goals, and a passing move played out by the blue side. Units are metres. */
-import { THREE, BLUE, reduced, makeRenderer, studioEnv, addLoop, fit, clamp, ease } from './kit.js';
+import { THREE, BLUE, reduced, makeRenderer, studioEnv, addLoop, fit, clamp, ease } from './kit.js?v=6';
 
 const L = 105, W = 68;
 
