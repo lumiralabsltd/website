@@ -3,7 +3,7 @@
    are plain buttons that open the bios. With it they hang on real elastic: drag one to the strap's
    limit and let go, and it springs back. They fall in from above the screen when the page opens at the
    top. The loop sleeps once both cards have been still for 500ms. */
-import { Badge, jostle } from './lanyard.js?v=13';
+import { Badge, jostle } from './lanyard.js?v=14';
 
 const root = document.getElementById('badges');
 const W = 200, H = 316;                                   // card size in the layout, before scaling
