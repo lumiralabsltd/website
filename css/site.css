@@ -99,7 +99,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* hero */
 .hero { position: relative; }
-.hero-grid { position: relative; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); padding-top: 88px; padding-bottom: 48px; min-height: 600px; }
+.hero-grid { position: relative; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); padding-top: 88px; padding-bottom: 48px; min-height: max(600px, calc(100vh - 64px)); min-height: max(600px, calc(100svh - 64px)); align-items: center; }
 .hero-text { grid-column: 1 / span 7; position: relative; z-index: 3; }
 .chip { display: inline-flex; align-items: center; gap: 10px; height: 32px; padding: 0 12px 0 5px; margin-bottom: 28px; border-radius: 6px; box-shadow: inset 0 0 0 1px var(--line-2); background: var(--surface); font-size: 14px; color: var(--ink-2); transition: box-shadow .12s ease-out; max-width: 100%; }
 .chip time { padding: 4px 6px 3px; border-radius: 4px; background: var(--panel); color: var(--ink); font-size: 11px; line-height: 1; flex: none; }
@@ -458,6 +458,12 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .bookbar p span { font-size: 13px; font-weight: 400; color: rgba(247, 246, 243, .62); }
   .bookbar .btn { height: 44px; background: var(--paper); color: var(--ink); }
   .bookbar .btn:hover { background: #fff; }
+}
+
+/* the landing fills the screen; the rest of the page starts on scroll */
+@media (max-width: 1080px) {
+  .hero-grid { min-height: calc(100vh - 64px); min-height: calc(100svh - 64px); padding-bottom: 32px; }
+  .hero-text { margin-top: auto; margin-bottom: auto; }
 }
 
 /* very narrow phones */
