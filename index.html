@@ -3,384 +3,413 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Lumira Labs — Venture studio, London</title>
-<meta name="description" content="Lumira Labs is a London venture studio that designs, builds and runs its own companies: Finball, Daysout, Bhabhi, Tracelob and Helix. Apps, SaaS platforms and machine learning.">
+<title>Lumira Labs — a venture studio in London</title>
+<meta name="description" content="Lumira Labs is a venture studio in London that builds and runs its own software: Finball, Daysout, Bhabhi, Tracelob and Helix. We don't take client work.">
 <link rel="canonical" href="https://lumiralabs.co.uk/">
-<meta name="theme-color" content="#F5F4F0">
+<meta name="theme-color" content="#F7F6F3">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Lumira Labs">
 <meta property="og:url" content="https://lumiralabs.co.uk/">
-<meta property="og:title" content="Lumira Labs — Venture studio, London">
-<meta property="og:description" content="We build companies: apps, SaaS platforms and machine learning, designed, built and run in-house.">
-<meta property="og:image" content="https://lumiralabs.co.uk/assets/og.png">
+<meta property="og:title" content="Lumira Labs — a venture studio in London">
+<meta property="og:description" content="We build software products and run them ourselves. Finball, Daysout, Bhabhi, Tracelob and Helix.">
+<meta property="og:image" content="https://lumiralabs.co.uk/assets/og.png?v=10">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Lumira Labs: we build software products and run them ourselves. Two founder badges on lanyards.">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=7">
-<script>
-/* Motion is an enhancement: these classes are only set when scripts run, and a timer clears the intro. */
-(function () {
-  var d = document.documentElement;
-  d.classList.add('js');
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var seen = false;
-  try { seen = sessionStorage.getItem('ll-intro') === '1'; } catch (e) {}
-  if (!reduce && !seen) { d.classList.add('is-intro'); setTimeout(function () { d.classList.remove('is-intro'); }, 3200); }
-})();
-</script>
-<script type="importmap">
-{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js", "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/" } }
-</script>
+<link rel="preload" href="fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/site.css?v=10">
+<link rel="modulepreload" href="js/lanyard.js?v=10">
 </head>
 <body>
-<a class="skip" href="#index">Skip to the index</a>
+<a class="skip" href="#products">Skip to the products</a>
 
 <header class="nav" id="nav">
-  <a class="nav-brand" href="#top" aria-label="Lumira Labs, back to top">
-    <svg class="mark" viewBox="-58 -48 116 96" aria-hidden="true"><path d="M0 0h24v72h48v24h-72z" transform="translate(-58,-48)" fill="currentColor"/><path d="M0 0h24v72h48v24h-72z" transform="translate(58,48) rotate(180)" fill="var(--blue)"/></svg>
-    <span>Lumira Labs</span>
-  </a>
-  <nav class="nav-links" aria-label="Sections">
-    <a href="#index">Index</a>
-    <a href="#lab">Lab</a>
-    <a href="#log">Ship log</a>
-    <a href="#founders">Founders</a>
-  </nav>
-  <p class="nav-ship mono"><span class="dot live"></span>Last ship 09 Nov 2026 · Finball</p>
-  <a class="btn btn-ink" href="https://calendly.com/lumiralabsltd/15-minute-meeting" target="_blank" rel="noopener" data-book>Book a call</a>
+  <div class="wrap nav-in">
+    <a class="brand" href="#top" aria-label="Lumira Labs, back to top"><svg class="mark" viewBox="-58 -48 116 96" aria-hidden="true"><path d="M0 0h24v72h48v24h-72z" transform="translate(-58,-48)" fill="currentColor"/><path d="M0 0h24v72h48v24h-72z" transform="translate(58,48) rotate(180)" class="mark-b"/></svg><span>Lumira Labs</span></a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#products">Products</a>
+      <a href="#log">Ship log</a>
+      <a href="#founders">Founders</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-line btn-sm" href="https://calendly.com/lumiralabsltd/15-minute-meeting" target="_blank" rel="noopener" data-book>Book a call</a>
+  </div>
 </header>
 
-<main>
+<main class="page">
 
-<!-- ───────────────────────── HERO ───────────────────────── -->
 <section class="hero" id="top">
-  <canvas id="hero-gl" aria-hidden="true"></canvas>
-  <div class="hero-stage" aria-hidden="true"><svg class="mark" viewBox="-58 -48 116 96"><path d="M0 0h24v72h48v24h-72z" transform="translate(-58,-48)" fill="currentColor"/><path d="M0 0h24v72h48v24h-72z" transform="translate(58,48) rotate(180)" fill="var(--blue)"/></svg></div>
-
-  <div class="hero-intro">
-    <p class="label mono">Venture studio<i></i>London<i></i>Est. 2026</p>
-    <p class="hero-sub">Lumira Labs is a venture studio in London. We design, build and run our own companies: iPhone apps, SaaS platforms and the machine-learning models behind them.</p>
-    <div class="hero-passes">
-      <p class="mono hint" data-gl-only>Drag a pass and let it go. Click one to meet a founder.</p>
-      <p class="mono passes">
-        <button type="button" data-bio="su">Sukhpinder Ubhi <span aria-hidden="true">↗</span></button>
-        <button type="button" data-bio="ne">Nikolaos Efthymiopoulos <span aria-hidden="true">↗</span></button>
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <a class="chip" href="#log"><time class="mono" datetime="2026-11-01">01 Nov 2026</time><span>Finball's cash forecast now runs 36&nbsp;months</span><span aria-hidden="true">→</span></a>
+      <h1 class="h1">We build software products <span class="mute">and run them ourselves.</span></h1>
+      <p class="sub">Lumira Labs is a venture studio in London. <a href="#finball">Finball</a>, <a href="#daysout">Daysout</a>, <a href="#bhabhi">Bhabhi</a>, <a href="#tracelob">Tracelob</a> and <a href="#helix">Helix</a> are all ours, and we don't take client work.</p>
+      <p class="ctas">
+        <a class="btn btn-ink" href="https://calendly.com/lumiralabsltd/15-minute-meeting" target="_blank" rel="noopener" data-book>Book a call</a>
+        <a class="link" href="#products">See the products <span aria-hidden="true">↓</span></a>
       </p>
     </div>
-  </div>
-
-  <h1 class="hero-h d" id="hero-h"><span>We build</span> <span>companies.</span></h1>
-
-  <dl class="hero-counts">
-    <div><dt class="mono">Products built</dt><dd class="d">05</dd></div>
-    <div><dt class="mono">Live today</dt><dd class="d">03</dd></div>
-    <div><dt class="mono">People using Daysout</dt><dd class="d">600</dd></div>
-    <div><dt class="mono">Months since we started</dt><dd class="d">07</dd></div>
-  </dl>
-</section>
-
-<!-- ───────────────────────── INDEX ───────────────────────── -->
-<section class="sec index" id="index">
-  <header class="sec-head">
-    <p class="mono sec-no">(00)</p>
-    <h2 class="d sec-title">Index</h2>
-    <p class="sec-note">Everything the studio has built so far. All of it is ours: we don't take client work.</p>
-  </header>
-
-  <ol class="idx" id="idx">
-    <li><a href="#finball" data-preview="assets/finball-home.webp" data-wide>
-      <span class="idx-no mono">01</span>
-      <span class="idx-name d">Finball</span>
-      <span class="idx-what">Financial planning and compliance for football clubs</span>
-      <span class="idx-type mono">SaaS</span>
-      <span class="idx-status mono"><span class="dot live"></span>Live</span>
-    </a></li>
-    <li><a href="#daysout" data-preview="assets/daysout-screen-1.webp">
-      <span class="idx-no mono">02</span>
-      <span class="idx-name d">Daysout</span>
-      <span class="idx-what">A map of every match and gig you've been to</span>
-      <span class="idx-type mono">iOS</span>
-      <span class="idx-status mono"><span class="dot live"></span>Live</span>
-    </a></li>
-    <li><a href="#bhabhi" data-preview="assets/bhabhi-screen-2.webp">
-      <span class="idx-no mono">03</span>
-      <span class="idx-name d">Bhabhi</span>
-      <span class="idx-what">The Punjabi card game, online and over Bluetooth</span>
-      <span class="idx-type mono">iOS</span>
-      <span class="idx-status mono"><span class="dot beta"></span>Beta</span>
-    </a></li>
-    <li><a href="#lab">
-      <span class="idx-no mono">04</span>
-      <span class="idx-name d">Tracelob</span>
-      <span class="idx-what">Ball and player tracking for padel</span>
-      <span class="idx-type mono">ML</span>
-      <span class="idx-status mono"><span class="dot rd"></span>R&amp;D</span>
-    </a></li>
-    <li><a href="#helix" data-preview="assets/helix-1.webp">
-      <span class="idx-no mono">05</span>
-      <span class="idx-name d">Helix</span>
-      <span class="idx-what">Food and recovery coach on Apple Health</span>
-      <span class="idx-type mono">iOS</span>
-      <span class="idx-status mono"><span class="dot live"></span>Live</span>
-    </a></li>
-  </ol>
-  <div class="idx-preview" id="idx-preview" aria-hidden="true"><img alt="" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></div>
-</section>
-
-<!-- ───────────────────────── 01 FINBALL ───────────────────────── -->
-<section class="sec prod finball" id="finball">
-  <header class="prod-head">
-    <p class="mono prod-meta"><span>(01)</span><span>SaaS</span><span><span class="dot live"></span>Live</span></p>
-    <h2 class="d prod-name lead-name">Finball</h2>
-  </header>
-
-  <div class="fb-grid">
-    <div class="prod-copy">
-      <p class="prod-lead">Every pound a football club earns, spends and owes, checked against the rules its league sets.</p>
-      <p>Finball models a club's finances for the next 36 months and tests them against Premier League, Championship and League One spending rules, and against the new regulator's stress tests. Change a wage or sign a player and the headroom moves before the decision is made. The rules run on exact fraction arithmetic, so a finance director sees the number the rule itself would give, to the penny.</p>
-      <dl class="facts">
-        <div><dt class="mono">Status</dt><dd>Live, with a public demo club</dd></div>
-        <div><dt class="mono">Clubs</dt><dd>In conversation with professional clubs</dd></div>
-        <div><dt class="mono">Built with</dt><dd>TypeScript, React, Cloudflare Workers</dd></div>
-      </dl>
-      <a class="link-arrow" href="https://finball.co.uk" target="_blank" rel="noopener">Open finball.co.uk <span aria-hidden="true">↗</span></a>
-    </div>
-
-    <figure class="shot fb-shot-a rv">
-      <div class="browser"><span class="mono">app.finball.co.uk</span></div>
-      <picture>
-        <source media="(max-width: 760px)" srcset="assets/finball-scr.webp" width="664" height="560">
-        <img src="assets/finball-home.webp" width="2000" height="1250" alt="Finball home screen for the demo club: squad cost at 82.7% of allowable income, £776k of headroom and a cash forecast." loading="lazy">
-      </picture>
-      <figcaption class="mono">Home, for Ashcombe, the demo club</figcaption>
-    </figure>
-  </div>
-
-  <div class="fb-grid-2">
-    <figure class="pitch rv" id="pitch">
-      <div class="pitch-view">
-        <img src="assets/finball-pitch.webp" width="1600" height="1000" alt="A model football pitch with two teams set out as markers." loading="lazy">
-        <canvas aria-hidden="true"></canvas>
-        <dl class="pitch-data mono">
-          <div><dt>Squad cost</dt><dd>82.7%</dd></div>
-          <div><dt>Limit</dt><dd>85%</dd></div>
-          <div><dt>Headroom</dt><dd>£776k</dd></div>
-        </dl>
-      </div>
-      <figcaption class="mono">Ashcombe Town FC, the demo club. Championship, 2026/27</figcaption>
-    </figure>
-    <figure class="fb-card rv">
-      <img src="assets/finball-stress-card.webp" width="660" height="930" alt="One Finball stress test: income down 10%, lowest cash minus £2.32m on 7 January 2028, below zero during November 2027." loading="lazy">
-      <figcaption class="mono">One of the three shocks the regulator asks every club to plan for</figcaption>
-    </figure>
-  </div>
-</section>
-
-<!-- ───────────────────────── 02 DAYSOUT ───────────────────────── -->
-<section class="sec prod daysout" id="daysout">
-  <header class="prod-head">
-    <p class="mono prod-meta"><span>(02)</span><span>iOS</span><span><span class="dot live"></span>Live</span></p>
-    <h2 class="d prod-name">Daysout</h2>
-  </header>
-  <div class="do-grid">
-    <figure class="devices do-devices rv" id="dev-daysout" data-screens="assets/daysout-screen-1.webp,assets/daysout-screen-3.webp">
-      <canvas aria-hidden="true"></canvas>
-      <div class="stills">
-        <img src="assets/daysout-screen-3.webp" width="660" height="1367" alt="Daysout stats screen: 41 events, 37 matches, 28 grounds and 5 countries in a season." loading="lazy">
-        <img src="assets/daysout-screen-1.webp" width="660" height="1367" alt="Daysout map of Europe with pins for every match and gig attended." loading="lazy">
-      </div>
-    </figure>
-
-    <div class="do-side">
-      <div class="prod-copy">
-        <p class="prod-lead">A map of every football match and gig you've been to.</p>
-        <p>Daysout reads the dates and places in your camera roll and works out which matches and gigs you were at. The fixture, the score and the setlist fill themselves in, and friends who were there can share one album.</p>
-      </div>
-      <dl class="bigstats">
-        <div><dd class="d">600</dd><dt class="mono">people using it</dt></div>
-        <div><dd class="d">5.0</dd><dt class="mono">on the UK App Store, from its first 10 ratings</dt></div>
-      </dl>
-      <p class="mono fine">Version 1.0.3 shipped 6 Nov 2026 · iOS, Supabase</p>
-      <a class="link-arrow" href="https://apps.apple.com/gb/app/daysout-football-gig-log/id6786365554" target="_blank" rel="noopener">Download on the App Store <span aria-hidden="true">↗</span></a>
+    <div class="badges" id="badges" role="group" aria-label="The founders">
+      <svg class="straps" aria-hidden="true"><defs><path id="strap-path-0" d=""/><path id="strap-path-1" d=""/></defs>
+        <g class="strap-g" data-i="0"><use href="#strap-path-0" class="strap"/><text class="strap-print"><textPath href="#strap-path-0">LUMIRA LABS · LUMIRA LABS · LUMIRA LABS · LUMIRA LABS · LUMIRA LABS · LUMIRA LABS · LUMIRA LABS · LUMIRA LABS ·</textPath></text></g>
+        <g class="strap-g" data-i="1"><use href="#strap-path-1" class="strap"/><text class="strap-print"><textPath href="#strap-path-1">LUMIRA LABS · LUMIRA LABS · LUMIRA LABS · LUMIRA LABS · LUMIRA LABS · LUMIRA LABS · LUMIRA LABS · LUMIRA LABS ·</textPath></text></g>
+      </svg>
+      <span class="strap-static" data-i="0" aria-hidden="true"></span>
+      <span class="strap-static" data-i="1" aria-hidden="true"></span>
+      <a class="badge" href="#founder-su" data-bio="su" data-i="0" draggable="false" aria-label="Sukhpinder Ubhi, co-founder. Open bio.">
+        <span class="badge-punch" aria-hidden="true"></span>
+        <span class="badge-clip" aria-hidden="true"></span>
+        <span class="badge-top mono"><span>Lumira Labs Ltd</span><span>LL-0001</span></span>
+        <img class="badge-photo" src="assets/v2/badge-su.webp" width="336" height="280" alt="" draggable="false">
+        <span class="badge-name">Sukhpinder<br>Ubhi</span>
+        <span class="badge-role mono">Co-founder</span>
+        <span class="badge-foot mono"><svg class="mark" viewBox="-58 -48 116 96" aria-hidden="true"><path d="M0 0h24v72h48v24h-72z" transform="translate(-58,-48)" fill="currentColor"/><path d="M0 0h24v72h48v24h-72z" transform="translate(58,48) rotate(180)" class="mark-b"/></svg><span>Co. no. 17138788 · London</span></span>
+      </a>
+      <a class="badge" href="#founder-ne" data-bio="ne" data-i="1" draggable="false" aria-label="Nikolaos Efthymiopoulos, co-founder. Open bio.">
+        <span class="badge-punch" aria-hidden="true"></span>
+        <span class="badge-clip" aria-hidden="true"></span>
+        <span class="badge-top mono"><span>Lumira Labs Ltd</span><span>LL-0002</span></span>
+        <img class="badge-photo" src="assets/v2/badge-ne.webp" width="336" height="280" alt="" draggable="false">
+        <span class="badge-name">Nikolaos<br>Efthymiopoulos</span>
+        <span class="badge-role mono">Co-founder</span>
+        <span class="badge-foot mono"><svg class="mark" viewBox="-58 -48 116 96" aria-hidden="true"><path d="M0 0h24v72h48v24h-72z" transform="translate(-58,-48)" fill="currentColor"/><path d="M0 0h24v72h48v24h-72z" transform="translate(58,48) rotate(180)" class="mark-b"/></svg><span>Co. no. 17138788 · London</span></span>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ───────────────────────── 03 BHABHI ───────────────────────── -->
-<section class="sec prod bhabhi" id="bhabhi">
-  <div class="bh-panel">
-    <header class="prod-head">
-      <p class="mono prod-meta"><span>(03)</span><span>iOS</span><span><span class="dot beta"></span>Beta</span></p>
-      <h2 class="d prod-name">Bhabhi</h2>
-    </header>
-    <figure class="devices bh-devices rv" id="dev-bhabhi" data-screens="assets/bhabhi-screen-2.webp,assets/bhabhi-screen-1.webp,assets/bhabhi-screen-3.webp">
-      <canvas aria-hidden="true"></canvas>
-      <div class="stills">
-        <img src="assets/bhabhi-screen-1.webp" width="660" height="1434" alt="Bhabhi home screen: play online, solo, over Bluetooth or add a friend, with a daily deal." loading="lazy">
-        <img src="assets/bhabhi-screen-2.webp" width="660" height="1434" alt="A Bhabhi game in progress on a sunlit rug, with a hand of cards fanned at the bottom." loading="lazy">
+<section class="sec" id="products" aria-labelledby="products-h">
+  <div class="wrap">
+    <div class="rule"><span class="coord mono">[ 02 / Products ]</span></div>
+    <h2 class="h2" id="products-h">Five products, all ours. <span class="mute">Three are live, Bhabhi is in beta and Tracelob is research.</span></h2>
+
+    <article class="card card-wide" id="finball" aria-labelledby="finball-h">
+      <div class="card-text">
+        <p class="card-top"><span class="mono">01 · Finball</span><span class="tag mono"><span class="st st-live" aria-hidden="true"></span>Live · SaaS</span></p>
+        <h3 class="h3" id="finball-h">Finball</h3>
+        <p class="card-line">Financial planning and compliance for football clubs.</p>
+        <p class="card-body">It models a club's money for the next 36 months, checks every pound against the Premier League, Championship and League One spending rules, and runs the stress tests set by the Independent Football Regulator (IFR). We're in conversation with professional clubs.</p>
+        <p class="proof mono"><span class="nw">Live since 11 Oct 2026</span> · <span class="nw">Rules for three leagues</span></p>
+        <p class="proof mono">185 pull requests in its first month</p>
+        <a class="link" href="https://finball.co.uk" target="_blank" rel="noopener">Visit finball.co.uk <span aria-hidden="true">↗</span></a>
       </div>
-    </figure>
-  </div>
-  <div class="bh-copy">
-    <p class="prod-lead">The card game Punjabi families grew up on, rebuilt for the phone.</p>
-    <p>Play friends online, or sit round one table and play over Bluetooth with no internet at all. There's a daily deal where everyone gets the same cards, and a season leaderboard to argue about.</p>
-    <dl class="facts">
-      <div><dt class="mono">Status</dt><dd>In beta on TestFlight</dd></div>
-      <div><dt class="mono">Modes</dt><dd>Online, solo, Bluetooth</dd></div>
-      <div><dt class="mono">Built with</dt><dd>SwiftUI, Supabase</dd></div>
-    </dl>
-  </div>
-</section>
-
-<!-- ───────────────────────── 04 TRACELOB (LAB) ───────────────────────── -->
-<section class="sec prod lab" id="lab">
-  <figure class="court" id="court">
-    <canvas aria-hidden="true"></canvas>
-    <p class="court-hud mono" aria-hidden="true"><span id="hud-frame">frame 00000</span><span>59.94 fps</span><span id="hud-ball">ball 0.00</span><span>players 4/4</span></p>
-  </figure>
-  <div class="lab-in">
-    <header class="prod-head">
-      <p class="mono prod-meta"><span>(04)</span><span>Machine learning</span><span><span class="dot rd"></span>R&amp;D</span></p>
-      <h2 class="d prod-name">Tracelob</h2>
-    </header>
-    <div class="prod-copy">
-      <p class="prod-lead">Our own vision model for padel. It finds four players and one very small ball.</p>
-      <p>Tracelob watches a match from a fixed camera behind the glass and tracks every player and the ball, frame by frame. The detector is ours: we call it TraceNet, wrote it in PyTorch and trained it on an 8&nbsp;GB MacBook, with no off-the-shelf model left on the tracking path. It's research for now.</p>
-    </div>
-  </div>
-  <dl class="metrics">
-    <div><dd class="d">0.993</dd><dt class="mono">average precision, player detection</dt></div>
-    <div><dd class="d">98.9%</dd><dt class="mono">of players found at the tracker's threshold</dt></div>
-    <div><dd class="d">0.6&thinsp;px</dd><dt class="mono">median ball error, on a ball four pixels wide</dt></div>
-    <div><dd class="d">36,018</dd><dt class="mono">frames in the full test clip</dt></div>
-  </dl>
-  <p class="mono lab-note">Measured 6 Nov 2026 on two minutes of footage the model never trained on, from one hall, against labels from a larger teacher model and not human ones. The rally drawn here is simulated.</p>
-</section>
-
-<!-- ───────────────────────── 05 HELIX ───────────────────────── -->
-<section class="sec helix" id="helix">
-  <p class="mono prod-meta"><span>(05)</span><span>iOS</span><span><span class="dot live"></span>Live</span></p>
-  <div class="hx-row">
-    <img class="hx-icon" src="assets/helix-icon.webp" width="256" height="256" alt="Helix app icon" loading="lazy">
-    <h2 class="d hx-name">Helix</h2>
-    <p class="hx-what">A food and recovery coach that reads Apple Health and gives you one clear picture of your day: sleep, training load, what you ate. On the App Store since September 2026.</p>
-    <a class="link-arrow" href="https://apps.apple.com/gb/app/helix-food-vitals-coach/id6787740352" target="_blank" rel="noopener">App Store <span aria-hidden="true">↗</span></a>
-  </div>
-</section>
-
-<!-- ───────────────────────── SHIP LOG ───────────────────────── -->
-<section class="sec log" id="log">
-  <div class="log-grid">
-    <div class="log-left">
-      <p class="mono sec-no">(06) Ship log</p>
-      <h2 class="d log-big"><span>605</span></h2>
-      <p class="log-cap">commits across our product repositories since July. Counted on 11 November 2026.</p>
-      <figure class="bars">
-        <svg viewBox="0 0 517 120" preserveAspectRatio="none" role="img" aria-label="Bar chart of commits per day from 21 September to 11 November 2026: 564 commits, with the busiest day, 9 November, at 60."><rect class="z" x="0" y="118.5" width="7" height="1.5"/><rect class="z" x="10" y="118.5" width="7" height="1.5"/><rect class="z" x="20" y="118.5" width="7" height="1.5"/><rect class="z" x="30" y="118.5" width="7" height="1.5"/><rect x="40" y="114.2" width="7" height="5.8"><title>25 Sep: 3</title></rect><rect x="50" y="100.7" width="7" height="19.3"><title>26 Sep: 10</title></rect><rect x="60" y="58.1" width="7" height="61.9"><title>27 Sep: 32</title></rect><rect x="70" y="110.3" width="7" height="9.7"><title>28 Sep: 5</title></rect><rect x="80" y="98.7" width="7" height="21.3"><title>29 Sep: 11</title></rect><rect x="90" y="116.1" width="7" height="3.9"><title>30 Sep: 2</title></rect><rect x="100" y="60.1" width="7" height="59.9"><title>01 Oct: 31</title></rect><rect class="z" x="110" y="118.5" width="7" height="1.5"/><rect x="120" y="114.2" width="7" height="5.8"><title>03 Oct: 3</title></rect><rect class="z" x="130" y="118.5" width="7" height="1.5"/><rect class="z" x="140" y="118.5" width="7" height="1.5"/><rect class="z" x="150" y="118.5" width="7" height="1.5"/><rect x="160" y="110.3" width="7" height="9.7"><title>07 Oct: 5</title></rect><rect x="170" y="117" width="7" height="3"><title>08 Oct: 1</title></rect><rect class="z" x="180" y="118.5" width="7" height="1.5"/><rect class="z" x="190" y="118.5" width="7" height="1.5"/><rect x="200" y="110.3" width="7" height="9.7"><title>11 Oct: 5</title></rect><rect x="210" y="102.6" width="7" height="17.4"><title>12 Oct: 9</title></rect><rect x="220" y="117" width="7" height="3"><title>13 Oct: 1</title></rect><rect class="z" x="230" y="118.5" width="7" height="1.5"/><rect x="240" y="96.8" width="7" height="23.2"><title>15 Oct: 12</title></rect><rect x="250" y="102.6" width="7" height="17.4"><title>16 Oct: 9</title></rect><rect x="260" y="69.7" width="7" height="50.3"><title>17 Oct: 26</title></rect><rect x="270" y="62.0" width="7" height="58.0"><title>18 Oct: 30</title></rect><rect x="280" y="108.4" width="7" height="11.6"><title>19 Oct: 6</title></rect><rect x="290" y="92.9" width="7" height="27.1"><title>20 Oct: 14</title></rect><rect x="300" y="100.7" width="7" height="19.3"><title>21 Oct: 10</title></rect><rect x="310" y="112.3" width="7" height="7.7"><title>22 Oct: 4</title></rect><rect class="z" x="320" y="118.5" width="7" height="1.5"/><rect class="z" x="330" y="118.5" width="7" height="1.5"/><rect x="340" y="67.8" width="7" height="52.2"><title>25 Oct: 27</title></rect><rect x="350" y="92.9" width="7" height="27.1"><title>26 Oct: 14</title></rect><rect x="360" y="69.7" width="7" height="50.3"><title>27 Oct: 26</title></rect><rect class="z" x="370" y="118.5" width="7" height="1.5"/><rect x="380" y="29.1" width="7" height="90.9"><title>29 Oct: 47</title></rect><rect x="390" y="62.0" width="7" height="58.0"><title>30 Oct: 30</title></rect><rect x="400" y="73.6" width="7" height="46.4"><title>31 Oct: 24</title></rect><rect x="410" y="54.3" width="7" height="65.7"><title>01 Nov: 34</title></rect><rect x="420" y="85.2" width="7" height="34.8"><title>02 Nov: 18</title></rect><rect class="z" x="430" y="118.5" width="7" height="1.5"/><rect class="z" x="440" y="118.5" width="7" height="1.5"/><rect class="z" x="450" y="118.5" width="7" height="1.5"/><rect x="460" y="65.9" width="7" height="54.1"><title>06 Nov: 28</title></rect><rect x="470" y="79.4" width="7" height="40.6"><title>07 Nov: 21</title></rect><rect x="480" y="108.4" width="7" height="11.6"><title>08 Nov: 6</title></rect><rect x="490" y="4.0" width="7" height="116.0"><title>09 Nov: 60</title></rect><rect class="z" x="500" y="118.5" width="7" height="1.5"/><rect class="z" x="510" y="118.5" width="7" height="1.5"/></svg>
-        <figcaption class="mono"><span>21 Sep</span><span>Commits per day. Busiest: 60, on 9 Nov</span><span>11 Nov</span></figcaption>
+      <figure class="panel panel-wide">
+        <div class="tabs mono" role="tablist" aria-label="Finball screens">
+          <button role="tab" aria-selected="true" aria-controls="fb-home" id="fbt-home">Home</button>
+          <button role="tab" aria-selected="false" aria-controls="fb-rules" id="fbt-rules" tabindex="-1">Spending rules</button>
+          <button role="tab" aria-selected="false" aria-controls="fb-cash" id="fbt-cash" tabindex="-1">Cash</button>
+          <button role="tab" aria-selected="false" aria-controls="fb-licence" id="fbt-licence" tabindex="-1">IFR licence pack</button>
+        </div>
+        <div class="shot-web">
+          <div id="fb-home" role="tabpanel" aria-labelledby="fbt-home" tabindex="0" class="on"><img src="assets/v2/finball-home.webp" width="1600" height="1000" alt="Finball home for the demo club: squad cost at 82.7% of allowable income against an 85% limit, £776k of headroom and the cash forecast."></div>
+          <div id="fb-rules" role="tabpanel" aria-labelledby="fbt-rules" tabindex="-1"><img src="assets/v2/finball-rules.webp" width="1600" height="1000" alt="Finball spending rules: the Championship squad cost ratio test with the limit, headroom and how the rule was checked." loading="lazy"></div>
+          <div id="fb-cash" role="tabpanel" aria-labelledby="fbt-cash" tabindex="-1"><img src="assets/v2/finball-cash.webp" width="1600" height="1000" alt="Finball cash forecast over 36 months, with the lowest balance and the bank minimum." loading="lazy"></div>
+          <div id="fb-licence" role="tabpanel" aria-labelledby="fbt-licence" tabindex="-1"><img src="assets/v2/finball-licence.webp" width="1600" height="1000" alt="Finball IFR licence pack: the sections of the club's financial plan and their status." loading="lazy"></div>
+        </div>
+        <figcaption class="mono">Demo club: Ashcombe&nbsp;Town&nbsp;FC&nbsp;· fictional figures</figcaption>
       </figure>
-      <dl class="facts">
-        <div><dt class="mono">Finball</dt><dd>185 pull requests opened in its first month</dd></div>
-        <div><dt class="mono">Bhabhi</dt><dd>Build 111</dd></div>
-      </dl>
-    </div>
+    </article>
 
-    <ol class="log-list">
-      <li><time class="mono" datetime="2026-11-09">09 Nov 2026</time><b>Finball</b><span>Stress tests now run in the background as a club opens, so the first visit is fast.</span></li>
-      <li><time class="mono" datetime="2026-11-06">06 Nov 2026</time><b>Tracelob</b><span>TraceNet, our own detector, takes over player and ball tracking.</span></li>
-      <li><time class="mono" datetime="2026-11-06">06 Nov 2026</time><b>Daysout</b><span>Version 1.0.3 on the App Store.</span></li>
-      <li><time class="mono" datetime="2026-11-01">01 Nov 2026</time><b>Finball</b><span>Cash forecast extended to 36 months. Private pilot links for clubs.</span></li>
-      <li><time class="mono" datetime="2026-10-31">31 Oct 2026</time><b>Bhabhi</b><span>A new build to TestFlight.</span></li>
-      <li><time class="mono" datetime="2026-10-11">11 Oct 2026</time><b>Finball</b><span>First version live: a rules engine for three leagues and a demo club to try it on.</span></li>
-      <li><time class="mono" datetime="2026-09-08">08 Sep 2026</time><b>Helix</b><span>Released on the App Store.</span></li>
-      <li><time class="mono" datetime="2026-08-14">14 Aug 2026</time><b>Daysout</b><span>Released on the App Store.</span></li>
-      <li><time class="mono" datetime="2026-04-07">07 Apr 2026</time><b>Lumira Labs</b><span>Company incorporated in London.</span></li>
-    </ol>
-  </div>
-</section>
-
-<!-- ───────────────────────── IN-HOUSE ───────────────────────── -->
-<section class="sec house" id="studio">
-  <div class="house-grid">
-    <div class="house-say">
-      <p class="mono sec-no">(07) In-house</p>
-      <h2 class="house-line">Nothing here is outsourced. The same studio draws the screens, writes the code and trains the models.</h2>
-    </div>
-    <ul class="house-list">
-      <li><h3 class="d">Product design</h3><p>Research, interface and brand for every product, from the first sketch to the App Store listing. <span class="mono">Figma · motion · brand</span></p></li>
-      <li><h3 class="d">iOS</h3><p>SwiftUI apps with subscriptions, widgets and Bluetooth multiplayer, and Supabase behind them. <span class="mono">Swift · SwiftUI · StoreKit</span></p></li>
-      <li><h3 class="d">Web platforms</h3><p>TypeScript and React on Cloudflare Workers. Finball runs its whole engine in the browser. <span class="mono">TypeScript · React · Workers</span></p></li>
-      <li><h3 class="d">Rules engines</h3><p>Regulation written as versioned code, with exact arithmetic and a test for every worked example. <span class="mono">Rational maths · golden tests</span></p></li>
-      <li><h3 class="d">Computer vision</h3><p>Detectors trained in-house, court homography and tracking through occlusion. <span class="mono">PyTorch · TraceNet</span></p></li>
-    </ul>
-  </div>
-</section>
-
-<!-- ───────────────────────── FOUNDERS ───────────────────────── -->
-<section class="sec founders" id="founders">
-  <div class="fd-grid">
-    <button class="fd-photo" type="button" data-bio="su" aria-label="Open Sukhpinder Ubhi's bio"><img id="founder-su-img" src="assets/founder-su.webp" width="800" height="1000" alt="Sukhpinder Ubhi" loading="lazy"></button>
-    <button class="fd-photo fd-photo-b" type="button" data-bio="ne" aria-label="Open Nikolaos Efthymiopoulos's bio"><img id="founder-ne-img" src="assets/founder-ne.webp" width="800" height="1000" alt="Nikolaos Efthymiopoulos" loading="lazy"></button>
-    <div class="fd-text">
-      <p class="mono sec-no">(08) Founders</p>
-      <article class="fd" id="founder-su">
-        <p class="mono">LL-0001 · Co-founder</p>
-        <h3 class="d">Sukhpinder Ubhi</h3>
-        <p>Works across the whole stack with Nikolaos: SwiftUI for the apps, TypeScript for Finball, PyTorch for Tracelob. Closest to product and brand, from the first sketch to the App Store listing.</p>
+    <div class="cards">
+      <article class="card" id="daysout" aria-labelledby="daysout-h">
+        <p class="card-top"><span class="mono">02 · Daysout</span><span class="tag mono"><span class="st st-live" aria-hidden="true"></span>iOS · Live</span></p>
+        <figure class="panel"><img class="shot-phone" src="assets/v2/daysout-map.webp" width="600" height="1243" alt="Daysout's map of Europe, with a pin for every match and gig logged." loading="lazy"></figure>
+        <h3 class="h3" id="daysout-h">Daysout</h3>
+        <p class="card-line">A map of every football match and gig you've been to.</p>
+        <p class="proof mono"><a href="https://apps.apple.com/gb/app/daysout-football-gig-log/id6786365554" target="_blank" rel="noopener"><span class="nw">5.0 on the UK App Store</span> · <span class="nw">10 ratings</span></a> · <span class="nw">600 users</span></p>
+        <a class="link" href="https://apps.apple.com/gb/app/daysout-football-gig-log/id6786365554" target="_blank" rel="noopener">App Store <span aria-hidden="true">↗</span></a>
       </article>
-      <article class="fd" id="founder-ne">
-        <p class="mono">LL-0002 · Co-founder</p>
-        <h3 class="d">Nikolaos Efthymiopoulos</h3>
-        <p>Works across the whole stack with Sukhpinder: iOS, Cloudflare Workers, Supabase and the training pipeline behind TraceNet. Closest to architecture and infrastructure.</p>
+
+      <article class="card" id="bhabhi" aria-labelledby="bhabhi-h">
+        <p class="card-top"><span class="mono">03 · Bhabhi</span><span class="tag mono"><span class="st st-beta" aria-hidden="true"></span>TestFlight beta</span></p>
+        <figure class="panel"><img class="shot-phone" src="assets/v2/bhabhi-table.webp" width="600" height="1306" alt="Bhabhi's welcome screen: three players at the table, one card down, and the rule: last one holding cards is the Bhabhi." loading="lazy"></figure>
+        <h3 class="h3" id="bhabhi-h">Bhabhi</h3>
+        <p class="card-line">The Punjabi card game, online and over Bluetooth.</p>
+        <p class="proof mono">Build 111 on TestFlight · 31 Oct 2026</p>
+        <a class="link" href="mailto:team@lumiralabs.co.uk?subject=Bhabhi%20beta">Ask for an invite <span aria-hidden="true">→</span></a>
       </article>
-      <p class="fd-note">Both are degree apprentices at J.P. Morgan, a programme that takes around the top 1% of applicants. They started Lumira Labs in April 2026.</p>
-      <a class="link-arrow" href="mailto:team@lumiralabs.co.uk">team@lumiralabs.co.uk <span aria-hidden="true">↗</span></a>
+
+      <article class="card" id="tracelob" aria-labelledby="tracelob-h">
+        <p class="card-top"><span class="mono">04 · Tracelob</span><span class="tag mono"><span class="st st-rd" aria-hidden="true"></span>R&amp;D</span></p>
+        <figure class="panel panel-court"><svg class="court" viewBox="0 0 23.2 13.2" role="img" aria-label="Top-down view of a padel court with four tracked players, each with a detection box, and the ball's path over the last second. Simulated frame.">
+<rect class="c-floor" x="1.6" y="1.6" width="20" height="10"/>
+<path class="c-glass" d="M1.6 1.6v10M21.6 1.6v10"/>
+<path class="c-line" d="M1.6 1.6h20v10h-20zM4.65 1.6v10M18.55 1.6v10M4.65 6.6h13.90"/>
+<path class="c-net" d="M11.6 1.3v10.6"/>
+<line class="c-trail" x1="2.790" y1="9.217" x2="2.842" y2="9.224" style="opacity:0.08"/>
+<line class="c-trail" x1="2.842" y1="9.224" x2="2.894" y2="9.231" style="opacity:0.08"/>
+<line class="c-trail" x1="2.894" y1="9.231" x2="2.946" y2="9.239" style="opacity:0.08"/>
+<line class="c-trail" x1="2.946" y1="9.239" x2="3.047" y2="9.189" style="opacity:0.08"/>
+<line class="c-trail" x1="3.047" y1="9.189" x2="3.147" y2="9.139" style="opacity:0.08"/>
+<line class="c-trail" x1="3.147" y1="9.139" x2="3.247" y2="9.089" style="opacity:0.08"/>
+<line class="c-trail" x1="3.247" y1="9.089" x2="3.347" y2="9.040" style="opacity:0.08"/>
+<line class="c-trail" x1="3.347" y1="9.040" x2="3.448" y2="8.990" style="opacity:0.08"/>
+<line class="c-trail" x1="3.448" y1="8.990" x2="3.548" y2="8.941" style="opacity:0.09"/>
+<line class="c-trail" x1="3.548" y1="8.941" x2="3.648" y2="8.892" style="opacity:0.09"/>
+<line class="c-trail" x1="3.648" y1="8.892" x2="3.749" y2="8.843" style="opacity:0.09"/>
+<line class="c-trail" x1="3.749" y1="8.843" x2="3.849" y2="8.794" style="opacity:0.09"/>
+<line class="c-trail" x1="3.849" y1="8.794" x2="3.949" y2="8.746" style="opacity:0.09"/>
+<line class="c-trail" x1="3.949" y1="8.746" x2="4.050" y2="8.698" style="opacity:0.09"/>
+<line class="c-trail" x1="4.050" y1="8.698" x2="4.150" y2="8.650" style="opacity:0.09"/>
+<line class="c-trail" x1="4.150" y1="8.650" x2="4.250" y2="8.602" style="opacity:0.10"/>
+<line class="c-trail" x1="4.250" y1="8.602" x2="4.351" y2="8.554" style="opacity:0.10"/>
+<line class="c-trail" x1="4.351" y1="8.554" x2="4.451" y2="8.507" style="opacity:0.10"/>
+<line class="c-trail" x1="4.451" y1="8.507" x2="4.551" y2="8.459" style="opacity:0.10"/>
+<line class="c-trail" x1="4.551" y1="8.459" x2="4.652" y2="8.412" style="opacity:0.11"/>
+<line class="c-trail" x1="4.652" y1="8.412" x2="4.752" y2="8.365" style="opacity:0.11"/>
+<line class="c-trail" x1="4.752" y1="8.365" x2="4.852" y2="8.319" style="opacity:0.11"/>
+<line class="c-trail" x1="4.852" y1="8.319" x2="4.953" y2="8.272" style="opacity:0.11"/>
+<line class="c-trail" x1="4.953" y1="8.272" x2="5.053" y2="8.226" style="opacity:0.12"/>
+<line class="c-trail" x1="5.053" y1="8.226" x2="5.153" y2="8.180" style="opacity:0.12"/>
+<line class="c-trail" x1="5.153" y1="8.180" x2="5.254" y2="8.134" style="opacity:0.12"/>
+<line class="c-trail" x1="5.254" y1="8.134" x2="5.354" y2="8.088" style="opacity:0.13"/>
+<line class="c-trail" x1="5.354" y1="8.088" x2="5.454" y2="8.042" style="opacity:0.13"/>
+<line class="c-trail" x1="5.454" y1="8.042" x2="5.555" y2="7.997" style="opacity:0.13"/>
+<line class="c-trail" x1="5.555" y1="7.997" x2="5.655" y2="7.952" style="opacity:0.14"/>
+<line class="c-trail" x1="5.655" y1="7.952" x2="5.755" y2="7.907" style="opacity:0.14"/>
+<line class="c-trail" x1="5.755" y1="7.907" x2="5.855" y2="7.862" style="opacity:0.15"/>
+<line class="c-trail" x1="5.855" y1="7.862" x2="5.956" y2="7.817" style="opacity:0.15"/>
+<line class="c-trail" x1="5.956" y1="7.817" x2="6.056" y2="7.773" style="opacity:0.15"/>
+<line class="c-trail" x1="6.056" y1="7.773" x2="6.156" y2="7.728" style="opacity:0.16"/>
+<line class="c-trail" x1="6.156" y1="7.728" x2="6.257" y2="7.684" style="opacity:0.16"/>
+<line class="c-trail" x1="6.257" y1="7.684" x2="6.357" y2="7.640" style="opacity:0.17"/>
+<line class="c-trail" x1="6.357" y1="7.640" x2="6.457" y2="7.597" style="opacity:0.17"/>
+<line class="c-trail" x1="6.457" y1="7.597" x2="6.558" y2="7.553" style="opacity:0.18"/>
+<line class="c-trail" x1="6.558" y1="7.553" x2="6.658" y2="7.510" style="opacity:0.18"/>
+<line class="c-trail" x1="6.658" y1="7.510" x2="6.758" y2="7.467" style="opacity:0.19"/>
+<line class="c-trail" x1="6.758" y1="7.467" x2="6.859" y2="7.424" style="opacity:0.19"/>
+<line class="c-trail" x1="6.859" y1="7.424" x2="6.959" y2="7.381" style="opacity:0.20"/>
+<line class="c-trail" x1="6.959" y1="7.381" x2="7.059" y2="7.339" style="opacity:0.20"/>
+<line class="c-trail" x1="7.059" y1="7.339" x2="7.160" y2="7.296" style="opacity:0.21"/>
+<line class="c-trail" x1="7.160" y1="7.296" x2="7.260" y2="7.254" style="opacity:0.22"/>
+<line class="c-trail" x1="7.260" y1="7.254" x2="7.360" y2="7.212" style="opacity:0.22"/>
+<line class="c-trail" x1="7.360" y1="7.212" x2="7.461" y2="7.170" style="opacity:0.23"/>
+<line class="c-trail" x1="7.461" y1="7.170" x2="7.561" y2="7.129" style="opacity:0.23"/>
+<line class="c-trail" x1="7.561" y1="7.129" x2="7.661" y2="7.088" style="opacity:0.24"/>
+<line class="c-trail" x1="7.661" y1="7.088" x2="7.762" y2="7.046" style="opacity:0.25"/>
+<line class="c-trail" x1="7.762" y1="7.046" x2="7.862" y2="7.005" style="opacity:0.25"/>
+<line class="c-trail" x1="7.862" y1="7.005" x2="7.962" y2="6.964" style="opacity:0.26"/>
+<line class="c-trail" x1="7.962" y1="6.964" x2="8.063" y2="6.924" style="opacity:0.27"/>
+<line class="c-trail" x1="8.063" y1="6.924" x2="8.163" y2="6.883" style="opacity:0.27"/>
+<line class="c-trail" x1="8.163" y1="6.883" x2="8.263" y2="6.843" style="opacity:0.28"/>
+<line class="c-trail" x1="8.263" y1="6.843" x2="8.363" y2="6.803" style="opacity:0.29"/>
+<line class="c-trail" x1="8.363" y1="6.803" x2="8.464" y2="6.763" style="opacity:0.29"/>
+<line class="c-trail" x1="8.464" y1="6.763" x2="8.564" y2="6.724" style="opacity:0.30"/>
+<line class="c-trail" x1="8.564" y1="6.724" x2="8.664" y2="6.684" style="opacity:0.31"/>
+<line class="c-trail" x1="8.664" y1="6.684" x2="8.765" y2="6.645" style="opacity:0.32"/>
+<line class="c-trail" x1="8.765" y1="6.645" x2="8.865" y2="6.606" style="opacity:0.33"/>
+<line class="c-trail" x1="8.865" y1="6.606" x2="8.965" y2="6.567" style="opacity:0.33"/>
+<line class="c-trail" x1="8.965" y1="6.567" x2="9.066" y2="6.528" style="opacity:0.34"/>
+<line class="c-trail" x1="9.066" y1="6.528" x2="9.166" y2="6.490" style="opacity:0.35"/>
+<line class="c-trail" x1="9.166" y1="6.490" x2="9.266" y2="6.451" style="opacity:0.36"/>
+<line class="c-trail" x1="9.266" y1="6.451" x2="9.367" y2="6.413" style="opacity:0.37"/>
+<line class="c-trail" x1="9.367" y1="6.413" x2="9.467" y2="6.375" style="opacity:0.38"/>
+<line class="c-trail" x1="9.467" y1="6.375" x2="9.567" y2="6.337" style="opacity:0.38"/>
+<line class="c-trail" x1="9.567" y1="6.337" x2="9.668" y2="6.300" style="opacity:0.39"/>
+<line class="c-trail" x1="9.668" y1="6.300" x2="9.768" y2="6.262" style="opacity:0.40"/>
+<line class="c-trail" x1="9.768" y1="6.262" x2="9.868" y2="6.225" style="opacity:0.41"/>
+<line class="c-trail" x1="9.868" y1="6.225" x2="9.969" y2="6.188" style="opacity:0.42"/>
+<line class="c-trail" x1="9.969" y1="6.188" x2="10.069" y2="6.151" style="opacity:0.43"/>
+<line class="c-trail" x1="10.069" y1="6.151" x2="10.169" y2="6.115" style="opacity:0.44"/>
+<line class="c-trail" x1="10.169" y1="6.115" x2="10.270" y2="6.078" style="opacity:0.45"/>
+<line class="c-trail" x1="10.270" y1="6.078" x2="10.370" y2="6.042" style="opacity:0.46"/>
+<line class="c-trail" x1="10.370" y1="6.042" x2="10.470" y2="6.006" style="opacity:0.47"/>
+<line class="c-trail" x1="10.470" y1="6.006" x2="10.570" y2="5.970" style="opacity:0.48"/>
+<line class="c-trail" x1="10.570" y1="5.970" x2="10.671" y2="5.935" style="opacity:0.49"/>
+<line class="c-trail" x1="10.671" y1="5.935" x2="10.771" y2="5.899" style="opacity:0.50"/>
+<line class="c-trail" x1="10.771" y1="5.899" x2="10.871" y2="5.864" style="opacity:0.51"/>
+<line class="c-trail" x1="10.871" y1="5.864" x2="10.972" y2="5.829" style="opacity:0.52"/>
+<line class="c-trail" x1="10.972" y1="5.829" x2="11.072" y2="5.794" style="opacity:0.53"/>
+<line class="c-trail" x1="11.072" y1="5.794" x2="11.172" y2="5.759" style="opacity:0.54"/>
+<line class="c-trail" x1="11.172" y1="5.759" x2="11.273" y2="5.725" style="opacity:0.55"/>
+<line class="c-trail" x1="11.273" y1="5.725" x2="11.373" y2="5.690" style="opacity:0.56"/>
+<line class="c-trail" x1="11.373" y1="5.690" x2="11.473" y2="5.656" style="opacity:0.57"/>
+<line class="c-trail" x1="11.473" y1="5.656" x2="11.574" y2="5.622" style="opacity:0.59"/>
+<line class="c-trail" x1="11.574" y1="5.622" x2="11.674" y2="5.588" style="opacity:0.60"/>
+<line class="c-trail" x1="11.674" y1="5.588" x2="11.774" y2="5.555" style="opacity:0.61"/>
+<line class="c-trail" x1="11.774" y1="5.555" x2="11.875" y2="5.521" style="opacity:0.62"/>
+<line class="c-trail" x1="11.875" y1="5.521" x2="11.975" y2="5.488" style="opacity:0.63"/>
+<line class="c-trail" x1="11.975" y1="5.488" x2="12.075" y2="5.455" style="opacity:0.64"/>
+<line class="c-trail" x1="12.075" y1="5.455" x2="12.176" y2="5.422" style="opacity:0.66"/>
+<line class="c-trail" x1="12.176" y1="5.422" x2="12.276" y2="5.390" style="opacity:0.67"/>
+<line class="c-trail" x1="12.276" y1="5.390" x2="12.376" y2="5.357" style="opacity:0.68"/>
+<line class="c-trail" x1="12.376" y1="5.357" x2="12.477" y2="5.325" style="opacity:0.69"/>
+<line class="c-trail" x1="12.477" y1="5.325" x2="12.577" y2="5.293" style="opacity:0.71"/>
+<line class="c-trail" x1="12.577" y1="5.293" x2="12.677" y2="5.261" style="opacity:0.72"/>
+<line class="c-trail" x1="12.677" y1="5.261" x2="12.778" y2="5.230" style="opacity:0.73"/>
+<line class="c-trail" x1="12.778" y1="5.230" x2="12.878" y2="5.198" style="opacity:0.74"/>
+<line class="c-trail" x1="12.878" y1="5.198" x2="12.978" y2="5.167" style="opacity:0.76"/>
+<line class="c-trail" x1="12.978" y1="5.167" x2="13.078" y2="5.136" style="opacity:0.77"/>
+<line class="c-trail" x1="13.078" y1="5.136" x2="13.179" y2="5.105" style="opacity:0.78"/>
+<line class="c-trail" x1="13.179" y1="5.105" x2="13.279" y2="5.074" style="opacity:0.80"/>
+<line class="c-trail" x1="13.279" y1="5.074" x2="13.379" y2="5.044" style="opacity:0.81"/>
+<line class="c-trail" x1="13.379" y1="5.044" x2="13.480" y2="5.013" style="opacity:0.83"/>
+<line class="c-trail" x1="13.480" y1="5.013" x2="13.580" y2="4.983" style="opacity:0.84"/>
+<line class="c-trail" x1="13.580" y1="4.983" x2="13.680" y2="4.953" style="opacity:0.85"/>
+<line class="c-trail" x1="13.680" y1="4.953" x2="13.781" y2="4.923" style="opacity:0.87"/>
+<line class="c-trail" x1="13.781" y1="4.923" x2="13.881" y2="4.894" style="opacity:0.88"/>
+<line class="c-trail" x1="13.881" y1="4.894" x2="13.981" y2="4.864" style="opacity:0.90"/>
+<line class="c-trail" x1="13.981" y1="4.864" x2="14.082" y2="4.835" style="opacity:0.91"/>
+<line class="c-trail" x1="14.082" y1="4.835" x2="14.182" y2="4.806" style="opacity:0.92"/>
+<line class="c-trail" x1="14.182" y1="4.806" x2="14.282" y2="4.777" style="opacity:0.94"/>
+<line class="c-trail" x1="14.282" y1="4.777" x2="14.383" y2="4.749" style="opacity:0.95"/>
+<line class="c-trail" x1="14.383" y1="4.749" x2="14.483" y2="4.720" style="opacity:0.97"/>
+<line class="c-trail" x1="14.483" y1="4.720" x2="14.583" y2="4.692" style="opacity:0.98"/>
+<rect class="c-box" x="19.82" y="1.63" width="1.24" height="1.24"/>
+<circle class="c-player" cx="20.44" cy="2.25" r="0.24"/>
+<text class="c-label" x="19.82" y="1.41">P1</text>
+<rect class="c-box" x="17.38" y="8.75" width="1.24" height="1.24"/>
+<circle class="c-player" cx="18.00" cy="9.37" r="0.24"/>
+<text class="c-label" x="17.38" y="8.53">P2</text>
+<rect class="c-box" x="4.58" y="4.05" width="1.24" height="1.24"/>
+<circle class="c-player" cx="5.20" cy="4.67" r="0.24"/>
+<text class="c-label" x="4.75" y="3.83">P3</text>
+<rect class="c-box" x="3.76" y="8.50" width="1.24" height="1.24"/>
+<circle class="c-player" cx="4.38" cy="9.12" r="0.24"/>
+<text class="c-label" x="3.76" y="8.28">P4</text>
+<circle class="c-shadow" cx="14.583" cy="5.220" r="0.14"/>
+<circle class="c-ball" cx="14.58" cy="4.69" r="0.17"/>
+<path class="c-reticle" d="M14.08 4.39v-0.2h0.2M14.88 4.19h0.2v0.2M15.08 4.99v0.2h-0.2M14.28 5.19h-0.2v-0.2"/>
+<text class="c-label c-ball-label" x="15.20" y="4.81">ball</text>
+</svg>
+<figcaption class="mono">Simulated frame · metrics are real</figcaption></figure>
+        <h3 class="h3" id="tracelob-h">Tracelob</h3>
+        <p class="card-line">Our own vision model for padel. It tracks four players and the ball.</p>
+        <p class="proof mono">0.993 AP · player detection</p>
+        <button class="link" type="button" data-open="method" commandfor="method" command="show-modal">How we measured it <span aria-hidden="true">→</span></button>
+      </article>
+    </div>
+
+    <article class="helix" id="helix" aria-labelledby="helix-h">
+      <img class="helix-icon" src="assets/helix-icon.webp" width="256" height="256" alt="" loading="lazy">
+      <p class="mono helix-no">05</p>
+      <h3 class="h3" id="helix-h">Helix</h3>
+      <p class="helix-line">Food and recovery coach on Apple Health. On the App Store since September 2026.</p>
+      <span class="tag mono"><span class="st st-quiet" aria-hidden="true"></span>Live · not in active development</span>
+      <a class="link" href="https://apps.apple.com/gb/app/helix-food-vitals-coach/id6787740352" target="_blank" rel="noopener">App Store <span aria-hidden="true">↗</span></a>
+    </article>
+  </div>
+</section>
+
+<section class="sec" id="log" aria-labelledby="log-h">
+  <div class="wrap">
+    <div class="rule"><span class="coord mono">[ 03 / Ship log ]</span></div>
+    <h2 class="h2" id="log-h">605 commits since July. <span class="mute">Counted on 11 November 2026.</span></h2>
+    <div class="log-grid">
+      <figure class="bars">
+        <svg viewBox="0 0 536 120" preserveAspectRatio="none" role="img" aria-label="Bar chart of commits per day from 1 July to 11 November 2026: 605 commits in all, and the busiest day, 9 November, had 60."><rect class="z" x="0" y="118.5" width="3" height="1.5"/><rect class="z" x="4" y="118.5" width="3" height="1.5"/><rect class="z" x="8" y="118.5" width="3" height="1.5"/><rect class="z" x="12" y="118.5" width="3" height="1.5"/><rect class="z" x="16" y="118.5" width="3" height="1.5"/><rect class="z" x="20" y="118.5" width="3" height="1.5"/><rect class="z" x="24" y="118.5" width="3" height="1.5"/><rect class="z" x="28" y="118.5" width="3" height="1.5"/><rect class="z" x="32" y="118.5" width="3" height="1.5"/><rect class="z" x="36" y="118.5" width="3" height="1.5"/><rect class="z" x="40" y="118.5" width="3" height="1.5"/><rect class="z" x="44" y="118.5" width="3" height="1.5"/><rect class="z" x="48" y="118.5" width="3" height="1.5"/><rect class="z" x="52" y="118.5" width="3" height="1.5"/><rect class="z" x="56" y="118.5" width="3" height="1.5"/><rect class="z" x="60" y="118.5" width="3" height="1.5"/><rect class="z" x="64" y="118.5" width="3" height="1.5"/><rect class="z" x="68" y="118.5" width="3" height="1.5"/><rect class="z" x="72" y="118.5" width="3" height="1.5"/><rect class="z" x="76" y="118.5" width="3" height="1.5"/><rect x="80" y="116.1" width="3" height="3.9"><title>21 Jul: 2</title></rect><rect class="z" x="84" y="118.5" width="3" height="1.5"/><rect class="z" x="88" y="118.5" width="3" height="1.5"/><rect class="z" x="92" y="118.5" width="3" height="1.5"/><rect class="z" x="96" y="118.5" width="3" height="1.5"/><rect class="z" x="100" y="118.5" width="3" height="1.5"/><rect class="z" x="104" y="118.5" width="3" height="1.5"/><rect class="z" x="108" y="118.5" width="3" height="1.5"/><rect class="z" x="112" y="118.5" width="3" height="1.5"/><rect class="z" x="116" y="118.5" width="3" height="1.5"/><rect class="z" x="120" y="118.5" width="3" height="1.5"/><rect class="z" x="124" y="118.5" width="3" height="1.5"/><rect x="128" y="108.4" width="3" height="11.6"><title>2 Aug: 6</title></rect><rect class="z" x="132" y="118.5" width="3" height="1.5"/><rect class="z" x="136" y="118.5" width="3" height="1.5"/><rect class="z" x="140" y="118.5" width="3" height="1.5"/><rect class="z" x="144" y="118.5" width="3" height="1.5"/><rect class="z" x="148" y="118.5" width="3" height="1.5"/><rect class="z" x="152" y="118.5" width="3" height="1.5"/><rect class="z" x="156" y="118.5" width="3" height="1.5"/><rect class="z" x="160" y="118.5" width="3" height="1.5"/><rect class="z" x="164" y="118.5" width="3" height="1.5"/><rect x="168" y="117.5" width="3" height="2.5"><title>12 Aug: 1</title></rect><rect class="z" x="172" y="118.5" width="3" height="1.5"/><rect class="z" x="176" y="118.5" width="3" height="1.5"/><rect x="180" y="114.2" width="3" height="5.8"><title>15 Aug: 3</title></rect><rect x="184" y="117.5" width="3" height="2.5"><title>16 Aug: 1</title></rect><rect class="z" x="188" y="118.5" width="3" height="1.5"/><rect class="z" x="192" y="118.5" width="3" height="1.5"/><rect class="z" x="196" y="118.5" width="3" height="1.5"/><rect class="z" x="200" y="118.5" width="3" height="1.5"/><rect class="z" x="204" y="118.5" width="3" height="1.5"/><rect class="z" x="208" y="118.5" width="3" height="1.5"/><rect class="z" x="212" y="118.5" width="3" height="1.5"/><rect class="z" x="216" y="118.5" width="3" height="1.5"/><rect class="z" x="220" y="118.5" width="3" height="1.5"/><rect class="z" x="224" y="118.5" width="3" height="1.5"/><rect class="z" x="228" y="118.5" width="3" height="1.5"/><rect class="z" x="232" y="118.5" width="3" height="1.5"/><rect class="z" x="236" y="118.5" width="3" height="1.5"/><rect x="240" y="65.9" width="3" height="54.1"><title>30 Aug: 28</title></rect><rect class="z" x="244" y="118.5" width="3" height="1.5"/><rect class="z" x="248" y="118.5" width="3" height="1.5"/><rect class="z" x="252" y="118.5" width="3" height="1.5"/><rect class="z" x="256" y="118.5" width="3" height="1.5"/><rect class="z" x="260" y="118.5" width="3" height="1.5"/><rect class="z" x="264" y="118.5" width="3" height="1.5"/><rect class="z" x="268" y="118.5" width="3" height="1.5"/><rect class="z" x="272" y="118.5" width="3" height="1.5"/><rect class="z" x="276" y="118.5" width="3" height="1.5"/><rect class="z" x="280" y="118.5" width="3" height="1.5"/><rect class="z" x="284" y="118.5" width="3" height="1.5"/><rect class="z" x="288" y="118.5" width="3" height="1.5"/><rect class="z" x="292" y="118.5" width="3" height="1.5"/><rect class="z" x="296" y="118.5" width="3" height="1.5"/><rect class="z" x="300" y="118.5" width="3" height="1.5"/><rect class="z" x="304" y="118.5" width="3" height="1.5"/><rect class="z" x="308" y="118.5" width="3" height="1.5"/><rect class="z" x="312" y="118.5" width="3" height="1.5"/><rect class="z" x="316" y="118.5" width="3" height="1.5"/><rect class="z" x="320" y="118.5" width="3" height="1.5"/><rect class="z" x="324" y="118.5" width="3" height="1.5"/><rect class="z" x="328" y="118.5" width="3" height="1.5"/><rect class="z" x="332" y="118.5" width="3" height="1.5"/><rect class="z" x="336" y="118.5" width="3" height="1.5"/><rect class="z" x="340" y="118.5" width="3" height="1.5"/><rect x="344" y="114.2" width="3" height="5.8"><title>25 Sep: 3</title></rect><rect x="348" y="100.7" width="3" height="19.3"><title>26 Sep: 10</title></rect><rect x="352" y="58.1" width="3" height="61.9"><title>27 Sep: 32</title></rect><rect x="356" y="110.3" width="3" height="9.7"><title>28 Sep: 5</title></rect><rect x="360" y="98.7" width="3" height="21.3"><title>29 Sep: 11</title></rect><rect x="364" y="116.1" width="3" height="3.9"><title>30 Sep: 2</title></rect><rect x="368" y="60.1" width="3" height="59.9"><title>1 Oct: 31</title></rect><rect class="z" x="372" y="118.5" width="3" height="1.5"/><rect x="376" y="114.2" width="3" height="5.8"><title>3 Oct: 3</title></rect><rect class="z" x="380" y="118.5" width="3" height="1.5"/><rect class="z" x="384" y="118.5" width="3" height="1.5"/><rect class="z" x="388" y="118.5" width="3" height="1.5"/><rect x="392" y="110.3" width="3" height="9.7"><title>7 Oct: 5</title></rect><rect x="396" y="117.5" width="3" height="2.5"><title>8 Oct: 1</title></rect><rect class="z" x="400" y="118.5" width="3" height="1.5"/><rect class="z" x="404" y="118.5" width="3" height="1.5"/><rect x="408" y="110.3" width="3" height="9.7"><title>11 Oct: 5</title></rect><rect x="412" y="102.6" width="3" height="17.4"><title>12 Oct: 9</title></rect><rect x="416" y="117.5" width="3" height="2.5"><title>13 Oct: 1</title></rect><rect class="z" x="420" y="118.5" width="3" height="1.5"/><rect x="424" y="96.8" width="3" height="23.2"><title>15 Oct: 12</title></rect><rect x="428" y="102.6" width="3" height="17.4"><title>16 Oct: 9</title></rect><rect x="432" y="69.7" width="3" height="50.3"><title>17 Oct: 26</title></rect><rect x="436" y="62.0" width="3" height="58.0"><title>18 Oct: 30</title></rect><rect x="440" y="108.4" width="3" height="11.6"><title>19 Oct: 6</title></rect><rect x="444" y="92.9" width="3" height="27.1"><title>20 Oct: 14</title></rect><rect x="448" y="100.7" width="3" height="19.3"><title>21 Oct: 10</title></rect><rect x="452" y="112.3" width="3" height="7.7"><title>22 Oct: 4</title></rect><rect class="z" x="456" y="118.5" width="3" height="1.5"/><rect class="z" x="460" y="118.5" width="3" height="1.5"/><rect x="464" y="67.8" width="3" height="52.2"><title>25 Oct: 27</title></rect><rect x="468" y="92.9" width="3" height="27.1"><title>26 Oct: 14</title></rect><rect x="472" y="69.7" width="3" height="50.3"><title>27 Oct: 26</title></rect><rect class="z" x="476" y="118.5" width="3" height="1.5"/><rect x="480" y="29.1" width="3" height="90.9"><title>29 Oct: 47</title></rect><rect x="484" y="62.0" width="3" height="58.0"><title>30 Oct: 30</title></rect><rect x="488" y="73.6" width="3" height="46.4"><title>31 Oct: 24</title></rect><rect x="492" y="54.3" width="3" height="65.7"><title>1 Nov: 34</title></rect><rect x="496" y="85.2" width="3" height="34.8"><title>2 Nov: 18</title></rect><rect class="z" x="500" y="118.5" width="3" height="1.5"/><rect class="z" x="504" y="118.5" width="3" height="1.5"/><rect class="z" x="508" y="118.5" width="3" height="1.5"/><rect x="512" y="65.9" width="3" height="54.1"><title>6 Nov: 28</title></rect><rect x="516" y="79.4" width="3" height="40.6"><title>7 Nov: 21</title></rect><rect x="520" y="108.4" width="3" height="11.6"><title>8 Nov: 6</title></rect><rect x="524" y="4.0" width="3" height="116.0"><title>9 Nov: 60</title></rect><rect class="z" x="528" y="118.5" width="3" height="1.5"/><rect class="z" x="532" y="118.5" width="3" height="1.5"/></svg>
+        <figcaption class="mono"><span class="axis" aria-hidden="true"><span style="left:0%">Jul</span><span style="left:23.1%">Aug</span><span style="left:46.3%">Sep</span><span style="left:68.7%">Oct</span><span style="left:91.8%">Nov</span></span><span>Commits per day · busiest day 60, on&nbsp;9&nbsp;Nov</span></figcaption>
+      </figure>
+      <ol class="log" role="list">
+        <li><time class="mono" datetime="2026-11-09">09 Nov 2026</time><span class="st st-live" aria-hidden="true"></span><b>Finball</b><span>Stress tests now run in the background as a club opens.</span></li>
+        <li><time class="mono" datetime="2026-11-06">06 Nov 2026</time><span class="st st-rd" aria-hidden="true"></span><b>Tracelob</b><span>TraceNet, our own detector, takes over player and ball tracking.</span></li>
+        <li><time class="mono" datetime="2026-11-06">06 Nov 2026</time><span class="st st-live" aria-hidden="true"></span><b>Daysout</b><span>Version 1.0.3 on the App Store.</span></li>
+        <li><time class="mono" datetime="2026-11-01">01 Nov 2026</time><span class="st st-live" aria-hidden="true"></span><b>Finball</b><span>The cash forecast runs 36 months. Pilot links for clubs.</span></li>
+        <li><time class="mono" datetime="2026-10-31">31 Oct 2026</time><span class="st st-beta" aria-hidden="true"></span><b>Bhabhi</b><span>Build 111 to TestFlight.</span></li>
+        <li><time class="mono" datetime="2026-10-11">11 Oct 2026</time><span class="st st-live" aria-hidden="true"></span><b>Finball</b><span>First version live: a rules engine for three leagues and a demo club to try it on.</span></li>
+        <li><time class="mono" datetime="2026-09-08">08 Sep 2026</time><span class="st st-quiet" aria-hidden="true"></span><b>Helix</b><span>Released on the App Store.</span></li>
+        <li><time class="mono" datetime="2026-08-14">14 Aug 2026</time><span class="st st-live" aria-hidden="true"></span><b>Daysout</b><span>Released on the App Store.</span></li>
+      </ol>
     </div>
   </div>
 </section>
 
-<!-- ───────────────────────── CONTACT ───────────────────────── -->
-<section class="sec contact" id="contact">
-  <figure class="endmark" id="endmark">
-    <canvas aria-hidden="true"></canvas>
-    <svg class="mark flat" viewBox="-58 -48 116 96" aria-hidden="true"><path d="M0 0h24v72h48v24h-72z" transform="translate(-58,-48)" fill="currentColor"/><path d="M0 0h24v72h48v24h-72z" transform="translate(58,48) rotate(180)" fill="var(--blue)"/></svg>
-  </figure>
-  <div class="contact-in">
-    <p class="mono sec-no">(09)</p>
-    <h2 class="d contact-h">Talk to us.</h2>
-    <p class="contact-sub">Investors and partners: write to us, or book fifteen minutes with the founders.</p>
-    <p class="contact-actions">
-      <a class="btn btn-blue" href="mailto:team@lumiralabs.co.uk">team@lumiralabs.co.uk</a>
-      <a class="btn btn-line" href="https://calendly.com/lumiralabsltd/15-minute-meeting" target="_blank" rel="noopener" data-book>Book a call</a>
+<section class="sec" id="founders" aria-labelledby="founders-h">
+  <div class="wrap">
+    <div class="rule"><span class="coord mono">[ 04 / Founders ]</span></div>
+    <h2 class="h2" id="founders-h">The founders. <span class="mute">Both design, write code and ship.</span></h2>
+    <div class="people">
+      <article class="person" id="founder-su">
+        <img src="assets/v2/person-su.webp" width="560" height="700" alt="" loading="lazy">
+        <div>
+          <p class="mono">LL-0001 · Co-founder</p>
+          <h3 class="h3">Sukhpinder Ubhi</h3>
+          <p class="person-bio">Works across the whole stack with Nikolaos: SwiftUI for the apps, TypeScript for Finball, PyTorch for Tracelob. Closest to product and brand, from the first sketch to the App Store listing.</p>
+        </div>
+      </article>
+      <article class="person" id="founder-ne">
+        <img src="assets/v2/person-ne.webp" width="560" height="700" alt="" loading="lazy">
+        <div>
+          <p class="mono">LL-0002 · Co-founder</p>
+          <h3 class="h3">Nikolaos Efthymiopoulos</h3>
+          <p class="person-bio">Works across the whole stack with Sukhpinder: iOS, Cloudflare Workers and Supabase. Closest to architecture and&nbsp;infrastructure.</p>
+        </div>
+      </article>
+    </div>
+    <p class="note" id="jpm">Both are on J.P. Morgan's degree apprenticeship, a programme that takes around the top 1% of applicants. Lumira Labs is their own company and isn't connected to the bank.</p>
+  </div>
+</section>
+
+<section class="sec sec-contact" id="contact" aria-labelledby="contact-h">
+  <div class="wrap">
+    <div class="rule"><span class="coord mono">[ 05 / Contact ]</span></div>
+    <h2 class="h2" id="contact-h">Talk to the founders. <span class="mute">Investors and partners are welcome.</span></h2>
+    <p class="ctas">
+      <a class="btn btn-ink" href="https://calendly.com/lumiralabsltd/15-minute-meeting" target="_blank" rel="noopener" data-book>Book a call</a>
+      <a class="link" href="mailto:team@lumiralabs.co.uk">team@lumiralabs.co.uk</a>
     </p>
   </div>
 </section>
 
 </main>
 
-<footer class="foot mono">
-  <p>Lumira Labs Ltd · Registered in England and Wales · Company no. 17138788 · London, UK</p>
-  <p><a href="mailto:team@lumiralabs.co.uk">team@lumiralabs.co.uk</a> · © 2026 Lumira Labs Ltd</p>
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div class="foot-brand"><svg class="mark" viewBox="-58 -48 116 96" aria-hidden="true"><path d="M0 0h24v72h48v24h-72z" transform="translate(-58,-48)" fill="currentColor"/><path d="M0 0h24v72h48v24h-72z" transform="translate(58,48) rotate(180)" class="mark-b"/></svg><span>Lumira Labs</span></div>
+    <nav class="foot-col" aria-label="Products"><p class="mono">Products</p>
+      <a href="https://finball.co.uk" target="_blank" rel="noopener"><span class="st st-live" aria-hidden="true"></span>Finball</a>
+      <a href="https://apps.apple.com/gb/app/daysout-football-gig-log/id6786365554" target="_blank" rel="noopener"><span class="st st-live" aria-hidden="true"></span>Daysout</a>
+      <a href="#bhabhi"><span class="st st-beta" aria-hidden="true"></span>Bhabhi</a>
+      <a href="#tracelob"><span class="st st-rd" aria-hidden="true"></span>Tracelob</a>
+      <a href="https://apps.apple.com/gb/app/helix-food-vitals-coach/id6787740352" target="_blank" rel="noopener"><span class="st st-quiet" aria-hidden="true"></span>Helix</a>
+    </nav>
+    <nav class="foot-col" aria-label="Company"><p class="mono">Company</p>
+      <a href="#log">Ship log</a><a href="#founders">Founders</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="foot-col"><p class="mono">Contact</p>
+      <a href="mailto:team@lumiralabs.co.uk">team@lumiralabs.co.uk</a>
+      <a href="https://calendly.com/lumiralabsltd/15-minute-meeting" target="_blank" rel="noopener" data-book>Book a call</a>
+    </div>
+  </div>
+  <div class="wrap foot-legal mono">
+    <p><span class="nw">Lumira Labs Ltd&nbsp;·</span> <span class="nw">Registered in England and Wales&nbsp;·</span> <span class="nw">Company no. 17138788&nbsp;·</span> London</p>
+    <p>© 2026 Lumira Labs Ltd</p>
+  </div>
+  <p class="foot-word" aria-hidden="true">Lumira Labs</p>
 </footer>
 
-<!-- Founder bio panel, opened from a badge or the links in the hero -->
-<dialog class="bio" id="bio" aria-labelledby="bio-name">
-  <header class="bio-head"><p class="mono">Studio pass</p><button class="bio-close mono" type="button" data-bio-close>Close</button></header>
-  <div class="bio-body">
-    <img id="bio-img" src="assets/founder-su.webp" width="800" height="1000" alt="">
-    <p class="mono" id="bio-id">LL-0001 · Co-founder</p>
-    <h2 class="d" id="bio-name">Sukhpinder Ubhi</h2>
-    <p id="bio-text">Works across the whole stack with Nikolaos: SwiftUI for the apps, TypeScript for Finball, PyTorch for Tracelob. Closest to product and brand, from the first sketch to the App Store listing.</p>
-    <p class="bio-jpm">Degree apprentice at J.P. Morgan, a programme that takes around the top 1% of applicants.</p>
-    <a class="link-arrow" id="bio-mail" href="mailto:team@lumiralabs.co.uk">team@lumiralabs.co.uk <span aria-hidden="true">↗</span></a>
+<dialog class="dlg" id="bio" aria-labelledby="bio-name">
+  <form method="dialog" class="dlg-head"><p class="mono" id="bio-id">LL-0001 · Co-founder</p><button class="dlg-close mono" value="close">Close</button></form>
+  <div class="dlg-body bio">
+    <img id="bio-img" src="assets/v2/person-su.webp" width="560" height="700" alt="" loading="lazy">
+    <div>
+      <h2 class="h3" id="bio-name">Sukhpinder Ubhi</h2>
+      <p id="bio-text"></p>
+      <p class="bio-note">Both founders are on J.P. Morgan's degree apprenticeship, a programme that takes around the top 1% of applicants. Lumira Labs is their own company and isn't connected to the bank.</p>
+      <a class="link" id="bio-mail" href="mailto:team@lumiralabs.co.uk">team@lumiralabs.co.uk</a>
+    </div>
   </div>
 </dialog>
 
-<script src="js/main.js?v=7" defer></script>
-<script type="module" src="js/hero.js?v=7"></script>
-<script type="module" src="js/scenes.js?v=7"></script>
+<dialog class="dlg" id="method" aria-labelledby="method-h">
+  <form method="dialog" class="dlg-head"><p class="mono">Tracelob · method</p><button class="dlg-close mono" value="close">Close</button></form>
+  <div class="dlg-body">
+    <h2 class="h3" id="method-h">How we measured it</h2>
+    <dl class="figures">
+      <div><dt class="mono">Player detection, AP at IoU&nbsp;0.5</dt><dd>0.993</dd></div>
+      <div><dt class="mono">Players found at the tracker's threshold</dt><dd>98.9%</dd></div>
+      <div><dt class="mono">Median ball error, on a ball about 4 px wide</dt><dd>0.6 px</dd></div>
+      <div><dt class="mono">Frames in the full ten&#8209;minute clip</dt><dd>36,018</dd></div>
+    </dl>
+    <p>Measured on 6 November 2026 on the last two minutes of a ten-minute, 60 fps clip from one hall, footage the model never trained on. The labels come from a larger teacher model, not from people, which puts a ceiling on what these numbers can tell you. TraceNet is our own detector, written in PyTorch and trained on an 8 GB MacBook. It's research for now, and the court drawn on this page is a simulated frame.</p>
+  </div>
+</dialog>
+
+<script src="js/main.js?v=10" defer></script>
+<script type="module" src="js/badges.js?v=10"></script>
 </body>
 </html>

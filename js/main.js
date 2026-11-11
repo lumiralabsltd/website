@@ -1,145 +1,147 @@
-/* Page behaviour that doesn't need WebGL: nav, reveals, index preview, bio panel, booking. */
+/* Page behaviour: Finball tabs, bio and method dialogs, Calendly popup. No framework. */
 (function () {
   'use strict';
-  var doc = document, root = doc.documentElement;
-  var $ = function (s, c) { return (c || doc).querySelector(s); };
-  var $$ = function (s, c) { return Array.prototype.slice.call((c || doc).querySelectorAll(s)); };
+  var doc = document;
+  var $ = function (s, r) { return (r || doc).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || doc).querySelectorAll(s)); };
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  /* ── Nav ── */
-  var nav = $('#nav'), lab = $('#lab');
-  function onScroll() {
-    var y = window.scrollY || 0;
-    nav.classList.toggle('scrolled', y > 24);
-    if (lab) {
-      var r = lab.getBoundingClientRect();
-      nav.classList.toggle('on-dark', r.top < 30 && r.bottom > 30);
-    }
-    scan();
-  }
-
-  /* ── Reveals: observer plus a rect scan, so nothing can stay hidden ── */
-  var pending = $$('.rv');
-  function show(el) { el.classList.add('in'); }
-  function scan() {
-    if (!pending.length) return;
-    var vh = window.innerHeight;
-    pending = pending.filter(function (el) {
-      var r = el.getBoundingClientRect();
-      if (r.top < vh * 0.92 && r.bottom > -200) { show(el); return false; }
-      return true;
-    });
-  }
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } });
-    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.04 });
-    pending.forEach(function (el) { io.observe(el); });
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('load', onScroll);
-  setTimeout(scan, 600);
-  onScroll();
-
-  /* ── Hero headline: set in one line, fitted to the measure ── */
-  var h = $('#hero-h');
-  function fit() {
-    if (!h) return;
-    if (window.innerWidth <= 760) { h.style.fontSize = ''; return; }
-    h.style.fontSize = '100px';
-    var avail = h.parentNode.clientWidth - parseFloat(getComputedStyle(h.parentNode).paddingLeft) * 2;
-    var rg = doc.createRange(); rg.selectNodeContents(h);
-    var w = rg.getBoundingClientRect().width;
-    if (w > 0) h.style.fontSize = (100 * avail / w).toFixed(2) + 'px';
-  }
-  fit();
-  // the fallback face is far wider than condensed Archivo, so refit whenever a font finishes loading
-  if (doc.fonts) {
-    var refit = function () { fit(); window.dispatchEvent(new Event('ll:fonts')); };
-    if (doc.fonts.load) doc.fonts.load('900 100px Archivo', 'WE BUILD COMPANIES.').then(refit, refit);
-    if (doc.fonts.addEventListener) doc.fonts.addEventListener('loadingdone', refit);
-    if (doc.fonts.ready) doc.fonts.ready.then(refit);
-  }
-  window.addEventListener('load', fit);
-  window.addEventListener('resize', fit);
-
-  /* ── Index: a preview that follows the pointer ── */
-  var idx = $('#idx'), pv = $('#idx-preview');
-  if (idx && pv && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    var img = $('img', pv), tx = 0, ty = 0, x = 0, y = 0, raf = 0, on = false;
-    var tick = function () {
-      x += (tx - x) * 0.16; y += (ty - y) * 0.16;
-      var tilt = Math.max(-7, Math.min(7, (tx - x) * 0.08));
-      pv.style.transform = 'translate3d(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px,0) rotate(' + tilt.toFixed(2) + 'deg)';
-      raf = on || Math.abs(tx - x) > 0.5 ? requestAnimationFrame(tick) : 0;
+  /* Finball tabs: click or arrow keys, with a short crossfade. Panels are divs holding the screenshots. */
+  var list = $('.tabs[role=tablist]');
+  if (list) {
+    var tabs = $$('[role=tab]', list);
+    var select = function (t, focus) {
+      tabs.forEach(function (b) {
+        var on = b === t, panel = doc.getElementById(b.getAttribute('aria-controls'));
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+        b.tabIndex = on ? 0 : -1;
+        if (panel) {
+          var im = panel.querySelector('img');
+          if (on && im) im.loading = 'eager';
+          panel.classList.toggle('on', on);
+          panel.tabIndex = on ? 0 : -1;
+        }
+      });
+      if (focus) t.focus();
     };
-    $$('a', idx).forEach(function (a) {
-      var src = a.getAttribute('data-preview');
-      if (src) { var pre = new Image(); pre.src = src; }
-      a.addEventListener('pointerenter', function (e) {
-        if (!src) { pv.classList.remove('on'); on = false; return; }
-        img.src = src; pv.classList.toggle('wide', a.hasAttribute('data-wide'));
-        tx = x = e.clientX + 28; ty = y = e.clientY - 60;
-        pv.classList.add('on'); on = true; if (!raf) raf = requestAnimationFrame(tick);
+    tabs.forEach(function (b, i) {
+      b.addEventListener('click', function () { select(b, false); });
+      b.addEventListener('keydown', function (e) {
+        var j = e.key === 'ArrowRight' ? i + 1 : e.key === 'ArrowLeft' ? i - 1 : e.key === 'Home' ? 0 : e.key === 'End' ? tabs.length - 1 : null;
+        if (j === null) return;
+        e.preventDefault();
+        select(tabs[(j + tabs.length) % tabs.length], true);
       });
-      a.addEventListener('pointermove', function (e) {
-        var w = pv.offsetWidth, hh = pv.offsetHeight;
-        tx = Math.min(e.clientX + 28, window.innerWidth - w - 16);
-        ty = Math.max(70, Math.min(e.clientY - hh * 0.4, window.innerHeight - hh - 16));
-      });
-      a.addEventListener('pointerleave', function () { pv.classList.remove('on'); on = false; });
     });
+    // fetch the other screens once the panel is close, so a switch never shows a gap
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (es) {
+        if (!es[0].isIntersecting) return;
+        $$('img', list.parentNode).forEach(function (im) { im.loading = 'eager'; });
+        io.disconnect();
+      }, { rootMargin: '400px' });
+      io.observe(list);
+    }
   }
 
-  /* ── Founder bio panel ── */
-  var FOUNDERS = {
-    su: { el: '#founder-su', mail: 'mailto:team@lumiralabs.co.uk?subject=For%20Sukhpinder' },
-    ne: { el: '#founder-ne', mail: 'mailto:team@lumiralabs.co.uk?subject=For%20Nikolaos' }
-  };
-  var bio = $('#bio'), lastFocus = null;
-  function openBio(id) {
-    var f = FOUNDERS[id]; if (!f || !bio) return;
-    var card = $(f.el);
-    var photo = $(f.el + '-img');
-    $('#bio-img').src = photo.getAttribute('src');
-    $('#bio-img').alt = photo.alt;
-    $('#bio-id').textContent = $('.mono', card).textContent;
-    $('#bio-name').textContent = $('h3', card).textContent;
-    $('#bio-text').textContent = $('p:not(.mono)', card).textContent;
-    $('#bio-mail').href = f.mail;
+  /* dialogs: open with a short rise and close the same way, Escape and backdrop clicks included */
+  var lastFocus = null;
+  function shut(d) {
+    if (!d.open || d.classList.contains('closing')) return;
+    if (reduce.matches) { d.close(); return; }
+    d.classList.add('closing');
+    var finished = false;
+    var done = function () {
+      if (finished) return;
+      finished = true;
+      d.removeEventListener('animationend', onEnd);
+      d.classList.remove('closing');
+      d.close();
+    };
+    var onEnd = function (e) { if (e.target === d) done(); };
+    d.addEventListener('animationend', onEnd);
+    setTimeout(done, 240);
+  }
+  function open(d) {
+    if (!d || d.open) return;
     lastFocus = doc.activeElement;
-    if (!bio.open) { if (bio.showModal) bio.showModal(); else bio.setAttribute('open', ''); }
-    void bio.offsetWidth;   // commit the closed position first, so the slide always runs
-    bio.classList.add('in');
-    root.dispatchEvent(new CustomEvent('ll:bio', { detail: { open: true, id: id } }));
+    d.showModal();
+    var c = $('.dlg-close', d);
+    if (c) c.focus();
   }
-  function closeBio() {
-    if (!bio || !bio.open) return;
-    bio.classList.remove('in');
-    setTimeout(function () { if (bio.close) bio.close(); else bio.removeAttribute('open'); if (lastFocus && lastFocus.focus) lastFocus.focus(); }, 420);
-    root.dispatchEvent(new CustomEvent('ll:bio', { detail: { open: false } }));
-  }
-  if (bio) {
-    bio.addEventListener('cancel', function (e) { e.preventDefault(); closeBio(); });
-    bio.addEventListener('click', function (e) { if (e.target === bio) closeBio(); });
-    $$('[data-bio-close]').forEach(function (b) { b.addEventListener('click', closeBio); });
-  }
-  $$('[data-bio]').forEach(function (b) { b.addEventListener('click', function () { openBio(b.getAttribute('data-bio')); }); });
-  window.LL = { openBio: openBio, closeBio: closeBio };
+  $$('dialog.dlg').forEach(function (d) {
+    // close on the backdrop only when the press and the release both land outside the box,
+    // so selecting text in a bio and letting go outside doesn't shut it
+    var outside = function (e) {
+      var r = d.getBoundingClientRect();
+      return e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom;
+    };
+    var downOut = false;
+    d.addEventListener('pointerdown', function (e) { downOut = e.target === d && outside(e); });
+    d.addEventListener('click', function (e) {
+      if (downOut && e.target === d && outside(e)) shut(d);
+      downOut = false;
+    });
+    d.addEventListener('cancel', function (e) { e.preventDefault(); shut(d); });
+    d.addEventListener('close', function () {
+      if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
+    });
+    var f = $('form[method=dialog]', d);
+    if (f) f.addEventListener('submit', function (e) { e.preventDefault(); shut(d); });
+  });
 
-  /* ── Booking: Calendly popup, with the plain link as the fallback ── */
+  /* founder bios: the text lives once, in the founders section */
+  var bio = $('#bio');
+  function openBio(id) {
+    var p = doc.getElementById('founder-' + id);
+    if (!p || !bio) return;
+    var img = $('img', p), bi = $('#bio-img', bio);
+    $('#bio-id', bio).textContent = $('.mono', p).textContent;
+    $('#bio-name', bio).textContent = $('.h3', p).textContent;
+    $('#bio-text', bio).textContent = $('.person-bio', p).textContent;
+    bi.loading = 'eager';
+    bi.src = img.currentSrc || img.src;
+    open(bio);
+  }
+  doc.addEventListener('click', function (e) {
+    var t = e.target.closest && e.target.closest('[data-bio],[data-open]');
+    if (!t) return;
+    if (e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    if (t.hasAttribute('data-bio')) openBio(t.getAttribute('data-bio'));
+    else open(doc.getElementById(t.getAttribute('data-open')));
+  });
+  // the badges are links (so they work without JS); once JS runs they act as buttons, Space included
+  $$('[data-bio]').forEach(function (a) {
+    a.setAttribute('role', 'button');
+    a.addEventListener('keydown', function (e) { if (e.key === ' ') { e.preventDefault(); a.click(); } });
+  });
+  window.LL = { openBio: openBio };
+
+  /* booking: Calendly's popup, with the plain link as the fallback */
   var calReady = null;
   function loadCalendly() {
     if (calReady) return calReady;
     calReady = new Promise(function (res, rej) {
-      var l = doc.createElement('link'); l.rel = 'stylesheet'; l.href = 'https://assets.calendly.com/assets/external/widget.css'; doc.head.appendChild(l);
-      var s = doc.createElement('script'); s.src = 'https://assets.calendly.com/assets/external/widget.js'; s.async = true;
-      s.onload = res; s.onerror = rej; doc.head.appendChild(s);
+      var l = doc.createElement('link');
+      l.rel = 'stylesheet';
+      l.href = 'https://assets.calendly.com/assets/external/widget.css';
+      doc.head.appendChild(l);
+      var s = doc.createElement('script');
+      s.src = 'https://assets.calendly.com/assets/external/widget.js';
+      s.async = true;
+      s.onload = res;
+      s.onerror = rej;
+      doc.head.appendChild(s);
     });
+    calReady.catch(function () {});
     return calReady;
   }
   $$('[data-book]').forEach(function (a) {
     a.addEventListener('pointerenter', loadCalendly, { once: true });
+    a.addEventListener('focus', loadCalendly, { once: true });
     a.addEventListener('click', function (e) {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       if (window.Calendly && window.Calendly.initPopupWidget) {
         e.preventDefault();
         window.Calendly.initPopupWidget({ url: a.href });
