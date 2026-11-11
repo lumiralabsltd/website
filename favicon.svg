@@ -1,5 +1,1 @@
-<svg viewBox="-68 -58 136 116" xmlns="http://www.w3.org/2000/svg">
-  <rect x="-68" y="-58" width="136" height="116" rx="24" fill="#FFFFFF"/>
-  <path fill="#0B0B0C" d="M0 0 h24 v72 h48 v24 h-72 z" transform="translate(-58,-48)"/>
-  <path fill="#FF421A" d="M0 0 h24 v72 h48 v24 h-72 z" transform="translate(58,48) rotate(180)"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><rect width="128" height="128" rx="28" fill="#F5F4F0"/><g transform="translate(64 64) scale(.74)"><path d="M0 0h24v72h48v24h-72z" transform="translate(-58,-48)" fill="#101216"/><path d="M0 0h24v72h48v24h-72z" transform="translate(58,48) rotate(180)" fill="#1F3DFF"/></g></svg>
