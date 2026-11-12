@@ -3,7 +3,7 @@
    are plain buttons that open the bios. With it they hang on real elastic: drag one to the strap's
    limit and let go, and it springs back. They fall in from above the screen when the page opens at the
    top. The loop sleeps once both cards have been still for 500ms. */
-import { Badge, jostle } from './lanyard.js?v=16';
+import { Badge, jostle } from './lanyard.js?v=17';
 
 const root = document.getElementById('badges');
 const W = 200, H = 316;                                   // card size in the layout, before scaling
@@ -27,9 +27,9 @@ function init() {
   function config() {
     if (!mqTab.matches) return { side: true, k: mqMid.matches ? 0.88 : 1, at: [0.67, 0.87], strap: [234, 294] };
     if (!mqMob.matches) return { side: false, k: 0.8, at: [0.45, 0.72], strap: [90, 120] };
-    return mqTiny.matches
-      ? { side: false, k: 0.52, at: [0.46, 0.81], strap: [78, 96] }
-      : { side: false, k: 0.6, at: [0.47, 0.8], strap: [78, 96] };
+    // phones: one lanyard either side of the centred logo, hanging low so there's plenty of strap to pull
+    const k = mqTiny.matches ? 0.52 : 0.6, low = root.clientHeight - H * k - 16;
+    return { side: false, k, at: [0.24, 0.76], strap: [low - 26, low] };
   }
 
   function walls() {
@@ -46,7 +46,7 @@ function init() {
     });
     root.dataset.key = key();
   }
-  const key = () => { const c = config(); return [c.side, c.k, root.clientWidth].join('|'); };
+  const key = () => { const c = config(); return [c.side, c.k, root.clientWidth, c.strap[1] | 0].join('|'); };
 
   /* screen = orthographic view of the card's frame; y flips because the solver's y points up */
   function render() {

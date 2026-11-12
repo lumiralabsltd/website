@@ -405,21 +405,26 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .nav-in { gap: 16px; }
   .nav .btn { display: none; }
   .chip { display: none; }
-  .badges { height: 300px; }
-  .hero-text { margin-top: 4px; }
+  .nav-in { justify-content: center; }
+  /* the badge area takes whatever height the text leaves, so the straps run long */
+  .badges { flex: 1 1 auto; height: auto; min-height: 300px; container-type: size; }
+  .hero-grid { padding-bottom: 28px; }
+  .hero-text { display: flex; flex-direction: column; align-items: center; margin: 0; text-align: center; }
+  .hero-text .programmes { order: 1; }
+  .hero-text .ctas { order: 2; justify-content: center; }
   .strap-edge { stroke-width: 20; }
   .strap { stroke-width: 17; }
   .strap-print { font-size: 6.5px; }
   .strap-static { width: 20px; margin-left: -6px; }
-  .strap-static[data-i="0"] { left: calc(47% - 4px); height: 57px; }
-  .strap-static[data-i="1"] { left: calc(80% - 4px); height: 75px; }
-  .badge[data-i="0"] { transform: translate(calc(47cqw - 100px), 14.8px) scale(.6); }
-  .badge[data-i="1"] { transform: translate(calc(80cqw - 100px), 32.8px) scale(.6); }
-  .deck { margin-top: 14px; font-size: 18px; max-width: 34ch; }
-  .ctas { margin-top: 22px; }
+  .strap-static[data-i="0"] { left: calc(24% - 4px); height: calc(100cqh - 253px); }
+  .strap-static[data-i="1"] { left: calc(76% - 4px); height: calc(100cqh - 227px); }
+  .badge[data-i="0"] { transform: translate(calc(24cqw - 100px), calc(100cqh - 295.2px)) scale(.6); }
+  .badge[data-i="1"] { transform: translate(calc(76cqw - 100px), calc(100cqh - 269.2px)) scale(.6); }
+  .deck { margin-top: 12px; font-size: 17px; max-width: 34ch; }
+  .ctas { margin-top: 20px; }
   .ctas .btn { height: 48px; padding: 0 22px; font-size: 16px; }
-  .programmes { margin-top: 24px; padding-top: 14px; }
-  .programmes-list { gap: 10px 20px; margin-top: 10px; }
+  .programmes { margin-top: 20px; padding-top: 14px; }
+  .programmes-list { justify-content: center; gap: 10px 20px; margin-top: 10px; }
   .programmes-list li { font-size: 15px; }
   .hero + .sec { padding-top: 56px; }
   /* the other three products as a swipe row: the next card peeks in from the right */
@@ -476,14 +481,17 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .hero-text { margin-top: auto; margin-bottom: auto; }
 }
 
+/* short phone screens: drop the grey line so the lanyards keep their length */
+@media (max-width: 760px) and (max-height: 720px) { .deck { display: none; } }
+
 /* very narrow phones */
 @media (max-width: 359px) {
   .helix .tag { white-space: normal; }
-  .badges { height: 280px; }
-  .strap-static[data-i="0"] { left: calc(46% - 4px); height: 59px; }
-  .strap-static[data-i="1"] { left: calc(81% - 4px); height: 77px; }
-  .badge[data-i="0"] { transform: translate(calc(46cqw - 100px), 2.2px) scale(.52); }
-  .badge[data-i="1"] { transform: translate(calc(81cqw - 100px), 20.2px) scale(.52); }
+  .badges { min-height: 270px; }
+  .strap-static[data-i="0"] { height: calc(100cqh - 225px); }
+  .strap-static[data-i="1"] { height: calc(100cqh - 199px); }
+  .badge[data-i="0"] { transform: translate(calc(24cqw - 100px), calc(100cqh - 281.8px)) scale(.52); }
+  .badge[data-i="1"] { transform: translate(calc(76cqw - 100px), calc(100cqh - 255.8px)) scale(.52); }
   .h1 { font-size: 40px; }
   .deck { font-size: 17px; }
 }
