@@ -111,6 +111,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .programmes-list { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; margin-top: 12px; }
 .programmes-list li { display: inline-flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 500; letter-spacing: -.01em; white-space: nowrap; }
 .programmes-list .logo { width: 18px; height: 18px; fill: var(--ink); flex: none; }
+.programmes-list img.logo, .hb-cell img.logo { width: auto; object-fit: contain; }
+.programmes-list img.logo { height: 18px; }
+.plogo img { width: auto; height: 26px; max-width: 40px; object-fit: contain; }
 .programmes-list .credit { margin-left: 2px; padding: 3px 6px 2px; border-radius: 4px; box-shadow: inset 0 0 0 1px var(--line-2); color: var(--ink-2); font-size: 10.5px; font-weight: 500; }
 
 /* founder badges: a DOM card and an SVG strap. The resting pose is written here so it holds without script. */
@@ -397,7 +400,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .hb-lead .mono { display: block; margin-bottom: 10px; color: var(--ink-3); font-size: 11px; letter-spacing: .08em; }
   .hb-cell { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 16px; row-gap: 5px; align-items: center; padding: 20px 22px; border-radius: 14px; background: var(--panel); transition: background-color .12s ease-out; }
   .hb-cell:hover { background: #E4E3DD; }
-  .hb-cell .logo { grid-row: 1 / span 2; width: 34px; height: 34px; fill: var(--ink); }
+  .hb-cell .logo { grid-row: 1 / span 2; width: auto; height: 34px; }
+  .hb-cell .logo-posthog { height: 26px; }
   .hb-name { font-size: 19px; font-weight: 500; letter-spacing: -.015em; line-height: 1.15; white-space: nowrap; }
   .hb-meta { display: flex; align-items: center; gap: 7px; color: var(--ink-2); font-size: 10.5px; white-space: nowrap; }
   .hb-meta b { color: var(--ink); font-weight: 500; }
@@ -406,7 +410,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .hero-band { gap: 16px; }
   .hb-lead { font-size: 28px; }
   .hb-cell { padding: 26px 26px; column-gap: 18px; }
-  .hb-cell .logo { width: 40px; height: 40px; }
+  .hb-cell .logo { height: 40px; }
+  .hb-cell .logo-posthog { height: 30px; }
   .hb-name { font-size: 22px; }
   .hb-meta { font-size: 11.5px; }
   .deck { max-width: 32ch; }
@@ -416,7 +421,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .hero-band { grid-template-columns: .8fr repeat(3, minmax(0, 1fr)); gap: 10px; }
   .hb-lead { font-size: 20px; }
   .hb-cell { padding: 16px; column-gap: 12px; }
-  .hb-cell .logo { width: 28px; height: 28px; }
+  .hb-cell .logo { height: 28px; }
+  .hb-cell .logo-posthog { height: 22px; }
   .hb-name { font-size: 16px; }
 }
 
