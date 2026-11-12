@@ -395,14 +395,15 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .hero-band { display: none; }
 @media (min-width: 1081px) {
   .hero-text .programmes { display: none; }
-  .hero-band { position: relative; z-index: 3; grid-column: 1 / -1; display: grid; grid-template-columns: 1.05fr repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 40px; }
+  .hero-band { position: relative; z-index: 3; grid-column: 1 / -1; display: grid; grid-template-columns: .8fr repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 40px; }
   .hb-lead { align-self: center; max-width: 11em; font-size: 24px; font-weight: 500; line-height: 1.12; letter-spacing: -.025em; }
   .hb-lead .mono { display: block; margin-bottom: 10px; color: var(--ink-3); font-size: 11px; letter-spacing: .08em; }
   .hb-cell { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 16px; row-gap: 5px; align-items: center; padding: 20px 22px; border-radius: 14px; background: var(--panel); transition: background-color .12s ease-out; }
   .hb-cell:hover { background: #E4E3DD; }
   .hb-cell .logo { grid-row: 1 / span 2; width: auto; height: 34px; }
   .hb-cell .logo-posthog { height: 26px; }
-  .hb-name { font-size: 19px; font-weight: 500; letter-spacing: -.015em; line-height: 1.15; white-space: nowrap; }
+  .hb-cell { container-type: inline-size; }
+  .hb-name { font-size: clamp(13px, calc((100cqw - 72px) / 10.6), 22px); font-weight: 500; letter-spacing: -.015em; line-height: 1.15; white-space: nowrap; }
   .hb-meta { display: flex; align-items: center; gap: 7px; color: var(--ink-2); font-size: 10.5px; white-space: nowrap; }
   .hb-meta b { color: var(--ink); font-weight: 500; }
 }
@@ -412,7 +413,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .hb-cell { padding: 26px 26px; column-gap: 18px; }
   .hb-cell .logo { height: 40px; }
   .hb-cell .logo-posthog { height: 30px; }
-  .hb-name { font-size: 22px; }
   .hb-meta { font-size: 11.5px; }
   .deck { max-width: 32ch; }
   .hero .btn-ink { height: 48px; padding: 0 22px; font-size: 16px; }
@@ -423,7 +423,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .hb-cell { padding: 16px; column-gap: 12px; }
   .hb-cell .logo { height: 28px; }
   .hb-cell .logo-posthog { height: 22px; }
-  .hb-name { font-size: 16px; }
 }
 
 /* tablet and phone: the badges hang from the top of the screen above the headline */
