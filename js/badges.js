@@ -3,7 +3,7 @@
    are plain buttons that open the bios. With it they hang on real elastic: drag one to the strap's
    limit and let go, and it springs back. They fall in from above the screen when the page opens at the
    top. The loop sleeps once both cards have been still for 500ms. */
-import { Badge, jostle } from './lanyard.js?v=18';
+import { Badge, jostle } from './lanyard.js?v=19';
 
 const root = document.getElementById('badges');
 const W = 200, H = 316;                                   // card size in the layout, before scaling
@@ -24,8 +24,13 @@ function init() {
      the top of the page to the top of each card. These match the CSS resting pose and media queries. */
   const mq = q => matchMedia(`(max-width: ${q}px)`);
   const mqTab = mq(1080), mqMid = mq(1279), mqMob = mq(760), mqTiny = mq(359);
+  const mqL = mq(1535), mqXL = mq(1799), mqShort = matchMedia('(max-height: 760px)');
   function config() {
-    if (!mqTab.matches) return { side: true, k: mqMid.matches ? 0.88 : 1, at: [0.67, 0.87], strap: [234, 294] };
+    if (!mqTab.matches) {
+      // desktop: bigger cards on bigger screens (the same steps as the CSS resting pose)
+      const k = mqMid.matches || mqShort.matches ? 0.95 : mqL.matches ? 1.12 : mqXL.matches ? 1.25 : 1.4;
+      return { side: true, k, at: [0.66, 0.88], strap: [210 * k, 264 * k] };
+    }
     if (!mqMob.matches) return { side: false, k: 0.8, at: [0.45, 0.72], strap: [90, 120] };
     // phones: one lanyard either side of the centred logo, hanging low so there's plenty of strap to pull
     const k = mqTiny.matches ? 0.52 : 0.6, low = root.clientHeight - H * k - 16;
