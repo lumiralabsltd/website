@@ -170,6 +170,14 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .plogo svg { width: 30px; height: 30px; }
 .ph3 { margin-top: 24px; font-size: clamp(24px, 2.2vw, 28px); font-weight: 500; line-height: 1.15; letter-spacing: -.02em; }
 .rail { display: flex; align-items: center; margin-top: auto; padding-top: 32px; }
+.pcard { transition: background-color .2s var(--ease), transform .2s var(--ease); }
+.pmore { margin-top: 12px; max-width: 34ch; font-size: 15px; line-height: 1.5; color: var(--ink-2); text-wrap: pretty; }
+@media (hover: hover) and (pointer: fine) {
+  .pmore { opacity: 0; transform: translateY(6px); transition: opacity .2s var(--ease), transform .2s var(--ease); }
+  .pcard:hover, .pcard:focus-visible { background: #E6E5DF; transform: translateY(-2px); }
+  .pcard:hover .pmore, .pcard:focus-visible .pmore { opacity: 1; transform: none; }
+}
+.pcard:focus-visible { outline-offset: 3px; border-radius: 16px; }
 .rail .mini { display: grid; place-items: center; flex: none; width: 30px; height: 30px; border-radius: 4px; background: var(--ink); }
 .rail .mini svg { width: 17px; height: 14px; color: #fff; }
 .rail .ln { position: relative; flex: 1; height: 2px; background: var(--accent); }
