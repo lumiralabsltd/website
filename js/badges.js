@@ -3,7 +3,7 @@
    are plain buttons that open the bios. With it they hang on real elastic: drag one to the strap's
    limit and let go, and it springs back. They fall in from above the screen when the page opens at the
    top. The loop sleeps once both cards have been still for 500ms. */
-import { Badge, jostle } from './lanyard.js?v=17';
+import { Badge, jostle } from './lanyard.js?v=18';
 
 const root = document.getElementById('badges');
 const W = 200, H = 316;                                   // card size in the layout, before scaling
@@ -29,7 +29,7 @@ function init() {
     if (!mqMob.matches) return { side: false, k: 0.8, at: [0.45, 0.72], strap: [90, 120] };
     // phones: one lanyard either side of the centred logo, hanging low so there's plenty of strap to pull
     const k = mqTiny.matches ? 0.52 : 0.6, low = root.clientHeight - H * k - 16;
-    return { side: false, k, at: [0.24, 0.76], strap: [low - 26, low] };
+    return { side: false, k, at: mqTiny.matches ? [0.26, 0.74] : [0.28, 0.72], strap: [low - 26, low] };
   }
 
   function walls() {

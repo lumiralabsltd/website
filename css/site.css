@@ -416,10 +416,10 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .strap { stroke-width: 17; }
   .strap-print { font-size: 6.5px; }
   .strap-static { width: 20px; margin-left: -6px; }
-  .strap-static[data-i="0"] { left: calc(24% - 4px); height: calc(100cqh - 253px); }
-  .strap-static[data-i="1"] { left: calc(76% - 4px); height: calc(100cqh - 227px); }
-  .badge[data-i="0"] { transform: translate(calc(24cqw - 100px), calc(100cqh - 295.2px)) scale(.6); }
-  .badge[data-i="1"] { transform: translate(calc(76cqw - 100px), calc(100cqh - 269.2px)) scale(.6); }
+  .strap-static[data-i="0"] { left: calc(28% - 4px); height: calc(100cqh - 253px); }
+  .strap-static[data-i="1"] { left: calc(72% - 4px); height: calc(100cqh - 227px); }
+  .badge[data-i="0"] { transform: translate(calc(28cqw - 100px), calc(100cqh - 295.2px)) scale(.6); }
+  .badge[data-i="1"] { transform: translate(calc(72cqw - 100px), calc(100cqh - 269.2px)) scale(.6); }
   .deck { margin-top: 12px; font-size: 17px; max-width: 34ch; }
   .ctas { margin-top: 20px; }
   .ctas .btn { height: 48px; padding: 0 22px; font-size: 16px; }
@@ -488,10 +488,10 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 @media (max-width: 359px) {
   .helix .tag { white-space: normal; }
   .badges { min-height: 270px; }
-  .strap-static[data-i="0"] { height: calc(100cqh - 225px); }
-  .strap-static[data-i="1"] { height: calc(100cqh - 199px); }
-  .badge[data-i="0"] { transform: translate(calc(24cqw - 100px), calc(100cqh - 281.8px)) scale(.52); }
-  .badge[data-i="1"] { transform: translate(calc(76cqw - 100px), calc(100cqh - 255.8px)) scale(.52); }
+  .strap-static[data-i="0"] { left: calc(26% - 4px); height: calc(100cqh - 225px); }
+  .strap-static[data-i="1"] { left: calc(74% - 4px); height: calc(100cqh - 199px); }
+  .badge[data-i="0"] { transform: translate(calc(26cqw - 100px), calc(100cqh - 281.8px)) scale(.52); }
+  .badge[data-i="1"] { transform: translate(calc(74cqw - 100px), calc(100cqh - 255.8px)) scale(.52); }
   .h1 { font-size: 40px; }
   .deck { font-size: 17px; }
 }
